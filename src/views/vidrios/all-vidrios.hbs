@@ -1,0 +1,43 @@
+<div class="row">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Espesor</th>
+                <th scope="col">Color</th>
+                <th scope="col">Proveedor</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Fecha Vig.</th>
+                <th scope="col">ABM</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each vidrios}}
+            <tr>
+                <td>{{codigo}}</td>
+                <td>{{descripcion}}</td>
+                <td>{{espesor}}</td>
+                <td>{{color}}</td>
+                <td>{{proveedor}}</td>
+                <td>{{precio}}</td>
+                <td>{{fechaVigente}}</td>
+                <td>
+                    <a href="/vidrios/edit/{{_id}}">
+                        <button class="btn btn-primary btn-block btn-sm">
+                            <i class="far fa-edit"></i>
+                        </button>
+                    </a>
+                    <form action="/vidrios/delete/{{_id}}?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-primary btn-block btn-sm" type="submit">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>

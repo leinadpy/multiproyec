@@ -1,0 +1,71 @@
+<script src="https://code.jquery.com/jquery-3.2.0.min.js"
+    integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous">
+    </script>
+<script>
+    // Linea de carpintería
+    $(function () {
+        $("#linea").val('{{perfil.linea}}');
+        $("#color").val('{{perfil.color}}');
+        $("#proveedor").val('{{perfil.proveedor}}');
+    });
+</script>
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3>Editar Perfil</h3>
+        </div>
+        <div class="card-body">
+            <form action="/perfiles/edit/{{perfil._id}}?_method=PUT" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+
+                <div class="form-group">
+                    <input type="text" name="codigo" class="form-control" value="{{perfil.codigo}}" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="descripcion" class="form-control" value="{{perfil.descripcion}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="pesoPorMetro" class="form-control" value="{{perfil.pesoPorMetro}}">
+                </div>
+                <div class="form-group">
+                    <select id="linea" name="linea" class="form-control">
+                        <option value="Alpha">Línea Alpha</option>
+                        <option value="Suprema">Línea Suprema</option>
+                        <option value="Inova">Línea Inova</option>
+                        <option value="Gold">Línea Gold</option>
+                        <option value="Templado">Línea Templado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="longitudBarra" class="form-control" value="{{perfil.longitudBarra}}">
+                </div>
+                <div class="form-group">
+                    <select id="color" name="color" class="form-control">
+                        <option value="Bronce 1003">Bronce 1003</option>
+                        <option value="Bronce 1002">Bronce 1002</option>
+                        <option value="Fosco">Fosco</option>
+                        <option value="Blanco">Blanco</option>
+                        <option value="Efecto Madera">Efecto Madera</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select id="proveedor" name="proveedor" class="form-control">
+                        <option value="Vidriocar S.A.">Vidriocar S.A.</option>
+                        <option value="Alumerco S.R.L.">Alumerco S.R.L.</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="precioPorBarra" class="form-control" value="{{perfil.precioPorBarra}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="fechaVigente" class="form-control" value="{{perfil.fechaVigente}}">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

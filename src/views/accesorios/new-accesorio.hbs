@@ -1,0 +1,53 @@
+<div class="col-md-4 mx-auto">
+    <div class="card text-center">
+        <div class="card-header">
+            <h3>Accesorio Nuevo</h3>
+        </div>
+        <div class="card-body">
+            <form action="/accesorios/new-accesorio" method="POST">
+                <div class="form-group">
+                    <input type="text" name="codigo" class="form-control" placeholder="Código" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="descripcion" class="form-control" placeholder="Descripción">
+                </div>
+                <div class="form-group">
+                    <select name="linea" class="form-control">
+                        <option value="Alpha">Línea Alpha</option>
+                        <option value="Suprema">Línea Suprema</option>
+                        <option value="Inova">Línea Inova</option>
+                        <option value="Gold">Línea Gold</option>
+                        <option value="Templado">Línea Templado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="color" class="form-control">
+                        <option value="Negro">Negro</option>
+                        <option value="Blanco">Blanco</option>
+                        <option value="Cromado">Cromado</option>
+                        <option value="Bronce">Bronce</option>
+                        <option value="Marrón">Marrón</option>
+                        <option value="Fosco">Fosco</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="proveedor" class="form-control">
+                        <option value="Vidriocar S.A.">Vidriocar S.A.</option>
+                        <option value="Alumerco S.R.L.">Alumerco S.R.L.</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="precio" class="form-control" placeholder="Precio">
+                </div>
+                <div class="form-group">
+                    <input type="date" name="fechaVigente" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

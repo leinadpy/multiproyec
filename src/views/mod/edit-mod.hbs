@@ -1,0 +1,46 @@
+<script src="https://code.jquery.com/jquery-3.2.0.min.js"
+    integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous">
+    </script>
+<script>
+    // Linea de carpintería
+    $(function () {
+        $("#unidad").val('{{mod.unidad}}');
+    });
+</script>
+
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3>Editar Mano de obra</h3>
+        </div>
+        <div class="card-body">
+            <form action="/mod/edit/{{mod._id}}?_method=PUT" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+
+                <div class="form-group">
+                    <input type="text" name="codigo" class="form-control" value="{{mod.codigo}}" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="descripcion" class="form-control" value="{{mod.descripcion}}">
+                </div>
+                <div class="form-group">
+                    <select name="unidad" id="unidad" class="form-control">
+                        <option value="m2">m2</option>
+                        <option value="un">un</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="precio" class="form-control" value="{{mod.precio}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="fechaVigente" class="form-control" value="{{mod.fechaVigente}}">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

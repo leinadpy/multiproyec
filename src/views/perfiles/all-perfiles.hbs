@@ -1,0 +1,47 @@
+<div class="row">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Peso</th>
+                <th scope="col">Linea</th>
+                <th scope="col">Long.</th>
+                <th scope="col">Color</th>
+                <th scope="col">Proveedor</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Fecha Vig.</th>
+                <th scope="col">ABM</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each perfiles}}
+            <tr>
+                <td>{{codigo}}</td>
+                <td>{{descripcion}}</td>
+                <td>{{pesoPorMetro}}</td>
+                <td>{{linea}}</td>
+                <td>{{longitudBarra}}</td>
+                <td>{{color}}</td>
+                <td>{{proveedor}}</td>
+                <td>{{precioPorBarra}}</td>
+                <td>{{fechaVigente}}</td>
+                <td>
+                    <a href="/perfiles/edit/{{_id}}">
+                        <button class="btn btn-primary btn-block btn-sm">
+                            <i class="far fa-edit"></i>
+                        </button>
+                    </a>
+                    <form action="/perfiles/delete/{{_id}}?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-primary btn-block btn-sm" type="submit">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,58 @@
+<script src="https://code.jquery.com/jquery-3.2.0.min.js"
+    integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous">
+    </script>
+<script>
+    // Linea de carpintería
+    $(function () {
+        $("#color").val('{{vidrio.color}}');
+        $("#proveedor").val('{{vidrio.proveedor}}');
+    });
+</script>
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3>Editar Vidrio</h3>
+        </div>
+        <div class="card-body">
+            <form action="/vidrios/edit/{{vidrio._id}}?_method=PUT" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+
+                <div class="form-group">
+                    <input type="text" name="codigo" class="form-control" value="{{vidrio.codigo}}" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="descripcion" class="form-control" value="{{vidrio.descripcion}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="espesor" class="form-control" value="{{vidrio.espesor}}">
+                </div>
+                <div class="form-group">
+                    <select id="color" name="color" class="form-control">
+                        <option value="Incoloro">Incoloro</option>
+                        <option value="Bronce">Bronce</option>
+                        <option value="Gris">Gris</option>
+                        <option value="Verde">Verde</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select id="proveedor" name="proveedor" class="form-control">
+                        <option value="Vidriocar S.A.">Vidriocar S.A.</option>
+                        <option value="Agpar S.A.">Agpar S.A.</option>
+                        <option value="Fineza S.A.">Fineza S.A.</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="precio" class="form-control" value="{{vidrio.precio}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="fechaVigente" class="form-control" value="{{vidrio.fechaVigente}}">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
