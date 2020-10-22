@@ -20,9 +20,9 @@ cargar.vidriosPDF = async () => {
         table: {
           body: [
             ["Código", "Descripción", "Espesor", "Color", "Proveedor", "Precio", "Fecha Vig."],
-            [vidrios.forEach(vidrio =>{
-            "[",vidrio.codigo,vidrio.descripcion,vidrio.espesor.toString(),vidrio.color,vidrio.proveedor,vidrio.precio.toString(),vidrio.fechaVigente, "]"
-            })]
+            // [vidrios.forEach(vidrio =>{
+            // "[",vidrio.codigo,vidrio.descripcion,vidrio.espesor.toString(),vidrio.color,vidrio.proveedor,vidrio.precio.toString(),vidrio.fechaVigente, "]"
+            // })]
           ],
         },
       },

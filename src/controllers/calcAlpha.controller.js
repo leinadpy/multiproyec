@@ -7,13 +7,47 @@ abAlphaCtrl.renderAbAlphaForm = (req, res) => {
 };
 
 abAlphaCtrl.calcAbAlphaForm = async (req, res) => {
-  const { selAbertura, cantidad, ancho, alto, altofijo, selPremarco, selContramarco, selColorAluminio, selColorVidrio, proveedorvidrio, selEspesorVidrio, selColorAccesorio, selCierre, selRefuerzo, costo } = req.body;
-  const newAbAlpha = new AbAlpha({ selAbertura, cantidad, ancho, alto, altofijo, selPremarco, selContramarco, selColorAluminio, selColorVidrio, proveedorvidrio, selEspesorVidrio, selColorAccesorio, selCierre, selRefuerzo, costo });
+  const {
+    selAbertura,
+    cantidad,
+    ancho,
+    alto,
+    altofijo,
+    selPremarco,
+    selContramarco,
+    selColorAluminio,
+    selColorVidrio,
+    proveedorvidrio,
+    selEspesorVidrio,
+    selColorAccesorio,
+    selCierre,
+    selRefuerzo,
+    parametro,
+    costo,
+  } = req.body;
+  const newAbAlpha = new AbAlpha({
+    selAbertura,
+    cantidad,
+    ancho,
+    alto,
+    altofijo,
+    selPremarco,
+    selContramarco,
+    selColorAluminio,
+    selColorVidrio,
+    proveedorvidrio,
+    selEspesorVidrio,
+    selColorAccesorio,
+    selCierre,
+    selRefuerzo,
+    parametro,
+    costo,
+  });
   // newAbAlpha.costo = 100;
   newAbAlpha.costo = await newAbAlpha.calcularAlpha(newAbAlpha);
   // await newAbAlpha.save();
   // await AbAlpha.findByIdAndDelete(newAbAlpha._id);
-  res.render("calculadoras/calcalpha", {newAbAlpha});
+  res.render("calculadoras/calcalpha", { newAbAlpha });
 };
 
 module.exports = abAlphaCtrl;
