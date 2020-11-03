@@ -34,7 +34,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#refuerzo");
       break;
     case "4": // Ventana/Puerta tres hojas, dos corredizas y una fija
-      mostrarDiv("#altofijodiv");
+      ocultarDiv("#altofijodiv");
       mostrarDiv("#cierre");
       mostrarDiv("#refuerzo");
       break;
