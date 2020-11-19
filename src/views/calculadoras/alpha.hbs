@@ -1,245 +1,423 @@
 <form action="/calcAlpha" method="POST">
-    <div class="form-group row">
-        <label for="selAbertura" class="col-sm-2 labelsel">Abertura</label>
-        <div class="col-sm-6">
-            <select class="form-control" id="selAbertura" name="selAbertura">
-                <optgroup label="Corredizas">
-                    <option value='1'>Ventana/Puerta dos hojas corredizas</option>
-                    <!--LISTO-->
-                    <option value='2'>Ventana/Puerta dos hojas, una
-                        corrediza y otra fija</option>
-                    <!--LISTO-->
-                    <option value='3'>Ventana/Puerta tres hojas corredizas</option>
-                    <!--LISTO-->
-                    <option value='4'>Ventana/Puerta tres hojas, dos
-                        corredizas y una fija</option>
-                    <!--LISTO-->
-                    <option value='5'>Ventana/Puerta cuatro hojas, dos
-                        corredizas y dos fijas</option>
-                    <!--LISTO-->
-                    <option value='6'>Ventana/Puerta cuatro hojas
-                        corredizas (cuatro guías)</option>
-                    <!--LISTO-->
-                    <option value='7'>Ventana/Puerta cuatro hojas, tres
-                        corredizas y una fija</option>
-                    <!--LISTO-->
-                    <option value='8'>Ventana/Puerta cinco hojas corredizas
-                        (cinco guías)</option>
-                    <!--LISTO-->
-                    <option value='9'>Ventana/Puerta cinco hojas, cuatro corredizas
-                        y una fija (cinco guías)</option>
-                    <!--LISTO-->
-                    <option value='10'>Ventana/Puerta seis hojas corredizas (seis guías)</option>
-                    <!--LISTO-->
-                    <option value='10b'>Ventana/Puerta seis hojas, cinco
-                        corredizas y una fija (seis guías)</option>
-                    <!--LISTO-->
-                    <option value='10c'>Ventana/Puerta seis hojas, cuatro
-                        corredizas y dos fijas encuentro central</option>
-                    <!--LISTO-->
-                </optgroup>
-                <optgroup label="Corredizas con fijo inferior">
-                    <option value='1F'>Ventana/Puerta dos hojas corredizas</option>
-                    <!--PENDIENTE-->
-                    <option value='2F'>Ventana/Puerta dos hojas, una
-                        corrediza y otra fija</option>
-                    <!--PENDIENTE-->
-                    <option value='5F'>Ventana/Puerta cuatro hojas, dos
-                        corredizas y dos fijas</option>
-                    <!--PENDIENTE-->
-                </optgroup>
-                <optgroup label="Corredizas con tela">
-                    <option value='11'>Ventana/Puerta dos hojas corredizas</option>
-                    <!--PENDIENTE-->
-                    <option value='12'>Ventana/Puerta dos hojas, una
-                        corrediza y otra fija</option>
-                    <!--PENDIENTE-->
-                    <option value='13'>Ventana/Puerta cuatro hojas, dos
-                        corredizas y dos fijas</option>
-                    <!--PENDIENTE-->
-                </optgroup>
-                <optgroup label="Batientes/Oscilobatiente">
-                    <option value='21'>Ventana de una hoja batiente</option>
-                    <!--PENDIENTE-->
-                    <option value='21F'>Ventana de una hoja batiente con fijo inferior</option>
-                    <!--PENDIENTE-->
-                    <option value='22'>Ventana de dos hojas batientes</option>
-                    <!--PENDIENTE-->
-                    <option value='22F'>Ventana de dos hojas batientes con fijo inferior</option>
-                    <!--PENDIENTE-->
-                    <option value='23'>Ventana de una hoja oscilobatiente</option>
-                    <!--PEND-->
-                    <option value='23F'>Ventana de una hoja oscilobatiente con fijo inferior</option>
-                    <!--PENDIENTE-->
-                    <option value='24'>Ventana de dos hojas, una
-                        oscilobatiente y una batiente</option>
-                    <!--PENDIENTE-->
-                    <option value='24F'>Ventana de dos hojas, una
-                        oscilobatiente y una batiente con fijo inferior</option>
-                    <!--PENDIENTE-->
-                    <option value='25'>Puerta de una hoja batiente</option>
-                    <!--PENDIENTE-->
-                    <option value='26'>Puerta de dos hojas batientes</option>
-                    <!--PENDIENTE-->
-                </optgroup>
-                <optgroup label="Proyectante">
-                    <option value='31'>Ventana de una hoja proyectante</option>
-                    <!--PENDIENTE-->
-                    <option value='31F'>Ventana de una hoja proyectante con
-                        fijo inferior</option>
-                    <!--PENDIENTE-->
-                </optgroup>
-            </select>
-        </div>
+  <div class="form-group row">
+    <label for="selAbertura" class="col-sm-2 labelsel">
+      Abertura
+    </label>
+    <div class="col-sm-6">
+      <select class="form-control" id="selAbertura" name="selAbertura">
+        <optgroup label="Corredizas">
+          <option value="1">
+            Ventana/Puerta dos hojas corredizas
+          </option>
+          <!--LISTO-->
+          <option value="2">
+            Ventana/Puerta dos hojas, una
+                        corrediza y otra fija
+          </option>
+          <!--LISTO-->
+          <option value="3">
+            Ventana/Puerta tres hojas corredizas
+          </option>
+          <!--LISTO-->
+          <option value="4">
+            Ventana/Puerta tres hojas, dos
+                        corredizas y una fija
+          </option>
+          <!--LISTO-->
+          <option value="5">
+            Ventana/Puerta cuatro hojas, dos
+                        corredizas y dos fijas
+          </option>
+          <!--LISTO-->
+          <option value="6">
+            Ventana/Puerta cuatro hojas
+                        corredizas (cuatro guías)
+          </option>
+          <!--LISTO-->
+          <option value="7">
+            Ventana/Puerta cuatro hojas, tres
+                        corredizas y una fija
+          </option>
+          <!--LISTO-->
+          <option value="8">
+            Ventana/Puerta cinco hojas corredizas
+                        (cinco guías)
+          </option>
+          <!--LISTO-->
+          <option value="9">
+            Ventana/Puerta cinco hojas, cuatro corredizas
+                        y una fija (cinco guías)
+          </option>
+          <!--LISTO-->
+          <option value="10">
+            Ventana/Puerta seis hojas corredizas (seis guías)
+          </option>
+          <!--LISTO-->
+          <option value="10b">
+            Ventana/Puerta seis hojas, cinco
+                        corredizas y una fija (seis guías)
+          </option>
+          <!--LISTO-->
+          <option value="10c">
+            Ventana/Puerta seis hojas, cuatro
+                        corredizas y dos fijas encuentro central
+          </option>
+          <!--LISTO-->
+        </optgroup>
+        <optgroup label="Corredizas con fijo inferior ó superior">
+          <option value="1F">
+            Ventana/Puerta dos hojas corredizas
+          </option>
+          <!--LISTO-->
+          <option value="2F">
+            Ventana/Puerta dos hojas, una
+                        corrediza y otra fija
+          </option>
+          <!--LISTO-->
+          <option value="5F">
+            Ventana/Puerta cuatro hojas, dos
+                        corredizas y dos fijas
+          </option>
+          <!--LISTO-->
+        </optgroup>
+        <optgroup label="Corredizas con tela">
+          <option value="11">
+            Ventana/Puerta dos hojas corredizas
+          </option>
+          <!--LISTO-->
+          <option value="12">
+            Ventana/Puerta dos hojas, una
+                        corrediza y otra fija
+          </option>
+          <!--LISTO-->
+          <option value="13">
+            Ventana/Puerta cuatro hojas, dos
+                        corredizas y dos fijas
+          </option>
+          <!--LISTO-->
+        </optgroup>
+        <optgroup label="Batientes/Oscilobatiente">
+          <option value="21">
+            Ventana de una hoja batiente
+          </option>
+          <!--LISTO-->
+          <option value="21F">
+            Ventana de una hoja batiente con fijo inferior
+          </option>
+          <!--PENDIENTE-->
+          <option value="22">
+            Ventana de dos hojas batientes
+          </option>
+          <!--PENDIENTE-->
+          <option value="22F">
+            Ventana de dos hojas batientes con fijo inferior
+          </option>
+          <!--LISTO-->
+          <option value="23">
+            Ventana de una hoja oscilobatiente
+          </option>
+          <!--PENDIENTE-->
+          <option value="23F">
+            Ventana de una hoja oscilobatiente con fijo inferior o superior
+          </option>
+          <!--PENDIENTE-->
+          <option value="24">
+            Ventana de dos hojas, una
+                        oscilobatiente y una batiente
+          </option>
+          <!--PENDIENTE-->
+          <option value="24F">
+            Ventana de dos hojas, una
+                        oscilobatiente y una batiente con fijo inferior
+          </option>
+          <!--PENDIENTE-->
+          <option value="25">
+            Puerta de una hoja batiente
+          </option>
+          <!--PENDIENTE-->
+          <option value="26">
+            Puerta de dos hojas batientes
+          </option>
+          <!--PENDIENTE-->
+        </optgroup>
+        <optgroup label="Proyectante">
+          <option value="31">
+            Ventana de una hoja proyectante
+          </option>
+          <!--PENDIENTE-->
+          <option value="31F">
+            Ventana de una hoja proyectante con
+                        fijo inferior
+          </option>
+          <!--PENDIENTE-->
+        </optgroup>
+      </select>
     </div>
-    <div class="form-group row">
-        <label for="cantidad" class="col-sm-2 labelsel">Cantidad</label>
-        <div class="col-sm-6">
-            <input type="number" class="form-control" name="cantidad" id="cantidad">
-        </div>
+  </div>
+  <div class="form-group row">
+    <label for="cantidad" class="col-sm-2 labelsel">
+      Cantidad
+    </label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" name="cantidad" id="cantidad" />
     </div>
-    <div class="form-group row">
-        <label for="ancho" class="col-sm-2 labelsel">Ancho</label>
-        <div class="col-sm-6">
-            <input type="number" class="form-control" name="ancho" id="ancho">
-        </div>
+  </div>
+  <div class="form-group row">
+    <label for="ancho" class="col-sm-2 labelsel">
+      Ancho
+    </label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" name="ancho" id="ancho" />
     </div>
-    <div class="form-group row">
-        <label for="alto" class="col-sm-2 labelsel">Alto</label>
-        <div class="col-sm-6">
-            <input type="number" class="form-control" name="alto" id="alto">
-        </div>
+  </div>
+  <div class="form-group row">
+    <label for="alto" class="col-sm-2 labelsel">
+      Alto
+    </label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" name="alto" id="alto" />
     </div>
-    <div class="form-group row" id="altofijodiv">
-        <label for="altofijo" class="col-sm-2 labelsel">Alto
-            fijo</label>
-        <div class="col-sm-6">
-            <input class="form-control" type="number" name="altofijo" id="altofijo">
-        </div>
+  </div>
+  <div class="form-group row" id="altofijodiv">
+    <label for="altofijo" class="col-sm-2 labelsel">
+      Alto
+            fijo
+    </label>
+    <div class="col-sm-6">
+      <input class="form-control" type="number" name="altofijo" id="altofijo" />
     </div>
-    <div class="form-group row">
-        <label for="selPremarco" class="col-sm-2 labelsel">Premarco</label>
-        <div class="col-sm-6">
-            <select id="selPremarco" name="selPremarco" class="form-control">
-                <option value='1'>Con premarco CM200</option>
-                <option value='2'>Sin premarco</option>
-            </select>
-        </div>
+  </div>
+  <div class="form-group row">
+    <label for="selPremarco" class="col-sm-2 labelsel">
+      Premarco
+    </label>
+    <div class="col-sm-6">
+      <select id="selPremarco" name="selPremarco" class="form-control">
+        <option value="1">
+          Con premarco CM200
+        </option>
+        <option value="2">
+          Sin premarco
+        </option>
+      </select>
     </div>
-    <div class="form-group row">
-        <label for="selContramarco" class="col-sm-2 labelsel">Contramarco</label>
-        <div class="col-sm-6">
-            <select id="selContramarco" name="selContramarco" class="form-control">
-                <option value='1'>Con contramarco RM019</option>
-                <option value='2'>RM019 Y RM020 (Interno)</option>
-                <option value='3'>Sin contramarco</option>
-            </select>
-        </div>
+  </div>
+  <div class="form-group row">
+    <label for="selContramarco" class="col-sm-2 labelsel">
+      Contramarco
+    </label>
+    <div class="col-sm-6">
+      <select id="selContramarco" name="selContramarco" class="form-control">
+        <option value="1">
+          Con contramarco RM019
+        </option>
+        <option value="2">
+          RM019 Y RM020 (Interno)
+        </option>
+        <option value="3">
+          Sin contramarco
+        </option>
+      </select>
     </div>
-    <div class="form-group row">
-        <label for="selColorAluminio" class="col-sm-2 labelsel">Color
-            Aluminio</label>
-        <div class="col-sm-6">
-            <select id="selColorAluminio" name="selColorAluminio" class="form-control">
-                <option value='Bronce 1003'>Bronce 1003</option>
-                <option value='Bronce 1002'>Bronce 1002</option>
-                <option value='Blanco'>Blanco</option>
-                <option value='Fosco'>Fosco</option>
-                <option value='Efecto Madera'>Efecto Madera</option>
-            </select>
-        </div>
+  </div>
+  <div class="form-group row">
+    <label for="selColorAluminio" class="col-sm-2 labelsel">
+      Color
+            Aluminio
+    </label>
+    <div class="col-sm-6">
+      <select
+        id="selColorAluminio"
+        name="selColorAluminio"
+        class="form-control"
+      >
+        <option value="Bronce 1003">
+          Bronce 1003
+        </option>
+        <option value="Bronce 1002">
+          Bronce 1002
+        </option>
+        <option value="Blanco">
+          Blanco
+        </option>
+        <option value="Fosco">
+          Fosco
+        </option>
+        <option value="Efecto Madera">
+          Efecto Madera
+        </option>
+      </select>
     </div>
-    <div class="form-group row">
-        <label for="selColorVidrio" class="col-sm-2 labelsel">Color Vidrio</label>
-        <div class="col-sm-3">
-            <select id="selColorVidrio" name="selColorVidrio" class="form-control">
-                <option value="Incoloro">Incoloro</option>
-                <option value="Bronce">Bronce</option>
-                <option value="Gris">Gris</option>
-                <option value="Verde">Verde</option>
-            </select>
-        </div>
-        <div class="col-sm-1"></div>
-        <div class="col-sm-2">
-            <label for="proveedorvidrio" class="labelsel">Proveedor vidrio</label>
-        </div>
-        <div class="col-sm-4">
-            <select id="proveedorvidrio" name="proveedorvidrio" class="form-control">
-                <option value="Vidriocar S.A.">Vidriocar S.A.</option>
-                <option value="Agpar S.A.">Agpar S.A.</option>
-                <option value="Fineza S.A.">Fineza S.A.</option>
-            </select>
-        </div>
+  </div>
+  <div class="form-group row">
+    <label for="selColorVidrio" class="col-sm-2 labelsel">
+      Color Vidrio
+    </label>
+    <div class="col-sm-3">
+      <select id="selColorVidrio" name="selColorVidrio" class="form-control">
+        <option value="Incoloro">
+          Incoloro
+        </option>
+        <option value="Bronce">
+          Bronce
+        </option>
+        <option value="Gris">
+          Gris
+        </option>
+        <option value="Verde">
+          Verde
+        </option>
+      </select>
     </div>
-    <div class="form-group row">
-        <label for="selEspesorVidrio" class="col-sm-2 labelsel">Espesor
-            Vidrio</label>
-        <div class="col-sm-6">
-            <select id="selEspesorVidrio" name="selEspesorVidrio" class="form-control">
-                <option value='6'>6 mm</option>
-                <option value='8'>8 mm</option>
-                <option value='10'>10 mm</option>
-            </select>
-        </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2">
+      <label for="proveedorvidrio" class="labelsel">
+        Proveedor vidrio
+      </label>
     </div>
-    <div class="form-group row">
-        <label for="selColorAccesorio" class="col-sm-2 labelsel">Color
-            Accesorio</label>
-        <div class="col-sm-6">
-            <select id="selColorAccesorio" name="selColorAccesorio" class="form-control">
-                <option value='Negro'>Negro</option>
-                <option value='Blanco'>Blanco</option>
-            </select>
-        </div>
+    <div class="col-sm-4">
+      <select id="proveedorvidrio" name="proveedorvidrio" class="form-control">
+        <option value="Vidriocar S.A.">
+          Vidriocar S.A.
+        </option>
+        <option value="Agpar S.A.">
+          Agpar S.A.
+        </option>
+        <option value="Fineza S.A.">
+          Fineza S.A.
+        </option>
+      </select>
     </div>
-    <div class="form-group row" id="cierre">
-        <label for="selCierre" class="col-sm-2 labelsel">Tipo
-            de Cierre</label>
-        <div class="col-sm-4">
-            <select name="selCierre" class="form-control" id="selCierre">
-                <option value='1'>Cierre automático sin llave</option>
-                <option value='2'>Cierre automático con llave</option>
-                <option value='3'>Cerradura multipunto sin llave 2 puntos</option>
-                <option value='4'>Cerradura multipunto sin llave 3 puntos</option>
-                <option value='5'>Cerradura con llave con concha ciega</option>
-                <option value='6'>Cerradura con llave con puxador</option>
-                <option value='7'>Cerradura monopunto con llave</option>
-                <option value='8'>Cerradura con 3 puntos</option>
-            </select>
-        </div>
+  </div>
+  <div class="form-group row">
+    <label for="selEspesorVidrio" class="col-sm-2 labelsel">
+      Espesor
+            Vidrio
+    </label>
+    <div class="col-sm-6">
+      <select
+        id="selEspesorVidrio"
+        name="selEspesorVidrio"
+        class="form-control"
+      >
+        <option value="6">
+          6 mm
+        </option>
+        <option value="8">
+          8 mm
+        </option>
+        <option value="10">
+          10 mm
+        </option>
+      </select>
     </div>
-    <div class="form-group row" id="refuerzo">
-        <label for="selRefuerzo" class="col-sm-2 labelsel">Refuerzo</label>
-        <div class="col-sm-6">
-            <select id="selRefuerzo" name="selRefuerzo" class="form-control">
-                <option value='1'>Sin refuerzo</option>
-                <option value='2'>Un lado refuerzo</option>
-                <option value='3'>Doble refuerzo</option>
-            </select>
-        </div>
+  </div>
+  <div class="form-group row">
+    <label for="selColorAccesorio" class="col-sm-2 labelsel">
+      Color
+            Accesorio
+    </label>
+    <div class="col-sm-6">
+      <select
+        id="selColorAccesorio"
+        name="selColorAccesorio"
+        class="form-control"
+      >
+        <option value="Negro">
+          Negro
+        </option>
+        <option value="Blanco">
+          Blanco
+        </option>
+      </select>
     </div>
-    <div class="form-group row">
-        <label for="selParametro" class="col-sm-2 labelsel">Parámetro Perfil</label>
-        <div class="col-sm-6">
-            <select id="selParametro" name="parametro" class="form-control">
-                <option value="1.05">Normal</option>
-                <option value="1.3">Especial</option>
-            </select>
-        </div>
+  </div>
+  <div class="form-group row" id="cierre">
+    <label for="selCierre" class="col-sm-2 labelsel">
+      Tipo
+            de Cierre
+    </label>
+    <div class="col-sm-4">
+      <select name="selCierre" class="form-control" id="selCierre">
+        <option value="1">
+          Cierre automático sin llave
+        </option>
+        <option value="2">
+          Cierre automático con llave
+        </option>
+        <option value="3">
+          Cerradura multipunto sin llave 2 puntos
+        </option>
+        <option value="4">
+          Cerradura multipunto sin llave 3 puntos
+        </option>
+        <option value="5">
+          Cerradura con llave con concha ciega
+        </option>
+        <option value="6">
+          Cerradura con llave con puxador
+        </option>
+        <option value="7">
+          Cerradura monopunto con llave
+        </option>
+        <option value="8">
+          Cerradura con 3 puntos
+        </option>
+      </select>
     </div>
-    <div class="form-group row">
-        <label for="costo" class="col-sm-2 labelsel">Costo</label>
-        <div class="col-sm-6">
-            <input class="form-control" type="number" id="costo" name="costo">
-        </div>
+  </div>
+  <div class="form-group row" id="refuerzo">
+    <label for="selRefuerzo" class="col-sm-2 labelsel">
+      Refuerzo
+    </label>
+    <div class="col-sm-6">
+      <select id="selRefuerzo" name="selRefuerzo" class="form-control">
+        <option value="1">
+          Sin refuerzo
+        </option>
+        <option value="2">
+          Un lado refuerzo
+        </option>
+        <option value="3">
+          Doble refuerzo
+        </option>
+      </select>
     </div>
-    <div class="form-group row">
-        <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary">Calcular</button>
-        </div>
-        <div class="col-sm-2">
-            <button type="reset" class="btn btn-primary">Reset</button>
-        </div>
+  </div>
+  <div class="form-group row">
+    <label for="selParametro" class="col-sm-2 labelsel">
+      Parámetro Perfil
+    </label>
+    <div class="col-sm-6">
+      <select id="selParametro" name="parametro" class="form-control">
+        <option value="1.05">
+          Normal
+        </option>
+        <option value="1.3">
+          Especial
+        </option>
+      </select>
     </div>
+  </div>
+  <div class="form-group row">
+    <label for="costo" class="col-sm-2 labelsel">
+      Costo
+    </label>
+    <div class="col-sm-6">
+      <input class="form-control" type="number" id="costo" name="costo" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2 botonM">
+      <button type="submit" class="btn btn-primary">
+        Calcular
+      </button>
+    </div>
+    <div class="col-sm-2 botonM">
+      <button type="reset" class="btn btn-primary">
+        Reset
+      </button>
+    </div>
+  </div>
 </form>
 <script src="/js/alpha.js"></script>
