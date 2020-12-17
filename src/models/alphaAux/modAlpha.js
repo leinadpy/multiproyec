@@ -289,7 +289,7 @@ modAlpha.cuatroHojasDosCorredizasDosFijasConTelaMod = async (
 modAlpha.unaHojaOscilobatienteMod = async (newAbAlpha, pesoPerfiles) => {
   // Mano de obra   montaje 48 y fabricación 49
   const modCol = (await MOD.obtenerCosto(48)) + 10000;
-  const modFab = (await MOD.obtenerCosto(49));
+  const modFab = await MOD.obtenerCosto(49);
   const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
   return mod;
 };
@@ -299,8 +299,8 @@ modAlpha.unaHojaOscilobatienteFijoInferiorMod = async (
   pesoPerfiles
 ) => {
   // Mano de obra   montaje 48 y fabricación 49
-  const modCol = (await MOD.obtenerCosto(48)) + 40000;
-  const modFab = (await MOD.obtenerCosto(49));
+  const modCol = (await MOD.obtenerCosto(48)) + 50000;
+  const modFab = await MOD.obtenerCosto(49);
   const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
   return mod;
 };
@@ -308,7 +308,69 @@ modAlpha.unaHojaOscilobatienteFijoInferiorMod = async (
 modAlpha.unaHojaBatienteMod = async (newAbAlpha, pesoPerfiles) => {
   // Mano de obra   montaje 48 y fabricación 49
   const modCol = (await MOD.obtenerCosto(48)) + 10000;
-  const modFab = (await MOD.obtenerCosto(49));
+  const modFab = await MOD.obtenerCosto(49);
+  const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
+  return mod;
+};
+
+modAlpha.unaHojaBatienteFijoInferiorMod = async (newAbAlpha, pesoPerfiles) => {
+  // Mano de obra   montaje 48 y fabricación 49
+  const modCol = (await MOD.obtenerCosto(48)) + 50000;
+  const modFab = await MOD.obtenerCosto(49);
+  const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
+  return mod;
+};
+
+modAlpha.dosHojasBatientesMod = async (newAbAlpha, pesoPerfiles) => {
+  // Mano de obra   montaje 48 y fabricación 49
+  const modCol = (await MOD.obtenerCosto(48)) + 50000;
+  const modFab = await MOD.obtenerCosto(49);
+  const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
+  return mod;
+};
+
+modAlpha.dosHojasBatientesFijoInferiorMod = async (
+  newAbAlpha,
+  pesoPerfiles
+) => {
+  // Mano de obra   montaje 48 y fabricación 49
+  const modCol = (await MOD.obtenerCosto(48)) + 90000;
+  const modFab = await MOD.obtenerCosto(49);
+  const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
+  return mod;
+};
+
+modAlpha.dosHojasOscilobatientesMod = async (newAbAlpha, pesoPerfiles) => {
+  // Mano de obra   montaje 48 y fabricación 49
+  const modCol = (await MOD.obtenerCosto(48)) + 50000;
+  const modFab = await MOD.obtenerCosto(49);
+  const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
+  return mod;
+};
+
+modAlpha.dosHojasOscilobatientesFijoInferiorMod = async (
+  newAbAlpha,
+  pesoPerfiles
+) => {
+  // Mano de obra   montaje 48 y fabricación 49
+  const modCol = (await MOD.obtenerCosto(48)) + 90000;
+  const modFab = await MOD.obtenerCosto(49);
+  const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
+  return mod;
+};
+
+modAlpha.unaPuertaHojaBatienteMod = async (newAbAlpha, pesoPerfiles) => {
+  // Mano de obra   montaje 48 y fabricación 49
+  const modCol = (await MOD.obtenerCosto(48)) + 30000;
+  const modFab = await MOD.obtenerCosto(49);
+  const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
+  return mod;
+};
+
+modAlpha.unaPuertaDosHojasBatientesMod = async (newAbAlpha, pesoPerfiles) => {
+  // Mano de obra   montaje 48 y fabricación 49
+  const modCol = (await MOD.obtenerCosto(48)) + 90000;
+  const modFab = await MOD.obtenerCosto(49);
   const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
   return mod;
 };

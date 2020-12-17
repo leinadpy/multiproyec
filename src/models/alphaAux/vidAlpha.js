@@ -346,4 +346,119 @@ vidrioAlpha.unaHojaBatienteVid = async (newAbAlpha) => {
   return vidriosT;
 };
 
+vidrioAlpha.unaHojaBatienteFijoInferiorVid = async (newAbAlpha) => {
+  // Vidrios
+  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  const anchoVidrio = (newAbAlpha.ancho - 132) / 1000;
+  const altoVidrio = (altoBat - 132) / 1000;
+  const anchoFijo = (newAbAlpha.ancho - 25 * 2 - 8) / 1000;
+  const altoFijo = (newAbAlpha.altofijo - 25 * 2 - 8) / 1000;
+  const areaVidrio = anchoVidrio * altoVidrio * 1 + anchoFijo * altoFijo * 1;
+  newAbAlpha.pesoHoja =
+    anchoVidrio * altoVidrio * 2.5 * newAbAlpha.selEspesorVidrio;
+  const precioVidrio = await Vidrio.obtenerCosto(
+    "T" + newAbAlpha.selEspesorVidrio,
+    newAbAlpha.selColorVidrio,
+    newAbAlpha.proveedorvidrio
+  );
+  const vidriosT = Math.round((precioVidrio * areaVidrio * 100) / 1.1) / 100;
+  return vidriosT;
+};
+
+vidrioAlpha.dosHojasBatientesVid = async (newAbAlpha) => {
+  // Vidrios
+  const anchoVidrio = (newAbAlpha.ancho - 232) / 2 / 1000;
+  const altoVidrio = (newAbAlpha.alto - 132) / 1000;
+  const areaVidrio = anchoVidrio * altoVidrio * 2;
+  newAbAlpha.pesoHoja = (areaVidrio / 2) * 2.5 * newAbAlpha.selEspesorVidrio;
+  const precioVidrio = await Vidrio.obtenerCosto(
+    "T" + newAbAlpha.selEspesorVidrio,
+    newAbAlpha.selColorVidrio,
+    newAbAlpha.proveedorvidrio
+  );
+  const vidriosT = Math.round((precioVidrio * areaVidrio * 100) / 1.1) / 100;
+  return vidriosT;
+};
+
+vidrioAlpha.dosHojasBatientesFijoInferiorVid = async (newAbAlpha) => {
+  // Vidrios
+  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  const anchoVidrio = (newAbAlpha.ancho - 232) / 2 / 1000;
+  const altoVidrio = (altoBat - 132) / 1000;
+  const anchoFijo = (newAbAlpha.ancho - 25 * 2 - 8) / 1000;
+  const altoFijo = (newAbAlpha.altofijo - 25 * 2 - 8) / 1000;
+  const areaVidrio = anchoVidrio * altoVidrio * 2 + anchoFijo * altoFijo * 1;
+  newAbAlpha.pesoHoja = (areaVidrio / 2) * 2.5 * newAbAlpha.selEspesorVidrio;
+  const precioVidrio = await Vidrio.obtenerCosto(
+    "T" + newAbAlpha.selEspesorVidrio,
+    newAbAlpha.selColorVidrio,
+    newAbAlpha.proveedorvidrio
+  );
+  const vidriosT = Math.round((precioVidrio * areaVidrio * 100) / 1.1) / 100;
+  return vidriosT;
+};
+
+vidrioAlpha.dosHojasOscilobatientesVid = async (newAbAlpha) => {
+  // Vidrios
+  const anchoVidrio = (newAbAlpha.ancho - 234) / 2 / 1000;
+  const altoVidrio = (newAbAlpha.alto - 134) / 1000;
+  const areaVidrio = anchoVidrio * altoVidrio * 2;
+  newAbAlpha.pesoHoja = (areaVidrio / 2) * 2.5 * newAbAlpha.selEspesorVidrio;
+  const precioVidrio = await Vidrio.obtenerCosto(
+    "T" + newAbAlpha.selEspesorVidrio,
+    newAbAlpha.selColorVidrio,
+    newAbAlpha.proveedorvidrio
+  );
+  const vidriosT = Math.round((precioVidrio * areaVidrio * 100) / 1.1) / 100;
+  return vidriosT;
+};
+
+vidrioAlpha.dosHojasOscilobatientesFijoInferiorVid = async (newAbAlpha) => {
+  // Vidrios
+  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  const anchoVidrio = (newAbAlpha.ancho - 234) / 2 / 1000;
+  const altoVidrio = (altoBat - 134) / 1000;
+  const anchoFijo = (newAbAlpha.ancho - 25 * 2 - 8) / 1000;
+  const altoFijo = (newAbAlpha.altofijo - 25 * 2 - 8) / 1000;
+  const areaVidrio = anchoVidrio * altoVidrio * 2 + anchoFijo * altoFijo * 1;
+  newAbAlpha.pesoHoja = (areaVidrio / 2) * 2.5 * newAbAlpha.selEspesorVidrio;
+  const precioVidrio = await Vidrio.obtenerCosto(
+    "T" + newAbAlpha.selEspesorVidrio,
+    newAbAlpha.selColorVidrio,
+    newAbAlpha.proveedorvidrio
+  );
+  const vidriosT = Math.round((precioVidrio * areaVidrio * 100) / 1.1) / 100;
+  return vidriosT;
+};
+
+vidrioAlpha.unaPuertaHojaBatienteVid = async (newAbAlpha) => {
+  // Vidrios
+  const anchoVidrio = (newAbAlpha.ancho - 238) / 1000;
+  const altoVidrio = (newAbAlpha.alto - 245) / 1000;
+  const areaVidrio = anchoVidrio * altoVidrio * 1;
+  newAbAlpha.pesoHoja = (areaVidrio / 1) * 2.5 * newAbAlpha.selEspesorVidrio;
+  const precioVidrio = await Vidrio.obtenerCosto(
+    "T" + newAbAlpha.selEspesorVidrio,
+    newAbAlpha.selColorVidrio,
+    newAbAlpha.proveedorvidrio
+  );
+  const vidriosT = Math.round((precioVidrio * areaVidrio * 100) / 1.1) / 100;
+  return vidriosT;
+};
+
+vidrioAlpha.unaPuertaDosHojasBatientesVid = async (newAbAlpha) => {
+  // Vidrios
+  const anchoVidrio = (newAbAlpha.ancho - 403) / 2 / 1000;
+  const altoVidrio = (newAbAlpha.alto - 249) / 1000;
+  const areaVidrio = anchoVidrio * altoVidrio * 2;
+  newAbAlpha.pesoHoja = (areaVidrio / 2) * 2.5 * newAbAlpha.selEspesorVidrio;
+  const precioVidrio = await Vidrio.obtenerCosto(
+    "T" + newAbAlpha.selEspesorVidrio,
+    newAbAlpha.selColorVidrio,
+    newAbAlpha.proveedorvidrio
+  );
+  const vidriosT = Math.round((precioVidrio * areaVidrio * 100) / 1.1) / 100;
+  return vidriosT;
+};
+
 module.exports = vidrioAlpha;

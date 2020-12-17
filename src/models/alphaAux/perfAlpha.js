@@ -7870,6 +7870,2558 @@ perfilesAlpha.unaHojaBatientePerf = async (newAbAlpha) => {
   return result;
 };
 
+perfilesAlpha.unaHojaBatienteFijoInferiorPerf = async (newAbAlpha) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  const parametro = newAbAlpha.parametro;
+  // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Marco perimetral
+  codigo = "AK101";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (newAbAlpha.ancho - 38) / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.ancho - 122) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Marco perimetral para el fijo
+  codigo = "AK101";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.ancho - 25 * 2) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Unión - Clip
+  codigo = "AK158";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.ancho + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else if (newAbAlpha.selContramarco == "2") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    codigo = "RM020";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+  }
+
+  // Marco
+  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  codigo = "AK101";
+  medida = altoBat / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (altoBat - 38) / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (altoBat - 164) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  medida = ((altoBat - 38) / 2 - 138) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  medida = ((altoBat - 38) / 2 - 138) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Marco perimetral para el fijo
+  codigo = "AK101";
+  medida = newAbAlpha.altofijo / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.altofijo - 25 * 2) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.alto + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.alto + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesAlpha.dosHojasBatientesPerf = async (newAbAlpha) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  const parametro = newAbAlpha.parametro;
+  // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Marco perimetral
+  codigo = "AK101";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (newAbAlpha.ancho - 44) / 2 / 1000;
+  corte = "45/45";
+  cantidad = 4;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = ((newAbAlpha.ancho - 44) / 2 - 84) / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.ancho + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else if (newAbAlpha.selContramarco == "2") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    codigo = "RM020";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+  }
+
+  // Marco
+  codigo = "AK101";
+  medida = newAbAlpha.alto / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (newAbAlpha.alto - 38) / 1000;
+  corte = "45/45";
+  cantidad = 4;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.alto - 164) / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Batiente central doble hoja
+  codigo = "AK108";
+  medida = (newAbAlpha.alto - 104) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  medida = (newAbAlpha.alto / 2 - 138) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  medida = (newAbAlpha.alto / 2 - 138) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.alto + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.alto + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesAlpha.dosHojasBatientesFijoInferiorPerf = async (newAbAlpha) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  const parametro = newAbAlpha.parametro;
+  // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Marco perimetral
+  codigo = "AK101";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (newAbAlpha.ancho - 44) / 2 / 1000;
+  corte = "45/45";
+  cantidad = 4;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = ((newAbAlpha.ancho - 44) / 2 - 84) / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja Fija
+  codigo = "AK101";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.ancho - 25 * 2) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Unión - Clip
+  codigo = "AK158";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.ancho + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else if (newAbAlpha.selContramarco == "2") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    codigo = "RM020";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+  }
+
+  // Marco
+  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  codigo = "AK101";
+  medida = altoBat / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (altoBat - 38) / 1000;
+  corte = "45/45";
+  cantidad = 4;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (altoBat - 164) / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Batiente central doble hoja
+  codigo = "AK108";
+  medida = (altoBat - 104) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  medida = ((altoBat - 38) / 2 - 138) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  medida = ((altoBat - 38) / 2 - 138) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja fijo
+  codigo = "AK101";
+  medida = newAbAlpha.altofijo / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.altofijo - 25 * 2) / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.alto + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.alto + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesAlpha.dosHojasOscilobatientesPerf = async (newAbAlpha) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  const parametro = newAbAlpha.parametro;
+  // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Marco perimetral
+  codigo = "AK101";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (newAbAlpha.ancho - 46) / 2 / 1000;
+  corte = "45/45";
+  cantidad = 4;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = ((newAbAlpha.ancho - 46) / 2 - 84) / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  let oscilobat = 329;
+  if (newAbAlpha.ancho / 2 < 450) {
+    oscilobat = 329;
+  } else if (newAbAlpha.ancho / 2 < 650) {
+    oscilobat = 360;
+  } else {
+    oscilobat = 548;
+  }
+  medida = (newAbAlpha.ancho / 2 - oscilobat) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.ancho + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else if (newAbAlpha.selContramarco == "2") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    codigo = "RM020";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+  }
+
+  // Marco
+  codigo = "AK101";
+  medida = newAbAlpha.alto / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (newAbAlpha.alto - 40) / 1000;
+  corte = "45/45";
+  cantidad = 4;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.alto - 166) / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  medida = (newAbAlpha.alto / 2 - 130) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  medida = (newAbAlpha.alto / 2 - 167) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Batiente central doble hoja
+  codigo = "AK108";
+  medida = (newAbAlpha.alto - 106) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.alto + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.alto + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesAlpha.dosHojasOscilobatientesFijoInferiorPerf = async (newAbAlpha) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  const parametro = newAbAlpha.parametro;
+  // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Marco perimetral
+  codigo = "AK101";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (newAbAlpha.ancho - 46) / 2 / 1000;
+  corte = "45/45";
+  cantidad = 4;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = ((newAbAlpha.ancho - 46) / 2 - 84) / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  let oscilobat = 329;
+  if (newAbAlpha.ancho / 2 < 450) {
+    oscilobat = 329;
+  } else if (newAbAlpha.ancho / 2 < 650) {
+    oscilobat = 360;
+  } else {
+    oscilobat = 548;
+  }
+  medida = (newAbAlpha.ancho / 2 - oscilobat) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Marco perimetral para el fijo
+  codigo = "AK101";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.ancho - 25 * 2) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Unión - Clip
+  codigo = "AK158";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.ancho + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else if (newAbAlpha.selContramarco == "2") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    codigo = "RM020";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+  }
+
+  // Marco
+  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  codigo = "AK101";
+  medida = altoBat / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (altoBat - 40) / 1000;
+  corte = "45/45";
+  cantidad = 4;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (altoBat - 166) / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  medida = (altoBat / 2 - 130) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Varilla de conexión
+  codigo = "AK154";
+  medida = (altoBat / 2 - 167) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Batiente central doble hoja
+  codigo = "AK108";
+  medida = (altoBat - 106) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Marco perimetral para el fijo
+  codigo = "AK101";
+  medida = newAbAlpha.altofijo / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.altofijo - 25 * 2) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.alto + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.alto + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesAlpha.unaPuertaHojaBatientePerf = async (newAbAlpha) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  const parametro = newAbAlpha.parametro;
+  // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Marco perimetral para puerta
+  codigo = "AK104";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "45/45";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Zócalo inferior puerta batiente
+  codigo = "AK120";
+  medida = (newAbAlpha.ancho - 230) / 1000;
+  corte = "45/45";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja puerta apertura batiente
+  codigo = "AK110";
+  medida = (newAbAlpha.ancho - 86) / 1000;
+  corte = "45/45";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.ancho - 230) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Cortavientos inferior zócalo
+  codigo = "AK122";
+  medida = (newAbAlpha.ancho - 155 + 20) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Vedación base para piso
+  codigo = "AK118";
+  medida = (newAbAlpha.ancho) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.ancho + 28) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Marco
+  codigo = "AK104";
+  medida = newAbAlpha.alto / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK110";
+  medida = (newAbAlpha.alto - 47 - 4) / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.alto - 279) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  if (newAbAlpha.selCierre == "8") {
+    // Varilla para accionamiento
+    codigo = "AK154";
+    medida = (newAbAlpha.alto - 47 - 4) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.alto + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.alto + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  const parametro = newAbAlpha.parametro;
+  // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Marco perimetral para puerta
+  codigo = "AK104";
+  medida = newAbAlpha.ancho / 1000;
+  corte = "45/45";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Zócalo inferior puerta batiente
+  codigo = "AK120";
+  medida = (newAbAlpha.ancho - 379) / 2 / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja puerta apertura batiente
+  codigo = "AK110";
+  medida = (newAbAlpha.ancho - 91) / 2 / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.ancho - 379) / 2 / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Cortavientos inferior zócalo
+  codigo = "AK122";
+  medida = ((newAbAlpha.ancho - 229) / 2 + 20) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Vedación base para piso
+  codigo = "AK118";
+  medida = (newAbAlpha.ancho) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.ancho + 28) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Marco
+  codigo = "AK104";
+  medida = newAbAlpha.alto / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK110";
+  medida = (newAbAlpha.alto - 47 - 4) / 1000;
+  corte = "45/45";
+  cantidad = 4;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (newAbAlpha.alto - 279) / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Batiente central doble hoja
+  codigo = "AK108";
+  medida = (newAbAlpha.alto - 80 - 4) / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  if (newAbAlpha.selCierre == "8") {
+    // Varilla para accionamiento
+    codigo = "AK154";
+    medida = (newAbAlpha.alto - 47 - 4) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.alto + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.alto + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
 // FUNCIONES
 calcPerfil = async function (
   codigo,

@@ -90,11 +90,32 @@ AbAlphaSchema.methods.calcularAlpha = async (newAbAlpha) => {
     case "21": // Ventana de una hoja batiente
       costo = await newAbAlpha.unaHojaBatiente(newAbAlpha);
       break;
+    case "21F": // Ventana de una hoja batiente con fijo inferior o superior
+      costo = await newAbAlpha.unaHojaBatienteFijoInferior(newAbAlpha);
+      break;
     case "23": // Ventana de una hoja oscilobatiente
       costo = await newAbAlpha.unaHojaOscilobatiente(newAbAlpha);
       break;
     case "23F": // Ventana de una hoja oscilobatiente con fijo inferior o superior
       costo = await newAbAlpha.unaHojaOscilobatienteFijoInferior(newAbAlpha);
+      break;
+    case "22": // Ventana de dos hojas batientes
+      costo = await newAbAlpha.dosHojasBatientes(newAbAlpha);
+      break;
+    case "22F": // Ventana de dos hojas batientes con fijo inferior o superior
+      costo = await newAbAlpha.dosHojasBatientesFijoInferior(newAbAlpha);
+      break;
+    case "24": // Ventana de dos hojas oscilobatientes
+      costo = await newAbAlpha.dosHojasOscilobatientes(newAbAlpha);
+      break;
+    case "24F": // Ventana de dos hojas, una oscilobatiente y una batiente con fijo inferior o superior
+      costo = await newAbAlpha.dosHojasOscilobatientesFijoInferior(newAbAlpha);
+      break;
+    case "25": // Puerta de una hoja batiente
+      costo = await newAbAlpha.unaPuertaHojaBatiente(newAbAlpha);
+      break;
+    case "26": // Puerta de dos hojas batientes
+      costo = await newAbAlpha.unaPuertaDosHojasBatientes(newAbAlpha);
       break;
   }
   return costo;
@@ -652,7 +673,6 @@ AbAlphaSchema.methods.cuatroHojasDosCorredizasDosFijasConTela = async (
   );
 
   // SUMATORIA TOTAL
-  console.log(vidriosT, costoPerfiles, costoAccesorios, mod);
   const costoT =
     Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
   return costoT;
@@ -736,7 +756,211 @@ AbAlphaSchema.methods.unaHojaBatiente = async (newAbAlpha) => {
   const mod = await modAlpha.unaHojaBatienteMod(newAbAlpha, pesoPerfiles);
 
   // SUMATORIA TOTAL
-  console.log(vidriosT, costoPerfiles, costoAccesorios, mod);
+  const costoT =
+    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+  return costoT;
+};
+
+AbAlphaSchema.methods.unaHojaBatienteFijoInferior = async (newAbAlpha) => {
+  // VIDRIOS
+  const vidriosT = await vidrioAlpha.unaHojaBatienteFijoInferiorVid(newAbAlpha);
+
+  // PERFILES
+  const perfAlpha = await perfilesAlpha.unaHojaBatienteFijoInferiorPerf(
+    newAbAlpha
+  );
+  const costoPerfiles = perfAlpha[0];
+  const pesoPerfiles = perfAlpha[1];
+  const perfiles = perfAlpha[2];
+
+  // ACCESORIOS
+  const accAlpha = await accesorioAlpha.unaHojaBatienteFijoInferiorAcc(
+    newAbAlpha
+  );
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.unaHojaBatienteFijoInferiorMod(
+    newAbAlpha,
+    pesoPerfiles
+  );
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+  return costoT;
+};
+
+AbAlphaSchema.methods.dosHojasBatientes = async (newAbAlpha) => {
+  // VIDRIOS
+  const vidriosT = await vidrioAlpha.dosHojasBatientesVid(newAbAlpha);
+
+  // PERFILES
+  const perfAlpha = await perfilesAlpha.dosHojasBatientesPerf(newAbAlpha);
+  const costoPerfiles = perfAlpha[0];
+  const pesoPerfiles = perfAlpha[1];
+  const perfiles = perfAlpha[2];
+
+  // ACCESORIOS
+  const accAlpha = await accesorioAlpha.dosHojasBatientesAcc(newAbAlpha);
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.dosHojasBatientesMod(newAbAlpha, pesoPerfiles);
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+  return costoT;
+};
+
+AbAlphaSchema.methods.dosHojasBatientesFijoInferior = async (newAbAlpha) => {
+  // VIDRIOS
+  const vidriosT = await vidrioAlpha.dosHojasBatientesFijoInferiorVid(
+    newAbAlpha
+  );
+
+  // PERFILES
+  const perfAlpha = await perfilesAlpha.dosHojasBatientesFijoInferiorPerf(
+    newAbAlpha
+  );
+  const costoPerfiles = perfAlpha[0];
+  const pesoPerfiles = perfAlpha[1];
+  const perfiles = perfAlpha[2];
+
+  // ACCESORIOS
+  const accAlpha = await accesorioAlpha.dosHojasBatientesFijoInferiorAcc(
+    newAbAlpha
+  );
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.dosHojasBatientesFijoInferiorMod(
+    newAbAlpha,
+    pesoPerfiles
+  );
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+  return costoT;
+};
+
+AbAlphaSchema.methods.dosHojasOscilobatientes = async (newAbAlpha) => {
+  // VIDRIOS
+  const vidriosT = await vidrioAlpha.dosHojasOscilobatientesVid(newAbAlpha);
+
+  // PERFILES
+  const perfAlpha = await perfilesAlpha.dosHojasOscilobatientesPerf(newAbAlpha);
+  const costoPerfiles = perfAlpha[0];
+  const pesoPerfiles = perfAlpha[1];
+  const perfiles = perfAlpha[2];
+
+  // ACCESORIOS
+  const accAlpha = await accesorioAlpha.dosHojasOscilobatientesAcc(newAbAlpha);
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.dosHojasOscilobatientesMod(
+    newAbAlpha,
+    pesoPerfiles
+  );
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+  return costoT;
+};
+
+AbAlphaSchema.methods.dosHojasOscilobatientesFijoInferior = async (
+  newAbAlpha
+) => {
+  // VIDRIOS
+  const vidriosT = await vidrioAlpha.dosHojasOscilobatientesFijoInferiorVid(
+    newAbAlpha
+  );
+
+  // PERFILES
+  const perfAlpha = await perfilesAlpha.dosHojasOscilobatientesFijoInferiorPerf(
+    newAbAlpha
+  );
+  const costoPerfiles = perfAlpha[0];
+  const pesoPerfiles = perfAlpha[1];
+  const perfiles = perfAlpha[2];
+
+  // ACCESORIOS
+  const accAlpha = await accesorioAlpha.dosHojasOscilobatientesFijoInferiorAcc(
+    newAbAlpha
+  );
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.dosHojasOscilobatientesFijoInferiorMod(
+    newAbAlpha,
+    pesoPerfiles
+  );
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+  return costoT;
+};
+
+AbAlphaSchema.methods.unaPuertaHojaBatiente = async (newAbAlpha) => {
+  // VIDRIOS
+  const vidriosT = await vidrioAlpha.unaPuertaHojaBatienteVid(newAbAlpha);
+
+  // PERFILES
+  const perfAlpha = await perfilesAlpha.unaPuertaHojaBatientePerf(newAbAlpha);
+  const costoPerfiles = perfAlpha[0];
+  const pesoPerfiles = perfAlpha[1];
+  const perfiles = perfAlpha[2];
+
+  // ACCESORIOS
+  const accAlpha = await accesorioAlpha.unaPuertaHojaBatienteAcc(newAbAlpha);
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.unaPuertaHojaBatienteMod(newAbAlpha, pesoPerfiles);
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+  return costoT;
+};
+
+AbAlphaSchema.methods.unaPuertaDosHojasBatientes = async (newAbAlpha) => {
+  // VIDRIOS
+  const vidriosT = await vidrioAlpha.unaPuertaDosHojasBatientesVid(newAbAlpha);
+
+  // PERFILES
+  const perfAlpha = await perfilesAlpha.unaPuertaDosHojasBatientesPerf(
+    newAbAlpha
+  );
+  const costoPerfiles = perfAlpha[0];
+  const pesoPerfiles = perfAlpha[1];
+  const perfiles = perfAlpha[2];
+
+  // ACCESORIOS
+  const accAlpha = await accesorioAlpha.unaPuertaDosHojasBatientesAcc(
+    newAbAlpha
+  );
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.unaPuertaDosHojasBatientesMod(
+    newAbAlpha,
+    pesoPerfiles
+  );
+
+  // SUMATORIA TOTAL
   const costoT =
     Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
   return costoT;
