@@ -375,4 +375,23 @@ modAlpha.unaPuertaDosHojasBatientesMod = async (newAbAlpha, pesoPerfiles) => {
   return mod;
 };
 
+modAlpha.unaHojaProyectanteMod = async (newAbAlpha, pesoPerfiles) => {
+  // Mano de obra montaje 48 y fabricación 49
+  const modCol = (await MOD.obtenerCosto(48)) + 10000;
+  const modFab = await MOD.obtenerCosto(49);
+  const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
+  return mod;
+};
+
+modAlpha.unaHojaProyectanteFijoInferiorMod = async (
+  newAbAlpha,
+  pesoPerfiles
+) => {
+  // Mano de obra montaje 48 y fabricación 49
+  const modCol = (await MOD.obtenerCosto(48)) + 50000;
+  const modFab = await MOD.obtenerCosto(49);
+  const mod = Math.round(((modCol + modFab * pesoPerfiles) / 7000) * 100) / 100;
+  return mod;
+};
+
 module.exports = modAlpha;

@@ -8424,7 +8424,13 @@ accesoriosAlpha.unaPuertaDosHojasBatientesAcc = async (newAbAlpha) => {
   // Accesorios
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad = ((2 * (newAbAlpha.alto)) + (1 * (newAbAlpha.alto - 80 - 4)) + (4 * (newAbAlpha.alto - 51)) + (1 * (newAbAlpha.ancho)) + (2 * (newAbAlpha.ancho - 91) / 2) ) / 1000;
+  cantidad =
+    (2 * newAbAlpha.alto +
+      1 * (newAbAlpha.alto - 80 - 4) +
+      4 * (newAbAlpha.alto - 51) +
+      1 * newAbAlpha.ancho +
+      (2 * (newAbAlpha.ancho - 91)) / 2) /
+    1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8652,6 +8658,291 @@ accesoriosAlpha.unaPuertaDosHojasBatientesAcc = async (newAbAlpha) => {
   costoAccesorios += accesorio.subCosto;
   accesorios.push(accesorio);
 
+  costoAccesorios = Math.round(costoAccesorios * 100) / 100;
+  const result = [costoAccesorios, accesorios];
+  return result;
+};
+
+accesoriosAlpha.unaHojaProyectanteAcc = async (newAbAlpha) => {
+  let accesorios = [];
+  let accesorio = {};
+  let costoAccesorios = 0;
+  let codigo = "";
+  let cantidad = 0;
+  // Accesorios
+  // Junta central en marco
+  codigo = "GUA30947";
+  cantidad = (4 * (newAbAlpha.ancho - 38) + 4 * (newAbAlpha.alto - 38)) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Junta Exterior acristalamiento de 2 mm
+  codigo = "GUA173";
+  cantidad =
+    (2 * (newAbAlpha.ancho - 138) + 2 * (newAbAlpha.alto - 180)) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Junta Interior de cuña de 6 mm
+  codigo = "GUAC6N";
+  cantidad =
+    (2 * (newAbAlpha.ancho - 138) + 2 * (newAbAlpha.alto - 180)) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Tapa salida de aguas
+  codigo = "A2141";
+  cantidad = 2;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Encuentro terminal simple premontado
+  codigo = "A4212.2";
+  cantidad = 2;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Brazo proyectante
+  if (newAbAlpha.alto > 700) {
+    codigo = "A1233.16";
+  } else if (newAbAlpha.pesoHoja > 20) {
+    codigo = "A1233.16";
+  } else {
+    codigo = "A1231.12";
+  }
+  cantidad = 1;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Terminal pletina de cremona
+  codigo = "A4032.20";
+  cantidad = 2;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Cremona apertura exterior Proyectante
+  codigo = "A6028.3";
+  cantidad = 1;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Perno de accionamiento Apertura Exterior Proyectante
+  codigo = "A6420E.31";
+  cantidad = 2;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Escuadra de fundición 29x11
+  codigo = "1134F";
+  cantidad = 8;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  costoAccesorios = Math.round(costoAccesorios * 100) / 100;
+  const result = [costoAccesorios, accesorios];
+  return result;
+};
+
+accesoriosAlpha.unaHojaProyectanteFijoInferiorAcc = async (newAbAlpha) => {
+  let accesorios = [];
+  let accesorio = {};
+  let costoAccesorios = 0;
+  let codigo = "";
+  let cantidad = 0;
+  const altoProy = newAbAlpha.alto - newAbAlpha.altofijo;
+  // Accesorios
+  // Junta central en marco
+  codigo = "GUA30947";
+  cantidad = (4 * (newAbAlpha.ancho - 38) + 4 * (altoProy - 38)) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Junta Exterior acristalamiento de 2 mm
+  codigo = "GUA173";
+  cantidad = (2 * (newAbAlpha.ancho - 138) + 2 * (altoProy - 180)) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Junta Interior de cuña de 6 mm
+  codigo = "GUAC6N";
+  cantidad = (2 * (newAbAlpha.ancho - 138) + 2 * (altoProy - 180)) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Junta Exterior acristalamiento de 2 mm
+  codigo = "GUA173";
+  cantidad =
+    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
+    1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Junta Interior de cuña de 6 mm
+  codigo = "GUAC6N";
+  cantidad =
+    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
+    1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Tapa salida de aguas
+  codigo = "A2141";
+  cantidad = 2;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Encuentro terminal simple premontado
+  codigo = "A4212.2";
+  cantidad = 2;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Brazo proyectante
+  if (altoProy > 700) {
+    codigo = "A1233.16";
+  } else if (newAbAlpha.pesoHoja > 20) {
+    codigo = "A1233.16";
+  } else {
+    codigo = "A1231.12";
+  }
+  cantidad = 1;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Terminal pletina de cremona
+  codigo = "A4032.20";
+  cantidad = 2;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Cremona apertura exterior Proyectante
+  codigo = "A6028.3";
+  cantidad = 1;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Perno de accionamiento Apertura Exterior Proyectante
+  codigo = "A6420E.31";
+  cantidad = 2;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Escuadra de fundición 29x11
+  codigo = "1134F";
+  cantidad = 12;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
   costoAccesorios = Math.round(costoAccesorios * 100) / 100;
   const result = [costoAccesorios, accesorios];
   return result;

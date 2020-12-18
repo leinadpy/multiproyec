@@ -117,6 +117,12 @@ AbAlphaSchema.methods.calcularAlpha = async (newAbAlpha) => {
     case "26": // Puerta de dos hojas batientes
       costo = await newAbAlpha.unaPuertaDosHojasBatientes(newAbAlpha);
       break;
+    case "31": // Ventana de una hoja proyectante
+      costo = await newAbAlpha.unaHojaProyectante(newAbAlpha);
+      break;
+    case "31F": // Ventana de una hoja proyectante con paño fijo inferior o superior
+      costo = await newAbAlpha.unaHojaProyectanteFijoInferior(newAbAlpha);
+      break;
   }
   return costo;
 };
@@ -956,6 +962,63 @@ AbAlphaSchema.methods.unaPuertaDosHojasBatientes = async (newAbAlpha) => {
 
   // MANO DE OBRA
   const mod = await modAlpha.unaPuertaDosHojasBatientesMod(
+    newAbAlpha,
+    pesoPerfiles
+  );
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+  return costoT;
+};
+
+AbAlphaSchema.methods.unaHojaProyectante = async (newAbAlpha) => {
+  // VIDRIOS
+  const vidriosT = await vidrioAlpha.unaHojaProyectanteVid(newAbAlpha);
+
+  // PERFILES
+  const perfAlpha = await perfilesAlpha.unaHojaProyectantePerf(newAbAlpha);
+  const costoPerfiles = perfAlpha[0];
+  const pesoPerfiles = perfAlpha[1];
+  const perfiles = perfAlpha[2];
+
+  // ACCESORIOS
+  const accAlpha = await accesorioAlpha.unaHojaProyectanteAcc(newAbAlpha);
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.unaHojaProyectanteMod(newAbAlpha, pesoPerfiles);
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+  return costoT;
+};
+
+AbAlphaSchema.methods.unaHojaProyectanteFijoInferior = async (newAbAlpha) => {
+  // VIDRIOS
+  const vidriosT = await vidrioAlpha.unaHojaProyectanteFijoInferiorVid(
+    newAbAlpha
+  );
+
+  // PERFILES
+  const perfAlpha = await perfilesAlpha.unaHojaProyectanteFijoInferiorPerf(
+    newAbAlpha
+  );
+  const costoPerfiles = perfAlpha[0];
+  const pesoPerfiles = perfAlpha[1];
+  const perfiles = perfAlpha[2];
+
+  // ACCESORIOS
+  const accAlpha = await accesorioAlpha.unaHojaProyectanteFijoInferiorAcc(
+    newAbAlpha
+  );
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.unaHojaProyectanteFijoInferiorMod(
     newAbAlpha,
     pesoPerfiles
   );
