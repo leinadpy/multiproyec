@@ -9,9 +9,9 @@ const {
   logout,
 } = require("../controllers/users.controller");
 
-router.get("/users/signup", renderSignUpForm);
+// router.get("/users/signup", renderSignUpForm);
 
-router.post("/users/signup", signup);
+// router.post("/users/signup", signup);
 
 router.get("/users/signin", renderSignInForm);
 
