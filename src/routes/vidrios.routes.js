@@ -13,19 +13,19 @@ const {
 const { isAuthenticated } = require("../helpers/auth");
 
 // Vidrio Nuevo
-router.get("/vidrios/add", renderVidrioForm);
+router.get("/vidrios/add", isAuthenticated, renderVidrioForm);
 
-router.post("/vidrios/new-vidrio", createNewVidrio);
+router.post("/vidrios/new-vidrio", isAuthenticated, createNewVidrio);
 
 // Obtener todos los vidrios
-router.get("/vidrios", renderVidrios);
+router.get("/vidrios", isAuthenticated, renderVidrios);
 
 // Editar los vidrios
-router.get("/vidrios/edit/:id", renderVidrioEditForm);
+router.get("/vidrios/edit/:id", isAuthenticated, renderVidrioEditForm);
 
-router.put("/vidrios/edit/:id", updateVidrio);
+router.put("/vidrios/edit/:id", isAuthenticated, updateVidrio);
 
 // Borrar vidrios
-router.delete("/vidrios/delete/:id", deleteVidrio);
+router.delete("/vidrios/delete/:id", isAuthenticated, deleteVidrio);
 
 module.exports = router;
