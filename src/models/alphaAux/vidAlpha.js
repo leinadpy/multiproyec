@@ -21,6 +21,7 @@ vidrioAlpha.dosHojasUnaCorredizaUnaFijaVid = async (newAbAlpha) => {
   const anchoVidrio = (newAbAlpha.ancho - 220) / 2 / 1000;
   const altoVidrio = (newAbAlpha.alto - 190) / 1000;
   const areaVidrio = anchoVidrio * altoVidrio * 2;
+  newAbAlpha.pesoHoja = (areaVidrio / 2) * 2.5 * newAbAlpha.selEspesorVidrio;
   const precioVidrio = await Vidrio.obtenerCosto(
     "T" + newAbAlpha.selEspesorVidrio,
     newAbAlpha.selColorVidrio,
@@ -299,8 +300,12 @@ vidrioAlpha.cuatroHojasDosCorredizasDosFijasConTelaVid = async (newAbAlpha) => {
 
 vidrioAlpha.unaHojaOscilobatienteVid = async (newAbAlpha) => {
   // Vidrios
-  const anchoVidrio = (newAbAlpha.ancho - 134) / 1000;
-  const altoVidrio = (newAbAlpha.alto - 134) / 1000;
+  const anchoVidrio =
+    (newAbAlpha.ancho - 134 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
+  const altoVidrio =
+    (newAbAlpha.alto - 134 - (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0)) /
+    1000;
   const areaVidrio = anchoVidrio * altoVidrio * 1;
   newAbAlpha.pesoHoja = (areaVidrio / 1) * 2.5 * newAbAlpha.selEspesorVidrio;
   const precioVidrio = await Vidrio.obtenerCosto(
@@ -314,10 +319,20 @@ vidrioAlpha.unaHojaOscilobatienteVid = async (newAbAlpha) => {
 
 vidrioAlpha.unaHojaOscilobatienteFijoInferiorVid = async (newAbAlpha) => {
   // Vidrios
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
-  const anchoVidrio = (newAbAlpha.ancho - 134) / 1000;
+  const altoBat =
+    newAbAlpha.alto -
+    newAbAlpha.altofijo -
+    (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0);
+  const anchoVidrio =
+    (newAbAlpha.ancho - 134 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
   const altoVidrio = (altoBat - 134) / 1000;
-  const anchoFijo = (newAbAlpha.ancho - 25 * 2 - 8) / 1000;
+  const anchoFijo =
+    (newAbAlpha.ancho -
+      25 * 2 -
+      8 -
+      (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
   const altoFijo = (newAbAlpha.altofijo - 25 * 2 - 8) / 1000;
   const areaVidrio = anchoVidrio * altoVidrio * 1 + anchoFijo * altoFijo * 1;
   newAbAlpha.pesoHoja =
@@ -333,8 +348,12 @@ vidrioAlpha.unaHojaOscilobatienteFijoInferiorVid = async (newAbAlpha) => {
 
 vidrioAlpha.unaHojaBatienteVid = async (newAbAlpha) => {
   // Vidrios
-  const anchoVidrio = (newAbAlpha.ancho - 132) / 1000;
-  const altoVidrio = (newAbAlpha.alto - 132) / 1000;
+  const anchoVidrio =
+    (newAbAlpha.ancho - 132 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
+  const altoVidrio =
+    (newAbAlpha.alto - 132 - (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0)) /
+    1000;
   const areaVidrio = anchoVidrio * altoVidrio * 1;
   newAbAlpha.pesoHoja = (areaVidrio / 1) * 2.5 * newAbAlpha.selEspesorVidrio;
   const precioVidrio = await Vidrio.obtenerCosto(
@@ -348,10 +367,20 @@ vidrioAlpha.unaHojaBatienteVid = async (newAbAlpha) => {
 
 vidrioAlpha.unaHojaBatienteFijoInferiorVid = async (newAbAlpha) => {
   // Vidrios
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
-  const anchoVidrio = (newAbAlpha.ancho - 132) / 1000;
+  const altoBat =
+    newAbAlpha.alto -
+    newAbAlpha.altofijo -
+    (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0);
+  const anchoVidrio =
+    (newAbAlpha.ancho - 132 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
   const altoVidrio = (altoBat - 132) / 1000;
-  const anchoFijo = (newAbAlpha.ancho - 25 * 2 - 8) / 1000;
+  const anchoFijo =
+    (newAbAlpha.ancho -
+      25 * 2 -
+      8 -
+      (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
   const altoFijo = (newAbAlpha.altofijo - 25 * 2 - 8) / 1000;
   const areaVidrio = anchoVidrio * altoVidrio * 1 + anchoFijo * altoFijo * 1;
   newAbAlpha.pesoHoja =
@@ -367,8 +396,13 @@ vidrioAlpha.unaHojaBatienteFijoInferiorVid = async (newAbAlpha) => {
 
 vidrioAlpha.dosHojasBatientesVid = async (newAbAlpha) => {
   // Vidrios
-  const anchoVidrio = (newAbAlpha.ancho - 232) / 2 / 1000;
-  const altoVidrio = (newAbAlpha.alto - 132) / 1000;
+  const anchoVidrio =
+    (newAbAlpha.ancho - 232 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    2 /
+    1000;
+  const altoVidrio =
+    (newAbAlpha.alto - 132 - (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0)) /
+    1000;
   const areaVidrio = anchoVidrio * altoVidrio * 2;
   newAbAlpha.pesoHoja = (areaVidrio / 2) * 2.5 * newAbAlpha.selEspesorVidrio;
   const precioVidrio = await Vidrio.obtenerCosto(
@@ -382,10 +416,21 @@ vidrioAlpha.dosHojasBatientesVid = async (newAbAlpha) => {
 
 vidrioAlpha.dosHojasBatientesFijoInferiorVid = async (newAbAlpha) => {
   // Vidrios
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
-  const anchoVidrio = (newAbAlpha.ancho - 232) / 2 / 1000;
+  const altoBat =
+    newAbAlpha.alto -
+    newAbAlpha.altofijo -
+    (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0);
+  const anchoVidrio =
+    (newAbAlpha.ancho - 232 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    2 /
+    1000;
   const altoVidrio = (altoBat - 132) / 1000;
-  const anchoFijo = (newAbAlpha.ancho - 25 * 2 - 8) / 1000;
+  const anchoFijo =
+    (newAbAlpha.ancho -
+      25 * 2 -
+      8 -
+      (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
   const altoFijo = (newAbAlpha.altofijo - 25 * 2 - 8) / 1000;
   const areaVidrio = anchoVidrio * altoVidrio * 2 + anchoFijo * altoFijo * 1;
   newAbAlpha.pesoHoja = (areaVidrio / 2) * 2.5 * newAbAlpha.selEspesorVidrio;
@@ -400,8 +445,13 @@ vidrioAlpha.dosHojasBatientesFijoInferiorVid = async (newAbAlpha) => {
 
 vidrioAlpha.dosHojasOscilobatientesVid = async (newAbAlpha) => {
   // Vidrios
-  const anchoVidrio = (newAbAlpha.ancho - 234) / 2 / 1000;
-  const altoVidrio = (newAbAlpha.alto - 134) / 1000;
+  const anchoVidrio =
+    (newAbAlpha.ancho - 234 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    2 /
+    1000;
+  const altoVidrio =
+    (newAbAlpha.alto - 134 - (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0)) /
+    1000;
   const areaVidrio = anchoVidrio * altoVidrio * 2;
   newAbAlpha.pesoHoja = (areaVidrio / 2) * 2.5 * newAbAlpha.selEspesorVidrio;
   const precioVidrio = await Vidrio.obtenerCosto(
@@ -415,10 +465,21 @@ vidrioAlpha.dosHojasOscilobatientesVid = async (newAbAlpha) => {
 
 vidrioAlpha.dosHojasOscilobatientesFijoInferiorVid = async (newAbAlpha) => {
   // Vidrios
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
-  const anchoVidrio = (newAbAlpha.ancho - 234) / 2 / 1000;
+  const altoBat =
+    newAbAlpha.alto -
+    newAbAlpha.altofijo -
+    (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0);
+  const anchoVidrio =
+    (newAbAlpha.ancho - 234 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    2 /
+    1000;
   const altoVidrio = (altoBat - 134) / 1000;
-  const anchoFijo = (newAbAlpha.ancho - 25 * 2 - 8) / 1000;
+  const anchoFijo =
+    (newAbAlpha.ancho -
+      25 * 2 -
+      8 -
+      (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
   const altoFijo = (newAbAlpha.altofijo - 25 * 2 - 8) / 1000;
   const areaVidrio = anchoVidrio * altoVidrio * 2 + anchoFijo * altoFijo * 1;
   newAbAlpha.pesoHoja = (areaVidrio / 2) * 2.5 * newAbAlpha.selEspesorVidrio;
@@ -433,8 +494,12 @@ vidrioAlpha.dosHojasOscilobatientesFijoInferiorVid = async (newAbAlpha) => {
 
 vidrioAlpha.unaPuertaHojaBatienteVid = async (newAbAlpha) => {
   // Vidrios
-  const anchoVidrio = (newAbAlpha.ancho - 238) / 1000;
-  const altoVidrio = (newAbAlpha.alto - 245) / 1000;
+  const anchoVidrio =
+    (newAbAlpha.ancho - 238 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
+  const altoVidrio =
+    (newAbAlpha.alto - 245 - (newAbAlpha.solera == "si" ? 17 * 1 + 2 : 0)) /
+    1000;
   const areaVidrio = anchoVidrio * altoVidrio * 1;
   newAbAlpha.pesoHoja = (areaVidrio / 1) * 2.5 * newAbAlpha.selEspesorVidrio;
   const precioVidrio = await Vidrio.obtenerCosto(
@@ -448,8 +513,13 @@ vidrioAlpha.unaPuertaHojaBatienteVid = async (newAbAlpha) => {
 
 vidrioAlpha.unaPuertaDosHojasBatientesVid = async (newAbAlpha) => {
   // Vidrios
-  const anchoVidrio = (newAbAlpha.ancho - 403) / 2 / 1000;
-  const altoVidrio = (newAbAlpha.alto - 249) / 1000;
+  const anchoVidrio =
+    (newAbAlpha.ancho - 403 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    2 /
+    1000;
+  const altoVidrio =
+    (newAbAlpha.alto - 249 - (newAbAlpha.solera == "si" ? 17 * 1 + 2 : 0)) /
+    1000;
   const areaVidrio = anchoVidrio * altoVidrio * 2;
   newAbAlpha.pesoHoja = (areaVidrio / 2) * 2.5 * newAbAlpha.selEspesorVidrio;
   const precioVidrio = await Vidrio.obtenerCosto(
@@ -463,8 +533,12 @@ vidrioAlpha.unaPuertaDosHojasBatientesVid = async (newAbAlpha) => {
 
 vidrioAlpha.unaHojaProyectanteVid = async (newAbAlpha) => {
   // Vidrios
-  const anchoVidrio = (newAbAlpha.ancho - 150) / 1000;
-  const altoVidrio = (newAbAlpha.alto - 150) / 1000;
+  const anchoVidrio =
+    (newAbAlpha.ancho - 150 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
+  const altoVidrio =
+    (newAbAlpha.alto - 150 - (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0)) /
+    1000;
   const areaVidrio = anchoVidrio * altoVidrio * 1;
   newAbAlpha.pesoHoja = (areaVidrio / 1) * 2.5 * newAbAlpha.selEspesorVidrio;
   const precioVidrio = await Vidrio.obtenerCosto(
@@ -478,14 +552,68 @@ vidrioAlpha.unaHojaProyectanteVid = async (newAbAlpha) => {
 
 vidrioAlpha.unaHojaProyectanteFijoInferiorVid = async (newAbAlpha) => {
   // Vidrios
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
-  const anchoVidrio = (newAbAlpha.ancho - 150) / 1000;
+  const altoBat =
+    newAbAlpha.alto -
+    newAbAlpha.altofijo -
+    (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0);
+  const anchoVidrio =
+    (newAbAlpha.ancho - 150 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
   const altoVidrio = (altoBat - 150) / 1000;
-  const anchoFijo = (newAbAlpha.ancho - 25 * 2) / 1000;
-  const altoFijo = (newAbAlpha.altofijo - 25 * 2) / 1000;
+  const anchoFijo =
+    (newAbAlpha.ancho -
+      25 * 2 -
+      8 -
+      (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
+  const altoFijo = (newAbAlpha.altofijo - 25 * 2 - 8) / 1000;
   const areaVidrio = anchoVidrio * altoVidrio * 1 + anchoFijo * altoFijo * 1;
   newAbAlpha.pesoHoja =
     anchoVidrio * altoVidrio * 2.5 * newAbAlpha.selEspesorVidrio;
+  const precioVidrio = await Vidrio.obtenerCosto(
+    "T" + newAbAlpha.selEspesorVidrio,
+    newAbAlpha.selColorVidrio,
+    newAbAlpha.proveedorvidrio
+  );
+  const vidriosT = Math.round((precioVidrio * areaVidrio * 100) / 1.1) / 100;
+  return vidriosT;
+};
+
+vidrioAlpha.unaHojaAbatibleVid = async (newAbAlpha) => {
+  // Vidrios
+  const anchoVidrio =
+    (newAbAlpha.ancho - 132 - (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
+  const altoVidrio =
+    (newAbAlpha.alto - 132 - (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0)) /
+    1000;
+  const areaVidrio = anchoVidrio * altoVidrio * 1;
+  newAbAlpha.pesoHoja = (areaVidrio / 1) * 2.5 * newAbAlpha.selEspesorVidrio;
+  const precioVidrio = await Vidrio.obtenerCosto(
+    "T" + newAbAlpha.selEspesorVidrio,
+    newAbAlpha.selColorVidrio,
+    newAbAlpha.proveedorvidrio
+  );
+  const vidriosT = Math.round((precioVidrio * areaVidrio * 100) / 1.1) / 100;
+  return vidriosT;
+};
+
+vidrioAlpha.unaHojaFijaVid = async (newAbAlpha) => {
+  // Vidrios
+  const anchoVidrio =
+    (newAbAlpha.ancho -
+      25 * 2 -
+      8 -
+      (newAbAlpha.solera == "si" ? 15 * 2 + 2 : 0)) /
+    1000;
+  const altoVidrio =
+    (newAbAlpha.alto -
+      25 * 2 -
+      8 -
+      (newAbAlpha.solera == "si" ? 17 * 2 + 2 : 0)) /
+    1000;
+  const areaVidrio = anchoVidrio * altoVidrio * 1;
+  newAbAlpha.pesoHoja = (areaVidrio / 1) * 2.5 * newAbAlpha.selEspesorVidrio;
   const precioVidrio = await Vidrio.obtenerCosto(
     "T" + newAbAlpha.selEspesorVidrio,
     newAbAlpha.selColorVidrio,

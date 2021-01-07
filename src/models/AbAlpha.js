@@ -21,6 +21,7 @@ const AbAlphaSchema = new Schema({
   selRefuerzo: { type: String },
   pesoHoja: { type: Number },
   parametro: { type: Number },
+  solera: { type: String },
   costo: { type: Number },
 });
 
@@ -122,6 +123,12 @@ AbAlphaSchema.methods.calcularAlpha = async (newAbAlpha) => {
       break;
     case "31F": // Ventana de una hoja proyectante con paño fijo inferior o superior
       costo = await newAbAlpha.unaHojaProyectanteFijoInferior(newAbAlpha);
+      break;
+    case "41": // Ventana de una hoja abatible
+      costo = await newAbAlpha.unaHojaAbatible(newAbAlpha);
+      break;
+    case "51": // Ventana de una hoja fija
+      costo = await newAbAlpha.unaHojaFija(newAbAlpha);
       break;
   }
   return costo;
@@ -1022,6 +1029,54 @@ AbAlphaSchema.methods.unaHojaProyectanteFijoInferior = async (newAbAlpha) => {
     newAbAlpha,
     pesoPerfiles
   );
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+  return costoT;
+};
+
+AbAlphaSchema.methods.unaHojaAbatible = async (newAbAlpha) => {
+  // VIDRIOS
+  const vidriosT = await vidrioAlpha.unaHojaAbatibleVid(newAbAlpha);
+
+  // PERFILES
+  const perfAlpha = await perfilesAlpha.unaHojaAbatiblePerf(newAbAlpha);
+  const costoPerfiles = perfAlpha[0];
+  const pesoPerfiles = perfAlpha[1];
+  const perfiles = perfAlpha[2];
+
+  // ACCESORIOS
+  const accAlpha = await accesorioAlpha.unaHojaAbatibleAcc(newAbAlpha);
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.unaHojaAbatibleMod(newAbAlpha, pesoPerfiles);
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+  return costoT;
+};
+
+AbAlphaSchema.methods.unaHojaFija = async (newAbAlpha) => {
+  // VIDRIOS
+  const vidriosT = await vidrioAlpha.unaHojaFijaVid(newAbAlpha);
+
+  // PERFILES
+  const perfAlpha = await perfilesAlpha.unaHojaFijaPerf(newAbAlpha);
+  const costoPerfiles = perfAlpha[0];
+  const pesoPerfiles = perfAlpha[1];
+  const perfiles = perfAlpha[2];
+
+  // ACCESORIOS
+  const accAlpha = await accesorioAlpha.unaHojaFijaAcc(newAbAlpha);
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.unaHojaFijaMod(newAbAlpha, pesoPerfiles);
 
   // SUMATORIA TOTAL
   const costoT =

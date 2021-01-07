@@ -16,7 +16,7 @@ perfilesCtrl.createNewPerfil = async (req, res) => {
 
 perfilesCtrl.renderPerfiles = async (req, res) => {
   const perfiles = await Perfil.find()
-    .sort({ linea: "desc" })
+    .sort({ codigo:"desc", linea: "desc" })
     .lean();
   res.render("perfiles/all-perfiles", { perfiles });
 };

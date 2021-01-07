@@ -23,6 +23,7 @@ abAlphaCtrl.calcAbAlphaForm = async (req, res) => {
     selCierre,
     selRefuerzo,
     parametro,
+    solera,
     costo,
   } = req.body;
   const newAbAlpha = new AbAlpha({
@@ -41,9 +42,9 @@ abAlphaCtrl.calcAbAlphaForm = async (req, res) => {
     selCierre,
     selRefuerzo,
     parametro,
+    solera,
     costo,
   });
-  // newAbAlpha.costo = 100;
   newAbAlpha.costo = await newAbAlpha.calcularAlpha(newAbAlpha);
   // await newAbAlpha.save();
   // await AbAlpha.findByIdAndDelete(newAbAlpha._id);

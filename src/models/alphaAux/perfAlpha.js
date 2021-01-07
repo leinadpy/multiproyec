@@ -230,6 +230,28 @@ perfilesAlpha.dosHojasCorredizasPerf = async (newAbAlpha) => {
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
 
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
     codigo = "AK222";
@@ -553,6 +575,28 @@ perfilesAlpha.dosHojasUnaCorredizaUnaFijaPerf = async (newAbAlpha) => {
   pesoPerfiles += perfil.subKG;
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
+
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
 
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
@@ -918,6 +962,28 @@ perfilesAlpha.tresHojasCorredizasPerf = async (newAbAlpha) => {
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
 
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
     codigo = "AK222";
@@ -1282,6 +1348,28 @@ perfilesAlpha.tresHojasDosCorredizasUnaFijaPerf = async (newAbAlpha) => {
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
 
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
     codigo = "AK222";
@@ -1625,6 +1713,28 @@ perfilesAlpha.cuatroHojasDosCorredizasDosFijasPerf = async (newAbAlpha) => {
   pesoPerfiles += perfil.subKG;
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
+
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
 
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
@@ -1990,6 +2100,28 @@ perfilesAlpha.cuatroHojasCorredizasPerf = async (newAbAlpha) => {
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
 
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
     codigo = "AK222";
@@ -2353,6 +2485,28 @@ perfilesAlpha.cuatroHojasTresCorredizasUnaFijaPerf = async (newAbAlpha) => {
   pesoPerfiles += perfil.subKG;
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
+
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
 
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
@@ -2718,6 +2872,28 @@ perfilesAlpha.cincoHojasCorredizasPerf = async (newAbAlpha) => {
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
 
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
     codigo = "AK222";
@@ -3081,6 +3257,28 @@ perfilesAlpha.cincoHojasCuatroCorredizasUnaFijaPerf = async (newAbAlpha) => {
   pesoPerfiles += perfil.subKG;
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
+
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
 
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
@@ -3446,6 +3644,28 @@ perfilesAlpha.seisHojasCorredizasPerf = async (newAbAlpha) => {
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
 
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
     codigo = "AK222";
@@ -3809,6 +4029,28 @@ perfilesAlpha.seisHojasCincoCorredizasUnaFijaPerf = async (newAbAlpha) => {
   pesoPerfiles += perfil.subKG;
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
+
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
 
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
@@ -4193,6 +4435,28 @@ perfilesAlpha.seisHojasCuatroCorredizasDosFijasPerf = async (newAbAlpha) => {
   pesoPerfiles += perfil.subKG;
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
+
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
 
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
@@ -4626,6 +4890,28 @@ perfilesAlpha.dosHojasCorredizasFijoInferiorPerf = async (newAbAlpha) => {
     perfiles.push(perfil);
   }
 
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (altoCorrediza - 70) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
   //  Marco perimetral combinable con corrediza
   codigo = "AK107";
   medida = newAbAlpha.altofijo / 1000;
@@ -5049,6 +5335,28 @@ perfilesAlpha.dosHojasUnaCorredizaUnaFijaFijoInferiorPerf = async (
       newAbAlpha.selColorAluminio,
       "Vidriocar S.A."
     );
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (altoCorrediza - 70) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
     costoPerfiles += perfil.subCosto;
     perfiles.push(perfil);
   }
@@ -5500,6 +5808,28 @@ perfilesAlpha.cuatroHojasDosCorredizasDosFijasFijoInferiorPerf = async (
     perfiles.push(perfil);
   }
 
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (altoCorrediza - 70) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
   //  Marco perimetral combinable con corrediza
   codigo = "AK107";
   medida = newAbAlpha.altofijo / 1000;
@@ -5896,6 +6226,28 @@ perfilesAlpha.dosHojasCorredizasConTelaPerf = async (newAbAlpha) => {
   pesoPerfiles += perfil.subKG;
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
+
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
 
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
@@ -6300,6 +6652,28 @@ perfilesAlpha.dosHojasUnaCorredizaUnaFijaConTelaPerf = async (newAbAlpha) => {
   pesoPerfiles += perfil.subKG;
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
+
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
 
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
@@ -6727,6 +7101,28 @@ perfilesAlpha.cuatroHojasDosCorredizasDosFijasConTelaPerf = async (
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
 
+  // Enguiador para cierre multipunto
+  if (newAbAlpha.selCierre == "3" || newAbAlpha.selCierre == "4") {
+    codigo = "AK224";
+    medida = (newAbAlpha.alto - 70) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
   // Refuerzo 1- Sin refuerzos, 2- Un lado refuerzo y 3- Doble refuerzo
   if (newAbAlpha.selRefuerzo != "1") {
     codigo = "AK222";
@@ -6830,11 +7226,58 @@ perfilesAlpha.unaHojaOscilobatientePerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -6854,7 +7297,7 @@ perfilesAlpha.unaHojaOscilobatientePerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.ancho - 40) / 1000;
+  medida = (ancho - 40) / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -6874,7 +7317,7 @@ perfilesAlpha.unaHojaOscilobatientePerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 124) / 1000;
+  medida = (ancho - 124) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -6895,14 +7338,14 @@ perfilesAlpha.unaHojaOscilobatientePerf = async (newAbAlpha) => {
   // Varilla de conexión
   codigo = "AK154";
   let oscilobat = 329;
-  if (newAbAlpha.ancho < 450) {
+  if (ancho < 450) {
     oscilobat = 329;
-  } else if (newAbAlpha.ancho < 650) {
+  } else if (ancho < 650) {
     oscilobat = 360;
   } else {
     oscilobat = 548;
   }
-  medida = (newAbAlpha.ancho - oscilobat) / 1000;
+  medida = (ancho - oscilobat) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ANCHO";
@@ -7001,7 +7444,7 @@ perfilesAlpha.unaHojaOscilobatientePerf = async (newAbAlpha) => {
 
   // Marco
   codigo = "AK101";
-  medida = newAbAlpha.alto / 1000;
+  medida = alto / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ALTO";
@@ -7021,7 +7464,7 @@ perfilesAlpha.unaHojaOscilobatientePerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.alto - 40) / 1000;
+  medida = (alto - 40) / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ALTO";
@@ -7041,7 +7484,7 @@ perfilesAlpha.unaHojaOscilobatientePerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.alto - 166) / 1000;
+  medida = (alto - 166) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ALTO";
@@ -7061,7 +7504,7 @@ perfilesAlpha.unaHojaOscilobatientePerf = async (newAbAlpha) => {
 
   // Varilla de conexión
   codigo = "AK154";
-  medida = (newAbAlpha.alto / 2 - 130) / 1000;
+  medida = (alto / 2 - 130) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ALTO";
@@ -7081,7 +7524,7 @@ perfilesAlpha.unaHojaOscilobatientePerf = async (newAbAlpha) => {
 
   // Varilla de conexión
   codigo = "AK154";
-  medida = (newAbAlpha.alto / 2 - 167) / 1000;
+  medida = (alto / 2 - 167) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ALTO";
@@ -7155,11 +7598,58 @@ perfilesAlpha.unaHojaOscilobatienteFijoInferiorPerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -7179,7 +7669,7 @@ perfilesAlpha.unaHojaOscilobatienteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.ancho - 40) / 1000;
+  medida = (ancho - 40) / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -7199,7 +7689,7 @@ perfilesAlpha.unaHojaOscilobatienteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 124) / 1000;
+  medida = (ancho - 124) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -7220,14 +7710,14 @@ perfilesAlpha.unaHojaOscilobatienteFijoInferiorPerf = async (newAbAlpha) => {
   // Varilla de conexión
   codigo = "AK154";
   let oscilobat = 329;
-  if (newAbAlpha.ancho < 450) {
+  if (ancho < 450) {
     oscilobat = 329;
-  } else if (newAbAlpha.ancho < 650) {
+  } else if (ancho < 650) {
     oscilobat = 360;
   } else {
     oscilobat = 548;
   }
-  medida = (newAbAlpha.ancho - oscilobat) / 1000;
+  medida = (ancho - oscilobat) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ANCHO";
@@ -7247,7 +7737,7 @@ perfilesAlpha.unaHojaOscilobatienteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Marco perimetral para el fijo
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -7267,7 +7757,7 @@ perfilesAlpha.unaHojaOscilobatienteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 25 * 2) / 1000;
+  medida = (ancho - 25 * 2) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -7287,7 +7777,7 @@ perfilesAlpha.unaHojaOscilobatienteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Unión - Clip
   codigo = "AK158";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -7385,7 +7875,7 @@ perfilesAlpha.unaHojaOscilobatienteFijoInferiorPerf = async (newAbAlpha) => {
   }
 
   // Marco
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  const altoBat = alto - newAbAlpha.altofijo;
   codigo = "AK101";
   medida = altoBat / 1000;
   corte = "45/45";
@@ -7581,11 +8071,58 @@ perfilesAlpha.unaHojaBatientePerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -7605,7 +8142,7 @@ perfilesAlpha.unaHojaBatientePerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.ancho - 38) / 1000;
+  medida = (ancho - 38) / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -7625,7 +8162,7 @@ perfilesAlpha.unaHojaBatientePerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 122) / 1000;
+  medida = (ancho - 122) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -7724,7 +8261,7 @@ perfilesAlpha.unaHojaBatientePerf = async (newAbAlpha) => {
 
   // Marco
   codigo = "AK101";
-  medida = newAbAlpha.alto / 1000;
+  medida = alto / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ALTO";
@@ -7744,7 +8281,7 @@ perfilesAlpha.unaHojaBatientePerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.alto - 38) / 1000;
+  medida = (alto - 38) / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ALTO";
@@ -7764,7 +8301,7 @@ perfilesAlpha.unaHojaBatientePerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.alto - 164) / 1000;
+  medida = (alto - 164) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ALTO";
@@ -7784,7 +8321,7 @@ perfilesAlpha.unaHojaBatientePerf = async (newAbAlpha) => {
 
   // Varilla de conexión
   codigo = "AK154";
-  medida = (newAbAlpha.alto / 2 - 138) / 1000;
+  medida = (alto / 2 - 138) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ALTO";
@@ -7804,7 +8341,7 @@ perfilesAlpha.unaHojaBatientePerf = async (newAbAlpha) => {
 
   // Varilla de conexión
   codigo = "AK154";
-  medida = (newAbAlpha.alto / 2 - 138) / 1000;
+  medida = (alto / 2 - 138) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ALTO";
@@ -7878,11 +8415,58 @@ perfilesAlpha.unaHojaBatienteFijoInferiorPerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -7902,7 +8486,7 @@ perfilesAlpha.unaHojaBatienteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.ancho - 38) / 1000;
+  medida = (ancho - 38) / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -7922,7 +8506,7 @@ perfilesAlpha.unaHojaBatienteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 122) / 1000;
+  medida = (ancho - 122) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -7942,7 +8526,7 @@ perfilesAlpha.unaHojaBatienteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Marco perimetral para el fijo
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -7962,7 +8546,7 @@ perfilesAlpha.unaHojaBatienteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 25 * 2) / 1000;
+  medida = (ancho - 25 * 2) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -7982,7 +8566,7 @@ perfilesAlpha.unaHojaBatienteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Unión - Clip
   codigo = "AK158";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -8080,7 +8664,7 @@ perfilesAlpha.unaHojaBatienteFijoInferiorPerf = async (newAbAlpha) => {
   }
 
   // Marco
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  const altoBat = alto - newAbAlpha.altofijo;
   codigo = "AK101";
   medida = altoBat / 1000;
   corte = "45/45";
@@ -8276,11 +8860,58 @@ perfilesAlpha.dosHojasBatientesPerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -8300,7 +8931,7 @@ perfilesAlpha.dosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.ancho - 44) / 2 / 1000;
+  medida = (ancho - 44) / 2 / 1000;
   corte = "45/45";
   cantidad = 4;
   lado = "ANCHO";
@@ -8320,7 +8951,7 @@ perfilesAlpha.dosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = ((newAbAlpha.ancho - 44) / 2 - 84) / 1000;
+  medida = ((ancho - 44) / 2 - 84) / 1000;
   corte = "90/90";
   cantidad = 4;
   lado = "ANCHO";
@@ -8419,7 +9050,7 @@ perfilesAlpha.dosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Marco
   codigo = "AK101";
-  medida = newAbAlpha.alto / 1000;
+  medida = alto / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ALTO";
@@ -8439,7 +9070,7 @@ perfilesAlpha.dosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.alto - 38) / 1000;
+  medida = (alto - 38) / 1000;
   corte = "45/45";
   cantidad = 4;
   lado = "ALTO";
@@ -8459,7 +9090,7 @@ perfilesAlpha.dosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.alto - 164) / 1000;
+  medida = (alto - 164) / 1000;
   corte = "90/90";
   cantidad = 4;
   lado = "ALTO";
@@ -8479,7 +9110,7 @@ perfilesAlpha.dosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Batiente central doble hoja
   codigo = "AK108";
-  medida = (newAbAlpha.alto - 104) / 1000;
+  medida = (alto - 104) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ALTO";
@@ -8499,7 +9130,7 @@ perfilesAlpha.dosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Varilla de conexión
   codigo = "AK154";
-  medida = (newAbAlpha.alto / 2 - 138) / 1000;
+  medida = (alto / 2 - 138) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ALTO";
@@ -8519,7 +9150,7 @@ perfilesAlpha.dosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Varilla de conexión
   codigo = "AK154";
-  medida = (newAbAlpha.alto / 2 - 138) / 1000;
+  medida = (alto / 2 - 138) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ALTO";
@@ -8593,11 +9224,58 @@ perfilesAlpha.dosHojasBatientesFijoInferiorPerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -8617,7 +9295,7 @@ perfilesAlpha.dosHojasBatientesFijoInferiorPerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.ancho - 44) / 2 / 1000;
+  medida = (ancho - 44) / 2 / 1000;
   corte = "45/45";
   cantidad = 4;
   lado = "ANCHO";
@@ -8637,7 +9315,7 @@ perfilesAlpha.dosHojasBatientesFijoInferiorPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = ((newAbAlpha.ancho - 44) / 2 - 84) / 1000;
+  medida = ((ancho - 44) / 2 - 84) / 1000;
   corte = "90/90";
   cantidad = 4;
   lado = "ANCHO";
@@ -8657,7 +9335,7 @@ perfilesAlpha.dosHojasBatientesFijoInferiorPerf = async (newAbAlpha) => {
 
   // Hoja Fija
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -8677,7 +9355,7 @@ perfilesAlpha.dosHojasBatientesFijoInferiorPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 25 * 2) / 1000;
+  medida = (ancho - 25 * 2) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -8697,7 +9375,7 @@ perfilesAlpha.dosHojasBatientesFijoInferiorPerf = async (newAbAlpha) => {
 
   // Unión - Clip
   codigo = "AK158";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -8795,7 +9473,7 @@ perfilesAlpha.dosHojasBatientesFijoInferiorPerf = async (newAbAlpha) => {
   }
 
   // Marco
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  const altoBat = alto - newAbAlpha.altofijo;
   codigo = "AK101";
   medida = altoBat / 1000;
   corte = "45/45";
@@ -9011,11 +9689,58 @@ perfilesAlpha.dosHojasOscilobatientesPerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -9035,7 +9760,7 @@ perfilesAlpha.dosHojasOscilobatientesPerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.ancho - 46) / 2 / 1000;
+  medida = (ancho - 46) / 2 / 1000;
   corte = "45/45";
   cantidad = 4;
   lado = "ANCHO";
@@ -9055,7 +9780,7 @@ perfilesAlpha.dosHojasOscilobatientesPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = ((newAbAlpha.ancho - 46) / 2 - 84) / 1000;
+  medida = ((ancho - 46) / 2 - 84) / 1000;
   corte = "90/90";
   cantidad = 4;
   lado = "ANCHO";
@@ -9076,14 +9801,14 @@ perfilesAlpha.dosHojasOscilobatientesPerf = async (newAbAlpha) => {
   // Varilla de conexión
   codigo = "AK154";
   let oscilobat = 329;
-  if (newAbAlpha.ancho / 2 < 450) {
+  if (ancho / 2 < 450) {
     oscilobat = 329;
-  } else if (newAbAlpha.ancho / 2 < 650) {
+  } else if (ancho / 2 < 650) {
     oscilobat = 360;
   } else {
     oscilobat = 548;
   }
-  medida = (newAbAlpha.ancho / 2 - oscilobat) / 1000;
+  medida = (ancho / 2 - oscilobat) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ANCHO";
@@ -9182,7 +9907,7 @@ perfilesAlpha.dosHojasOscilobatientesPerf = async (newAbAlpha) => {
 
   // Marco
   codigo = "AK101";
-  medida = newAbAlpha.alto / 1000;
+  medida = alto / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ALTO";
@@ -9202,7 +9927,7 @@ perfilesAlpha.dosHojasOscilobatientesPerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.alto - 40) / 1000;
+  medida = (alto - 40) / 1000;
   corte = "45/45";
   cantidad = 4;
   lado = "ALTO";
@@ -9222,7 +9947,7 @@ perfilesAlpha.dosHojasOscilobatientesPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.alto - 166) / 1000;
+  medida = (alto - 166) / 1000;
   corte = "90/90";
   cantidad = 4;
   lado = "ALTO";
@@ -9242,7 +9967,7 @@ perfilesAlpha.dosHojasOscilobatientesPerf = async (newAbAlpha) => {
 
   // Varilla de conexión
   codigo = "AK154";
-  medida = (newAbAlpha.alto / 2 - 130) / 1000;
+  medida = (alto / 2 - 130) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ALTO";
@@ -9262,7 +9987,7 @@ perfilesAlpha.dosHojasOscilobatientesPerf = async (newAbAlpha) => {
 
   // Varilla de conexión
   codigo = "AK154";
-  medida = (newAbAlpha.alto / 2 - 167) / 1000;
+  medida = (alto / 2 - 167) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ALTO";
@@ -9282,7 +10007,7 @@ perfilesAlpha.dosHojasOscilobatientesPerf = async (newAbAlpha) => {
 
   // Batiente central doble hoja
   codigo = "AK108";
-  medida = (newAbAlpha.alto - 106) / 1000;
+  medida = (alto - 106) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ALTO";
@@ -9356,11 +10081,58 @@ perfilesAlpha.dosHojasOscilobatientesFijoInferiorPerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -9380,7 +10152,7 @@ perfilesAlpha.dosHojasOscilobatientesFijoInferiorPerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK109";
-  medida = (newAbAlpha.ancho - 46) / 2 / 1000;
+  medida = (ancho - 46) / 2 / 1000;
   corte = "45/45";
   cantidad = 4;
   lado = "ANCHO";
@@ -9400,7 +10172,7 @@ perfilesAlpha.dosHojasOscilobatientesFijoInferiorPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = ((newAbAlpha.ancho - 46) / 2 - 84) / 1000;
+  medida = ((ancho - 46) / 2 - 84) / 1000;
   corte = "90/90";
   cantidad = 4;
   lado = "ANCHO";
@@ -9421,14 +10193,14 @@ perfilesAlpha.dosHojasOscilobatientesFijoInferiorPerf = async (newAbAlpha) => {
   // Varilla de conexión
   codigo = "AK154";
   let oscilobat = 329;
-  if (newAbAlpha.ancho / 2 < 450) {
+  if (ancho / 2 < 450) {
     oscilobat = 329;
-  } else if (newAbAlpha.ancho / 2 < 650) {
+  } else if (ancho / 2 < 650) {
     oscilobat = 360;
   } else {
     oscilobat = 548;
   }
-  medida = (newAbAlpha.ancho / 2 - oscilobat) / 1000;
+  medida = (ancho / 2 - oscilobat) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ANCHO";
@@ -9448,7 +10220,7 @@ perfilesAlpha.dosHojasOscilobatientesFijoInferiorPerf = async (newAbAlpha) => {
 
   // Marco perimetral para el fijo
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -9468,7 +10240,7 @@ perfilesAlpha.dosHojasOscilobatientesFijoInferiorPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 25 * 2) / 1000;
+  medida = (ancho - 25 * 2) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -9488,7 +10260,7 @@ perfilesAlpha.dosHojasOscilobatientesFijoInferiorPerf = async (newAbAlpha) => {
 
   // Unión - Clip
   codigo = "AK158";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -9586,7 +10358,7 @@ perfilesAlpha.dosHojasOscilobatientesFijoInferiorPerf = async (newAbAlpha) => {
   }
 
   // Marco
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  const altoBat = alto - newAbAlpha.altofijo;
   codigo = "AK101";
   medida = altoBat / 1000;
   corte = "45/45";
@@ -9802,11 +10574,58 @@ perfilesAlpha.unaPuertaHojaBatientePerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 1 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral para puerta
   codigo = "AK104";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 1;
   lado = "ANCHO";
@@ -9826,7 +10645,7 @@ perfilesAlpha.unaPuertaHojaBatientePerf = async (newAbAlpha) => {
 
   // Zócalo inferior puerta batiente
   codigo = "AK120";
-  medida = (newAbAlpha.ancho - 230) / 1000;
+  medida = (ancho - 230) / 1000;
   corte = "45/45";
   cantidad = 1;
   lado = "ANCHO";
@@ -9846,7 +10665,7 @@ perfilesAlpha.unaPuertaHojaBatientePerf = async (newAbAlpha) => {
 
   // Hoja puerta apertura batiente
   codigo = "AK110";
-  medida = (newAbAlpha.ancho - 86) / 1000;
+  medida = (ancho - 86) / 1000;
   corte = "45/45";
   cantidad = 1;
   lado = "ANCHO";
@@ -9866,7 +10685,7 @@ perfilesAlpha.unaPuertaHojaBatientePerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 230) / 1000;
+  medida = (ancho - 230) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -9886,7 +10705,7 @@ perfilesAlpha.unaPuertaHojaBatientePerf = async (newAbAlpha) => {
 
   // Cortavientos inferior zócalo
   codigo = "AK122";
-  medida = (newAbAlpha.ancho - 155 + 20) / 1000;
+  medida = (ancho - 155 + 20) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ANCHO";
@@ -9906,7 +10725,7 @@ perfilesAlpha.unaPuertaHojaBatientePerf = async (newAbAlpha) => {
 
   // Vedación base para piso
   codigo = "AK118";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ANCHO";
@@ -9970,7 +10789,7 @@ perfilesAlpha.unaPuertaHojaBatientePerf = async (newAbAlpha) => {
 
   // Marco
   codigo = "AK104";
-  medida = newAbAlpha.alto / 1000;
+  medida = alto / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ALTO";
@@ -9990,7 +10809,7 @@ perfilesAlpha.unaPuertaHojaBatientePerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK110";
-  medida = (newAbAlpha.alto - 47 - 4) / 1000;
+  medida = (alto - 47 - 4) / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ALTO";
@@ -10010,7 +10829,7 @@ perfilesAlpha.unaPuertaHojaBatientePerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.alto - 279) / 1000;
+  medida = (alto - 279) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ALTO";
@@ -10031,7 +10850,7 @@ perfilesAlpha.unaPuertaHojaBatientePerf = async (newAbAlpha) => {
   if (newAbAlpha.selCierre == "8") {
     // Varilla para accionamiento
     codigo = "AK154";
-    medida = (newAbAlpha.alto - 47 - 4) / 1000;
+    medida = (alto - 47 - 4) / 1000;
     corte = "90/90";
     cantidad = 1;
     lado = "ALTO";
@@ -10106,11 +10925,58 @@ perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 1 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral para puerta
   codigo = "AK104";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 1;
   lado = "ANCHO";
@@ -10130,7 +10996,7 @@ perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Zócalo inferior puerta batiente
   codigo = "AK120";
-  medida = (newAbAlpha.ancho - 379) / 2 / 1000;
+  medida = (ancho - 379) / 2 / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -10150,7 +11016,7 @@ perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Hoja puerta apertura batiente
   codigo = "AK110";
-  medida = (newAbAlpha.ancho - 91) / 2 / 1000;
+  medida = (ancho - 91) / 2 / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -10170,7 +11036,7 @@ perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 379) / 2 / 1000;
+  medida = (ancho - 379) / 2 / 1000;
   corte = "90/90";
   cantidad = 4;
   lado = "ANCHO";
@@ -10190,7 +11056,7 @@ perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Cortavientos inferior zócalo
   codigo = "AK122";
-  medida = ((newAbAlpha.ancho - 229) / 2 + 20) / 1000;
+  medida = ((ancho - 229) / 2 + 20) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -10210,7 +11076,7 @@ perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Vedación base para piso
   codigo = "AK118";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ANCHO";
@@ -10274,7 +11140,7 @@ perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Marco
   codigo = "AK104";
-  medida = newAbAlpha.alto / 1000;
+  medida = alto / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ALTO";
@@ -10294,7 +11160,7 @@ perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK110";
-  medida = (newAbAlpha.alto - 47 - 4) / 1000;
+  medida = (alto - 47 - 4) / 1000;
   corte = "45/45";
   cantidad = 4;
   lado = "ALTO";
@@ -10314,7 +11180,7 @@ perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.alto - 279) / 1000;
+  medida = (alto - 279) / 1000;
   corte = "90/90";
   cantidad = 4;
   lado = "ALTO";
@@ -10334,7 +11200,7 @@ perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
 
   // Batiente central doble hoja
   codigo = "AK108";
-  medida = (newAbAlpha.alto - 80 - 4) / 1000;
+  medida = (alto - 80 - 4) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ALTO";
@@ -10355,7 +11221,7 @@ perfilesAlpha.unaPuertaDosHojasBatientesPerf = async (newAbAlpha) => {
   if (newAbAlpha.selCierre == "8") {
     // Varilla para accionamiento
     codigo = "AK154";
-    medida = (newAbAlpha.alto - 47 - 4) / 1000;
+    medida = (alto - 47 - 4) / 1000;
     corte = "90/90";
     cantidad = 1;
     lado = "ALTO";
@@ -10430,11 +11296,58 @@ perfilesAlpha.unaHojaProyectantePerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -10454,7 +11367,7 @@ perfilesAlpha.unaHojaProyectantePerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK134";
-  medida = (newAbAlpha.ancho - 38) / 1000;
+  medida = (ancho - 38) / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -10474,7 +11387,7 @@ perfilesAlpha.unaHojaProyectantePerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 138) / 1000;
+  medida = (ancho - 138) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -10494,7 +11407,7 @@ perfilesAlpha.unaHojaProyectantePerf = async (newAbAlpha) => {
 
   // Varilla de conexión
   codigo = "AK154";
-  medida = (newAbAlpha.ancho - 128) / 2 / 1000;
+  medida = (ancho - 128) / 2 / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ANCHO";
@@ -10514,7 +11427,7 @@ perfilesAlpha.unaHojaProyectantePerf = async (newAbAlpha) => {
 
   // Desagote interior proyectante
   codigo = "AK160";
-  medida = (newAbAlpha.ancho - 38) / 1000;
+  medida = (ancho - 38) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ANCHO";
@@ -10613,7 +11526,7 @@ perfilesAlpha.unaHojaProyectantePerf = async (newAbAlpha) => {
 
   // Marco
   codigo = "AK101";
-  medida = newAbAlpha.alto / 1000;
+  medida = alto / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ALTO";
@@ -10633,7 +11546,7 @@ perfilesAlpha.unaHojaProyectantePerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK134";
-  medida = (newAbAlpha.alto - 38) / 1000;
+  medida = (alto - 38) / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ALTO";
@@ -10653,7 +11566,7 @@ perfilesAlpha.unaHojaProyectantePerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.alto - 180) / 1000;
+  medida = (alto - 180) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ALTO";
@@ -10727,11 +11640,58 @@ perfilesAlpha.unaHojaProyectanteFijoInferiorPerf = async (newAbAlpha) => {
   let corte = "";
   let pesoPerfiles = 0;
   let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
   const parametro = newAbAlpha.parametro;
   // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
   // Marco perimetral
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -10751,7 +11711,7 @@ perfilesAlpha.unaHojaProyectanteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Hoja
   codigo = "AK134";
-  medida = (newAbAlpha.ancho - 38) / 1000;
+  medida = (ancho - 38) / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -10771,7 +11731,7 @@ perfilesAlpha.unaHojaProyectanteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 138) / 1000;
+  medida = (ancho - 138) / 1000;
   corte = "90/90";
   cantidad = 2;
   lado = "ANCHO";
@@ -10791,7 +11751,7 @@ perfilesAlpha.unaHojaProyectanteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Varilla de conexión
   codigo = "AK154";
-  medida = (newAbAlpha.ancho - 128) / 2 / 1000;
+  medida = (ancho - 128) / 2 / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ANCHO";
@@ -10811,7 +11771,7 @@ perfilesAlpha.unaHojaProyectanteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Desagote interior proyectante
   codigo = "AK160";
-  medida = (newAbAlpha.ancho - 38) / 1000;
+  medida = (ancho - 91) / 1000;
   corte = "90/90";
   cantidad = 1;
   lado = "ANCHO";
@@ -10831,7 +11791,7 @@ perfilesAlpha.unaHojaProyectanteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Marco perimetral FIJO
   codigo = "AK101";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -10851,7 +11811,7 @@ perfilesAlpha.unaHojaProyectanteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Contravidrio
   codigo = "AK130";
-  medida = (newAbAlpha.ancho - 25 * 2) / 1000;
+  medida = (ancho - 25 * 2) / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -10871,7 +11831,7 @@ perfilesAlpha.unaHojaProyectanteFijoInferiorPerf = async (newAbAlpha) => {
 
   // Unión - clip
   codigo = "AK158";
-  medida = newAbAlpha.ancho / 1000;
+  medida = ancho / 1000;
   corte = "45/45";
   cantidad = 2;
   lado = "ANCHO";
@@ -10968,7 +11928,7 @@ perfilesAlpha.unaHojaProyectanteFijoInferiorPerf = async (newAbAlpha) => {
     costoPerfiles += perfil.subCosto;
   }
 
-  const altoProy = newAbAlpha.alto - newAbAlpha.altofijo;
+  const altoProy = alto - newAbAlpha.altofijo;
   // Marco
   codigo = "AK101";
   medida = altoProy / 1000;
@@ -11068,7 +12028,576 @@ perfilesAlpha.unaHojaProyectanteFijoInferiorPerf = async (newAbAlpha) => {
   pesoPerfiles += perfil.subKG;
   costoPerfiles += perfil.subCosto;
   perfiles.push(perfil);
-  
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.alto + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.alto + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesAlpha.unaHojaAbatiblePerf = async (newAbAlpha) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  let ancho = 0;
+  let alto = 0;
+  const parametro = newAbAlpha.parametro;
+  // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
+  // Marco perimetral
+  codigo = "AK101";
+  medida = ancho / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (ancho - 38) / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (ancho - 122) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.ancho + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else if (newAbAlpha.selContramarco == "2") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    codigo = "RM020";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+  }
+
+  // Marco
+  codigo = "AK101";
+  medida = alto / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Hoja
+  codigo = "AK109";
+  medida = (alto - 38) / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (alto - 164) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.alto + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.alto + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesAlpha.unaHojaFijaPerf = async (newAbAlpha) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let corte = "";
+  let ancho = 0;
+  let alto = 0;
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  const parametro = newAbAlpha.parametro;
+  // Perfiles calcPerfil(codigo, medida, corte, cantidad)
+  // Solera
+  if (newAbAlpha.solera == "si") {
+    ancho = newAbAlpha.ancho - 15 * 2 - 2;
+    alto = newAbAlpha.alto - 17 * 2 - 2;
+    codigo = "IN044";
+    medida = (newAbAlpha.ancho - 15 * 2) / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+
+    codigo = "IN043";
+    medida = newAbAlpha.alto / 1000;
+    corte = "90/90";
+    cantidad = 2;
+    lado = "ALTO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else {
+    ancho = newAbAlpha.ancho;
+    alto = newAbAlpha.alto;
+  }
+
+  // Marco perimetral
+  codigo = "AK101";
+  medida = ancho / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (ancho - 25 * 2) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Premarco
+  if (newAbAlpha.selPremarco == "1") {
+    codigo = "CM200";
+    medida = (newAbAlpha.ancho + 28) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  }
+
+  // Contramarco
+  if (newAbAlpha.selContramarco == "1") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 2;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    perfiles.push(perfil);
+  } else if (newAbAlpha.selContramarco == "2") {
+    codigo = "RM019";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+    codigo = "RM020";
+    medida = (newAbAlpha.ancho + 131) / 1000;
+    corte = "45/45";
+    cantidad = 1;
+    lado = "ANCHO";
+    perfil = await calcPerfil(
+      codigo,
+      lado,
+      medida,
+      corte,
+      cantidad,
+      parametro,
+      newAbAlpha.selColorAluminio,
+      "Vidriocar S.A."
+    );
+    pesoPerfiles += perfil.subKG;
+    costoPerfiles += perfil.subCosto;
+  }
+
+  // Marco
+  codigo = "AK101";
+  medida = alto / 1000;
+  corte = "45/45";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Contravidrio
+  codigo = "AK130";
+  medida = (alto - 25 * 2) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfil(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    newAbAlpha.selColorAluminio,
+    "Vidriocar S.A."
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
   // Premarco
   if (newAbAlpha.selPremarco == "1") {
     codigo = "CM200";

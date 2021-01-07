@@ -1479,7 +1479,6 @@ accesoriosAlpha.cuatroHojasDosCorredizasDosFijasAcc = async (newAbAlpha) => {
   );
   costoAccesorios += accesorio.subCosto;
   accesorios.push(accesorio);
-
   // Cierre
   switch (newAbAlpha.selCierre) {
     case "1": // Cierre automático sin llave
@@ -6738,10 +6737,18 @@ accesoriosAlpha.unaHojaOscilobatienteAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
   // Accesorios
   // Junta central en marco
   codigo = "GUAJC";
-  cantidad = (2 * newAbAlpha.ancho + 2 * newAbAlpha.alto) / 1000;
+  cantidad = (2 * ancho + 2 * alto) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -6752,7 +6759,7 @@ accesoriosAlpha.unaHojaOscilobatienteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad = (4 * (newAbAlpha.ancho - 40) + 4 * (newAbAlpha.alto - 40)) / 1000;
+  cantidad = (4 * (ancho - 40) + 4 * (alto - 40)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -6763,8 +6770,7 @@ accesoriosAlpha.unaHojaOscilobatienteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 124) + 2 * (newAbAlpha.alto - 166)) / 1000;
+  cantidad = (2 * (ancho - 124) + 2 * (alto - 166)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -6775,8 +6781,7 @@ accesoriosAlpha.unaHojaOscilobatienteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 124) + 2 * (newAbAlpha.alto - 166)) / 1000;
+  cantidad = (2 * (ancho - 124) + 2 * (alto - 166)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -6808,9 +6813,9 @@ accesoriosAlpha.unaHojaOscilobatienteAcc = async (newAbAlpha) => {
   costoAccesorios += accesorio.subCosto;
   accesorios.push(accesorio);
   // Compás oscilobatiente mediano p/hoja
-  if (newAbAlpha.ancho < 450) {
+  if (ancho < 450) {
     codigo = "A3400.20";
-  } else if (newAbAlpha.ancho < 650) {
+  } else if (ancho < 650) {
     codigo = "A3400.21";
   } else {
     codigo = "A3400.22";
@@ -6890,11 +6895,19 @@ accesoriosAlpha.unaHojaOscilobatienteFijoInferiorAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
+  const altoBat = alto - newAbAlpha.altofijo;
   // Accesorios
   // Junta central en marco
   codigo = "GUAJC";
-  cantidad = (2 * newAbAlpha.ancho + 2 * altoBat) / 1000;
+  cantidad = (2 * ancho + 2 * altoBat) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -6905,7 +6918,7 @@ accesoriosAlpha.unaHojaOscilobatienteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad = (4 * (newAbAlpha.ancho - 40) + 4 * (altoBat - 40)) / 1000;
+  cantidad = (4 * (ancho - 40) + 4 * (altoBat - 40)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -6916,7 +6929,7 @@ accesoriosAlpha.unaHojaOscilobatienteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad = (2 * (newAbAlpha.ancho - 124) + 2 * (altoBat - 166)) / 1000;
+  cantidad = (2 * (ancho - 124) + 2 * (altoBat - 166)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -6927,7 +6940,7 @@ accesoriosAlpha.unaHojaOscilobatienteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad = (2 * (newAbAlpha.ancho - 124) + 2 * (altoBat - 166)) / 1000;
+  cantidad = (2 * (ancho - 124) + 2 * (altoBat - 166)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -6938,9 +6951,7 @@ accesoriosAlpha.unaHojaOscilobatienteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
-    1000;
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -6951,9 +6962,7 @@ accesoriosAlpha.unaHojaOscilobatienteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
-    1000;
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -6985,9 +6994,9 @@ accesoriosAlpha.unaHojaOscilobatienteFijoInferiorAcc = async (newAbAlpha) => {
   costoAccesorios += accesorio.subCosto;
   accesorios.push(accesorio);
   // Compás oscilobatiente mediano p/hoja
-  if (newAbAlpha.ancho < 450) {
+  if (ancho < 450) {
     codigo = "A3400.20";
-  } else if (newAbAlpha.ancho < 650) {
+  } else if (ancho < 650) {
     codigo = "A3400.21";
   } else {
     codigo = "A3400.22";
@@ -7067,10 +7076,18 @@ accesoriosAlpha.unaHojaBatienteAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
   // Accesorios
   // Junta central en marco
   codigo = "GUAJC";
-  cantidad = (2 * newAbAlpha.ancho + 2 * newAbAlpha.alto) / 1000;
+  cantidad = (2 * ancho + 2 * alto) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7081,7 +7098,7 @@ accesoriosAlpha.unaHojaBatienteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad = (4 * (newAbAlpha.ancho - 38) + 4 * (newAbAlpha.alto - 38)) / 1000;
+  cantidad = (4 * (ancho - 38) + 4 * (alto - 38)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7092,8 +7109,7 @@ accesoriosAlpha.unaHojaBatienteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 122) + 2 * (newAbAlpha.alto - 164)) / 1000;
+  cantidad = (2 * (ancho - 122) + 2 * (alto - 164)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7104,8 +7120,7 @@ accesoriosAlpha.unaHojaBatienteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 122) + 2 * (newAbAlpha.alto - 164)) / 1000;
+  cantidad = (2 * (ancho - 122) + 2 * (alto - 164)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7235,11 +7250,19 @@ accesoriosAlpha.unaHojaBatienteFijoInferiorAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
+  const altoBat = alto - newAbAlpha.altofijo;
   // Accesorios
   // Junta central en marco
   codigo = "GUAJC";
-  cantidad = (2 * newAbAlpha.ancho + 2 * altoBat) / 1000;
+  cantidad = (2 * ancho + 2 * altoBat) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7250,7 +7273,7 @@ accesoriosAlpha.unaHojaBatienteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad = (4 * (newAbAlpha.ancho - 38) + 4 * (altoBat - 38)) / 1000;
+  cantidad = (4 * (ancho - 38) + 4 * (altoBat - 38)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7261,7 +7284,7 @@ accesoriosAlpha.unaHojaBatienteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad = (2 * (newAbAlpha.ancho - 122) + 2 * (altoBat - 164)) / 1000;
+  cantidad = (2 * (ancho - 122) + 2 * (altoBat - 164)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7272,7 +7295,7 @@ accesoriosAlpha.unaHojaBatienteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad = (2 * (newAbAlpha.ancho - 122) + 2 * (altoBat - 164)) / 1000;
+  cantidad = (2 * (ancho - 122) + 2 * (altoBat - 164)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7283,9 +7306,7 @@ accesoriosAlpha.unaHojaBatienteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
-    1000;
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7296,9 +7317,7 @@ accesoriosAlpha.unaHojaBatienteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
-    1000;
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7428,10 +7447,18 @@ accesoriosAlpha.dosHojasBatientesAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
   // Accesorios
   // Junta central en marco
   codigo = "GUAJC";
-  cantidad = (2 * newAbAlpha.ancho + 3 * newAbAlpha.alto) / 1000;
+  cantidad = (2 * ancho + 3 * alto) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7442,8 +7469,7 @@ accesoriosAlpha.dosHojasBatientesAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad =
-    ((8 * (newAbAlpha.ancho - 44)) / 2 + 8 * (newAbAlpha.alto - 38)) / 1000;
+  cantidad = ((8 * (ancho - 44)) / 2 + 8 * (alto - 38)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7454,9 +7480,7 @@ accesoriosAlpha.dosHojasBatientesAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (4 * ((newAbAlpha.ancho - 44) / 2 - 84) + 4 * (newAbAlpha.alto - 164)) /
-    1000;
+  cantidad = (4 * ((ancho - 44) / 2 - 84) + 4 * (alto - 164)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7467,9 +7491,7 @@ accesoriosAlpha.dosHojasBatientesAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (4 * ((newAbAlpha.ancho - 44) / 2 - 84) + 4 * (newAbAlpha.alto - 164)) /
-    1000;
+  cantidad = (4 * ((ancho - 44) / 2 - 84) + 4 * (alto - 164)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7599,11 +7621,19 @@ accesoriosAlpha.dosHojasBatientesFijoInferiorAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
+  const altoBat = alto - newAbAlpha.altofijo;
   // Accesorios
   // Junta central en marco
   codigo = "GUAJC";
-  cantidad = (2 * newAbAlpha.ancho + 3 * altoBat) / 1000;
+  cantidad = (2 * ancho + 3 * altoBat) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7614,7 +7644,7 @@ accesoriosAlpha.dosHojasBatientesFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad = ((8 * (newAbAlpha.ancho - 44)) / 2 + 8 * (altoBat - 38)) / 1000;
+  cantidad = ((8 * (ancho - 44)) / 2 + 8 * (altoBat - 38)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7625,8 +7655,7 @@ accesoriosAlpha.dosHojasBatientesFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (4 * ((newAbAlpha.ancho - 44) / 2 - 84) + 4 * (altoBat - 164)) / 1000;
+  cantidad = (4 * ((ancho - 44) / 2 - 84) + 4 * (altoBat - 164)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7637,8 +7666,7 @@ accesoriosAlpha.dosHojasBatientesFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (4 * ((newAbAlpha.ancho - 44) / 2 - 84) + 4 * (altoBat - 164)) / 1000;
+  cantidad = (4 * ((ancho - 44) / 2 - 84) + 4 * (altoBat - 164)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7649,9 +7677,7 @@ accesoriosAlpha.dosHojasBatientesFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
-    1000;
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7662,9 +7688,7 @@ accesoriosAlpha.dosHojasBatientesFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
-    1000;
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7794,12 +7818,18 @@ accesoriosAlpha.dosHojasOscilobatientesAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
   // Accesorios
   // Junta central en marco
   codigo = "GUAJC";
-  cantidad =
-    (2 * newAbAlpha.ancho + (newAbAlpha.alto - 106) + 2 * newAbAlpha.alto) /
-    1000;
+  cantidad = (2 * ancho + (alto - 106) + 2 * alto) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7810,8 +7840,7 @@ accesoriosAlpha.dosHojasOscilobatientesAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad =
-    ((8 * (newAbAlpha.ancho - 46)) / 2 + 8 * (newAbAlpha.alto - 40)) / 1000;
+  cantidad = ((8 * (ancho - 46)) / 2 + 8 * (alto - 40)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7822,9 +7851,7 @@ accesoriosAlpha.dosHojasOscilobatientesAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (4 * ((newAbAlpha.ancho - 46) / 2 - 84) + 4 * (newAbAlpha.alto - 166)) /
-    1000;
+  cantidad = (4 * ((ancho - 46) / 2 - 84) + 4 * (alto - 166)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7835,9 +7862,7 @@ accesoriosAlpha.dosHojasOscilobatientesAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (4 * ((newAbAlpha.ancho - 46) / 2 - 84) + 4 * (newAbAlpha.alto - 166)) /
-    1000;
+  cantidad = (4 * ((ancho - 46) / 2 - 84) + 4 * (alto - 166)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -7995,11 +8020,19 @@ accesoriosAlpha.dosHojasOscilobatientesFijoInferiorAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
-  const altoBat = newAbAlpha.alto - newAbAlpha.altofijo;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
+  const altoBat = alto - newAbAlpha.altofijo;
   // Accesorios
   // Junta central en marco
   codigo = "GUAJC";
-  cantidad = (2 * newAbAlpha.ancho + (altoBat - 106) + 2 * altoBat) / 1000;
+  cantidad = (2 * ancho + (altoBat - 106) + 2 * altoBat) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8010,7 +8043,7 @@ accesoriosAlpha.dosHojasOscilobatientesFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad = ((8 * (newAbAlpha.ancho - 46)) / 2 + 8 * (altoBat - 40)) / 1000;
+  cantidad = ((8 * (ancho - 46)) / 2 + 8 * (altoBat - 40)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8021,8 +8054,7 @@ accesoriosAlpha.dosHojasOscilobatientesFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (4 * ((newAbAlpha.ancho - 46) / 2 - 84) + 4 * (altoBat - 166)) / 1000;
+  cantidad = (4 * ((ancho - 46) / 2 - 84) + 4 * (altoBat - 166)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8033,8 +8065,7 @@ accesoriosAlpha.dosHojasOscilobatientesFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (4 * ((newAbAlpha.ancho - 46) / 2 - 84) + 4 * (altoBat - 166)) / 1000;
+  cantidad = (4 * ((ancho - 46) / 2 - 84) + 4 * (altoBat - 166)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8045,9 +8076,7 @@ accesoriosAlpha.dosHojasOscilobatientesFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
-    1000;
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8058,9 +8087,7 @@ accesoriosAlpha.dosHojasOscilobatientesFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
-    1000;
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8218,15 +8245,18 @@ accesoriosAlpha.unaPuertaHojaBatienteAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 1 - 2)
+    : (alto = newAbAlpha.alto);
   // Accesorios
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad =
-    (2 * newAbAlpha.alto +
-      2 * (newAbAlpha.alto - 51) +
-      1 * newAbAlpha.ancho +
-      1 * (newAbAlpha.ancho - 86)) /
-    1000;
+  cantidad = (2 * alto + 2 * (alto - 51) + 1 * ancho + 1 * (ancho - 86)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8237,8 +8267,7 @@ accesoriosAlpha.unaPuertaHojaBatienteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 230) + 2 * (newAbAlpha.alto - 279)) / 1000;
+  cantidad = (2 * (ancho - 230) + 2 * (alto - 279)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8249,8 +8278,7 @@ accesoriosAlpha.unaPuertaHojaBatienteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 230) + 2 * (newAbAlpha.alto - 279)) / 1000;
+  cantidad = (2 * (ancho - 230) + 2 * (alto - 279)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8261,7 +8289,7 @@ accesoriosAlpha.unaPuertaHojaBatienteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Felpa 7x7
   codigo = "FEL7X7NEFS";
-  cantidad = (2 * (newAbAlpha.ancho - 155 + 20)) / 1000;
+  cantidad = (2 * (ancho - 155 + 20)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8272,7 +8300,7 @@ accesoriosAlpha.unaPuertaHojaBatienteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta central de estanqueidad en marco
   codigo = "GUAJC";
-  cantidad = (1 * newAbAlpha.ancho + 2 * newAbAlpha.alto) / 1000;
+  cantidad = (1 * ancho + 2 * alto) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8421,15 +8449,23 @@ accesoriosAlpha.unaPuertaDosHojasBatientesAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 1 - 2)
+    : (alto = newAbAlpha.alto);
   // Accesorios
   // Junta central en marco
   codigo = "GUA30947";
   cantidad =
-    (2 * newAbAlpha.alto +
-      1 * (newAbAlpha.alto - 80 - 4) +
-      4 * (newAbAlpha.alto - 51) +
-      1 * newAbAlpha.ancho +
-      (2 * (newAbAlpha.ancho - 91)) / 2) /
+    (2 * alto +
+      1 * (alto - 80 - 4) +
+      4 * (alto - 51) +
+      1 * ancho +
+      (2 * (ancho - 91)) / 2) /
     1000;
   accesorio = await calcAccesorio(
     codigo,
@@ -8441,8 +8477,7 @@ accesoriosAlpha.unaPuertaDosHojasBatientesAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    ((4 * (newAbAlpha.ancho - 379)) / 2 + 4 * (newAbAlpha.alto - 279)) / 1000;
+  cantidad = ((4 * (ancho - 379)) / 2 + 4 * (alto - 279)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8453,8 +8488,7 @@ accesoriosAlpha.unaPuertaDosHojasBatientesAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    ((4 * (newAbAlpha.ancho - 379)) / 2 + 4 * (newAbAlpha.alto - 279)) / 1000;
+  cantidad = ((4 * (ancho - 379)) / 2 + 4 * (alto - 279)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8465,7 +8499,7 @@ accesoriosAlpha.unaPuertaDosHojasBatientesAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Felpa 7x7
   codigo = "FEL7X7NEFS";
-  cantidad = ((4 * (newAbAlpha.ancho - 229)) / 2 + 20) / 1000;
+  cantidad = ((4 * (ancho - 229)) / 2 + 20) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8476,7 +8510,7 @@ accesoriosAlpha.unaPuertaDosHojasBatientesAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta central de estanqueidad en marco
   codigo = "GUAJC";
-  cantidad = (1 * newAbAlpha.ancho + 3 * newAbAlpha.alto) / 1000;
+  cantidad = (1 * ancho + 3 * alto) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8669,10 +8703,18 @@ accesoriosAlpha.unaHojaProyectanteAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
   // Accesorios
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad = (4 * (newAbAlpha.ancho - 38) + 4 * (newAbAlpha.alto - 38)) / 1000;
+  cantidad = (4 * (ancho - 38) + 4 * (alto - 38)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8683,8 +8725,7 @@ accesoriosAlpha.unaHojaProyectanteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 138) + 2 * (newAbAlpha.alto - 180)) / 1000;
+  cantidad = (2 * (ancho - 138) + 2 * (alto - 180)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8695,8 +8736,7 @@ accesoriosAlpha.unaHojaProyectanteAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 138) + 2 * (newAbAlpha.alto - 180)) / 1000;
+  cantidad = (2 * (ancho - 138) + 2 * (alto - 180)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8799,11 +8839,19 @@ accesoriosAlpha.unaHojaProyectanteFijoInferiorAcc = async (newAbAlpha) => {
   let costoAccesorios = 0;
   let codigo = "";
   let cantidad = 0;
-  const altoProy = newAbAlpha.alto - newAbAlpha.altofijo;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
+  const altoProy = alto - newAbAlpha.altofijo;
   // Accesorios
   // Junta central en marco
   codigo = "GUA30947";
-  cantidad = (4 * (newAbAlpha.ancho - 38) + 4 * (altoProy - 38)) / 1000;
+  cantidad = (4 * (ancho - 38) + 4 * (altoProy - 38)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8814,7 +8862,7 @@ accesoriosAlpha.unaHojaProyectanteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad = (2 * (newAbAlpha.ancho - 138) + 2 * (altoProy - 180)) / 1000;
+  cantidad = (2 * (ancho - 138) + 2 * (altoProy - 180)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8825,7 +8873,7 @@ accesoriosAlpha.unaHojaProyectanteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad = (2 * (newAbAlpha.ancho - 138) + 2 * (altoProy - 180)) / 1000;
+  cantidad = (2 * (ancho - 138) + 2 * (altoProy - 180)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8836,9 +8884,7 @@ accesoriosAlpha.unaHojaProyectanteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Exterior acristalamiento de 2 mm
   codigo = "GUA173";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
-    1000;
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8849,9 +8895,7 @@ accesoriosAlpha.unaHojaProyectanteFijoInferiorAcc = async (newAbAlpha) => {
   accesorios.push(accesorio);
   // Junta Interior de cuña de 6 mm
   codigo = "GUAC6N";
-  cantidad =
-    (2 * (newAbAlpha.ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) /
-    1000;
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (newAbAlpha.altofijo - 25 * 2)) / 1000;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
@@ -8935,6 +8979,189 @@ accesoriosAlpha.unaHojaProyectanteFijoInferiorAcc = async (newAbAlpha) => {
   // Escuadra de fundición 29x11
   codigo = "1134F";
   cantidad = 12;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  costoAccesorios = Math.round(costoAccesorios * 100) / 100;
+  const result = [costoAccesorios, accesorios];
+  return result;
+};
+
+accesoriosAlpha.unaHojaAbatibleAcc = async (newAbAlpha) => {
+  let accesorios = [];
+  let accesorio = {};
+  let costoAccesorios = 0;
+  let codigo = "";
+  let cantidad = 0;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
+  // Accesorios
+  // Junta central en marco
+  codigo = "GUAJC";
+  cantidad = (2 * ancho + 2 * alto) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Junta central en marco
+  codigo = "GUA30947";
+  cantidad = (4 * (ancho - 38) + 4 * (alto - 38)) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Junta Exterior acristalamiento de 2 mm
+  codigo = "GUA173";
+  cantidad = (2 * (ancho - 122) + 2 * (alto - 164)) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Junta Interior de cuña de 6 mm
+  codigo = "GUAC6N";
+  cantidad = (2 * (ancho - 122) + 2 * (alto - 164)) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Tapa salida de aguas
+  codigo = "A2141";
+  cantidad = 2;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Cierre golpete para ventanas
+  codigo = "A1500.2";
+  cantidad = 1;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Bisagra de montaje rápido para Ventana Abatible / Batiente
+  codigo = "A9211.3";
+  cantidad = 2;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Compás apertura abatible
+  newAbAlpha.alto < 600 ? (codigo = "A1115.2") : (codigo = "A1115.1");
+  cantidad = 1;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Escuadra de fundición 29x11
+  codigo = "1134F";
+  cantidad = 8;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  costoAccesorios = Math.round(costoAccesorios * 100) / 100;
+  const result = [costoAccesorios, accesorios];
+  return result;
+};
+
+accesoriosAlpha.unaHojaFijaAcc = async (newAbAlpha) => {
+  let accesorios = [];
+  let accesorio = {};
+  let costoAccesorios = 0;
+  let codigo = "";
+  let cantidad = 0;
+  let ancho = 0;
+  let alto = 0;
+  newAbAlpha.solera == "si"
+    ? (ancho = newAbAlpha.ancho - 15 * 2 - 2)
+    : (ancho = newAbAlpha.ancho);
+  newAbAlpha.solera == "si"
+    ? (alto = newAbAlpha.alto - 17 * 2 - 2)
+    : (alto = newAbAlpha.alto);
+  // Accesorios
+  // Junta Exterior acristalamiento de 2 mm
+  codigo = "GUA173";
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (alto - 25 * 2)) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Junta Interior de cuña de 6 mm
+  codigo = "GUAC6N";
+  cantidad = (2 * (ancho - 25 * 2) + 2 * (alto - 25 * 2)) / 1000;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Tapa salida de aguas
+  codigo = "A2141";
+  cantidad = 2;
+  accesorio = await calcAccesorio(
+    codigo,
+    cantidad,
+    newAbAlpha.selColorAccesorio,
+    "Vidriocar S.A."
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+  // Escuadra de fundición 29x11
+  codigo = "1134F";
+  cantidad = 8;
   accesorio = await calcAccesorio(
     codigo,
     cantidad,
