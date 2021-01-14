@@ -13,19 +13,19 @@ const {
 const { isAuthenticated } = require("../helpers/auth");
 
 // Mano de obra Nuevo
-router.get("/mod/add", isAuthenticated, renderModForm);
+router.get("/mod/add", /*isAuthenticated,*/ renderModForm);
 
-router.post("/mod/new-mod", isAuthenticated, createNewMod);
+router.post("/mod/new-mod", /*isAuthenticated,*/ createNewMod);
 
 // Obtener todos las mano de obras
-router.get("/mod", isAuthenticated, renderMod);
+router.get("/mod", /*isAuthenticated,*/ renderMod);
 
 // Editar las mano de obras
-router.get("/mod/edit/:id", isAuthenticated, renderModEditForm);
+router.get("/mod/edit/:id", /*isAuthenticated,*/ renderModEditForm);
 
-router.put("/mod/edit/:id", isAuthenticated, updateMod);
+router.put("/mod/edit/:id", /*isAuthenticated,*/ updateMod);
 
 // Borrar mano de obra
-router.delete("/mod/delete/:id", isAuthenticated, deleteMod);
+router.delete("/mod/delete/:id", /*isAuthenticated,*/ deleteMod);
 
 module.exports = router;

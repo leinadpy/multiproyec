@@ -37,6 +37,11 @@ AbTempladoSchema.methods.calcularTemplado = async (newAbTemplado) => {
     case "1": // Ventana/Puerta dos hojas, una corrediza y otra fija
       costo = await newAbTemplado.dosHojasUnaCorredizaUnaFija(newAbTemplado);
       break;
+    case "2": // Ventana/Puerta cuatro hojas, dos corredizas y dos fijas
+      costo = await newAbTemplado.cuatroHojasDosCorredizasDosFijas(
+        newAbTemplado
+      );
+      break;
   }
   return costo;
 };
@@ -65,13 +70,43 @@ AbTempladoSchema.methods.dosHojasUnaCorredizaUnaFija = async (
   const accesorios = accAlpha[1];
 
   // MANO DE OBRA
-  const mod = await modAlpha.dosHojasUnaCorredizaUnaFijaMod(
-    newAbTemplado,
-  );
+  const mod = await modAlpha.dosHojasUnaCorredizaUnaFijaMod(newAbTemplado);
 
   // SUMATORIA TOTAL
   const costoT =
-    Math.round((vidriosT + costoPerfiles + costoAccesorios + mod) * 100) / 100;
+    Math.round((costoPerfiles + costoAccesorios + vidriosT + mod) * 100) / 100;
+  return costoT;
+};
+
+AbTempladoSchema.methods.cuatroHojasDosCorredizasDosFijas = async (
+  newAbTemplado
+) => {
+  // PERFILES
+  const perfTemplado = await perfilesTemplado.cuatroHojasDosCorredizasDosFijasPerf(
+    newAbTemplado
+  );
+  const costoPerfiles = perfTemplado[0];
+  const pesoPerfiles = perfTemplado[1];
+  const perfiles = perfTemplado[2];
+
+  // VIDRIOS
+  const vidriosT = await vidrioTemplado.cuatroHojasDosCorredizasDosFijasVid(
+    newAbTemplado
+  );
+
+  // ACCESORIOS
+  const accAlpha = await accesoriosTemplado.cuatroHojasDosCorredizasDosFijasAcc(
+    newAbTemplado
+  );
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.cuatroHojasDosCorredizasDosFijasMod(newAbTemplado);
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((costoPerfiles + costoAccesorios + vidriosT + mod) * 100) / 100;
   return costoT;
 };
 
