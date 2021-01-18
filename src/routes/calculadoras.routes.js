@@ -11,9 +11,9 @@ const {
 const { isAuthenticated } = require("../helpers/auth");
 
 // Acceder al formulario de la calculadora de templado
-router.get("/calcTemplado", /*isAuthenticated,*/ renderAbTempladoForm);
+router.get("/calcTemplado", isAuthenticated, renderAbTempladoForm);
 // Calcular y devolver el costo
-router.post("/calcTemplado", /*isAuthenticated,*/ calcAbTempladoForm);
+router.post("/calcTemplado", isAuthenticated, calcAbTempladoForm);
 
 // LINEA ALPHA
 

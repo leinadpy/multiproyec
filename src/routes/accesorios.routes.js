@@ -13,19 +13,19 @@ const {
 const { isAuthenticated } = require("../helpers/auth");
 
 // Accesorio Nuevo
-router.get("/accesorios/add", /*isAuthenticated,*/ renderAccesorioForm);
+router.get("/accesorios/add", isAuthenticated, renderAccesorioForm);
 
-router.post("/accesorios/new-accesorio", /*isAuthenticated,*/ createNewAccesorio);
+router.post("/accesorios/new-accesorio", isAuthenticated, createNewAccesorio);
 
 // Obtener todos los accesorios
-router.get("/accesorios", /*isAuthenticated,*/ renderAccesorios);
+router.get("/accesorios", isAuthenticated, renderAccesorios);
 
 // Editar los accesorios
-router.get("/accesorios/edit/:id", /*isAuthenticated,*/ renderAccesorioEditForm);
+router.get("/accesorios/edit/:id", isAuthenticated, renderAccesorioEditForm);
 
-router.put("/accesorios/edit/:id", /*isAuthenticated,*/ updateAccesorio);
+router.put("/accesorios/edit/:id", isAuthenticated, updateAccesorio);
 
 // Borrar accesorios
-router.delete("/accesorios/delete/:id", /*isAuthenticated,*/ deleteAccesorio);
+router.delete("/accesorios/delete/:id", isAuthenticated, deleteAccesorio);
 
 module.exports = router;
