@@ -23,8 +23,8 @@ const {
 } = require("../controllers/calcAlpha.controller");
 
 // Acceder al formulario de la calculadora de alpha
-router.get("/calcAlpha", /*isAuthenticated,*/ renderAbAlphaForm);
+router.get("/calcAlpha", isAuthenticated, renderAbAlphaForm);
 // Calcular y devolver el costo
-router.post("/calcAlpha", /*isAuthenticated,*/ calcAbAlphaForm);
+router.post("/calcAlpha", isAuthenticated, calcAbAlphaForm);
 
 module.exports = router;
