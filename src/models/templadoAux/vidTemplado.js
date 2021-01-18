@@ -95,4 +95,34 @@ vidrioTemplado.cuatroHojasDosCorredizasDosFijasVid = async (newAbTemplado) => {
   return vidriosT;
 };
 
+vidrioTemplado.unaHojaCorredizaVid = async (newAbTemplado) => {
+  // Vidrios
+  let descAltoCorredizo = 0;
+  let precioCorredizoVidrio = 0;
+  let codigoVidrio = "T" + newAbTemplado.espesorvidrio;
+  if (newAbTemplado.espesorvidrio == 8) {
+    descAltoCorredizo = 20;
+  } else {
+    descAltoCorredizo = 22;
+  }
+  const anchoCorredizoVidrio = Math.round(newAbTemplado.ancho / 2 + 50);
+  const altoCorredizoVidrio = newAbTemplado.alto - descAltoCorredizo;
+  const areaCorredizoVidrio =
+    (anchoCorredizoVidrio * altoCorredizoVidrio) / 1000000;
+  newAbTemplado.pesoHoja =
+    areaCorredizoVidrio * 2.5 * newAbTemplado.espesorvidrio;
+  newAbTemplado.proveedorvidrio == "Vidriocar S.A."
+    ? (codigoVidrio += " Perf")
+    : (codigoVidrio = codigoVidrio);
+  precioCorredizoVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+
+  const vidriosT =
+    Math.round((precioCorredizoVidrio * areaCorredizoVidrio * 100) / 1.1) / 100;
+  return vidriosT;
+};
+
 module.exports = vidrioTemplado;

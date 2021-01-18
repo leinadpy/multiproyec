@@ -42,6 +42,10 @@ AbTempladoSchema.methods.calcularTemplado = async (newAbTemplado) => {
         newAbTemplado
       );
       break;
+
+    case "5": // Ventana/Puerta de una hoja
+      costo = await newAbTemplado.unaHojaCorrediza(newAbTemplado);
+      break;
   }
   return costo;
 };
@@ -103,6 +107,32 @@ AbTempladoSchema.methods.cuatroHojasDosCorredizasDosFijas = async (
 
   // MANO DE OBRA
   const mod = await modAlpha.cuatroHojasDosCorredizasDosFijasMod(newAbTemplado);
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round((costoPerfiles + costoAccesorios + vidriosT + mod) * 100) / 100;
+  return costoT;
+};
+
+AbTempladoSchema.methods.unaHojaCorrediza = async (newAbTemplado) => {
+  // PERFILES
+  const perfTemplado = await perfilesTemplado.unaHojaCorredizaPerf(
+    newAbTemplado
+  );
+  const costoPerfiles = perfTemplado[0];
+  const pesoPerfiles = perfTemplado[1];
+  const perfiles = perfTemplado[2];
+
+  // VIDRIOS
+  const vidriosT = await vidrioTemplado.unaHojaCorredizaVid(newAbTemplado);
+
+  // ACCESORIOS
+  const accAlpha = await accesoriosTemplado.unaHojaCorredizaAcc(newAbTemplado);
+  const costoAccesorios = accAlpha[0];
+  const accesorios = accAlpha[1];
+
+  // MANO DE OBRA
+  const mod = await modAlpha.unaHojaCorredizaMod(newAbTemplado);
 
   // SUMATORIA TOTAL
   const costoT =
