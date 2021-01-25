@@ -64,6 +64,7 @@ app.use(require("./routes/accesorios.routes"));
 app.use(require("./routes/vidrios.routes"));
 app.use(require("./routes/mod.routes"));
 app.use(require("./routes/calculadoras.routes"));
+app.use(require("./routes/servicios.routes"));
 const pdfRoute = require('./routes/pdfmake.routes');
 app.use('/pdfMake', pdfRoute);
 

@@ -32,6 +32,9 @@ abTempladoCtrl.calcAbTempladoForm = async (req, res) => {
     parametro,
     pesoHoja,
     embutido,
+    arenado,
+    plastificado,
+    proveedorarenado,
   } = req.body;
   const newAbTemplado = new AbTemplado({
     selAbertura,
@@ -58,6 +61,9 @@ abTempladoCtrl.calcAbTempladoForm = async (req, res) => {
     parametro,
     pesoHoja,
     embutido,
+    arenado,
+    plastificado,
+    proveedorarenado,
   });
   newAbTemplado.costo = await newAbTemplado.calcularTemplado(newAbTemplado);
   // await newAbTemplado.save();

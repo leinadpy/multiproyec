@@ -1,0 +1,95 @@
+<form action="/calcServicio" method="POST">
+  <div class="form-group row">
+    <label for="codServicio" class="col-sm-2 labelsel">
+      Servicio
+    </label>
+    <div class="col-sm-6">
+      <select class="form-control" id="codServicio" name="codServicio">
+        <optgroup label="Arenados">
+          <option value="ACiego">
+            Arenado Sin Dibujo/Pleno (Ciego)
+          </option>
+          <!--LISTO-->
+          <option value="ADSimple">
+            Dibujos Simples
+          </option>
+          <!--LISTO-->
+          <option value="ADComp">
+            Dibujos Complejos
+          </option>
+          <!--LISTO-->
+          <option value="SatinadoComp">
+            Santinado Complejo
+          </option>
+          <!--LISTO-->
+          <option value="APlastif">
+            Plastificado
+          </option>
+          <!--LISTO-->
+        </optgroup>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="cantidad" class="col-sm-2 labelsel">
+      Cantidad
+    </label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" name="cantidad" id="cantidad" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="ancho" class="col-sm-2 labelsel">
+      Ancho
+    </label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" name="ancho" id="ancho" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="alto" class="col-sm-2 labelsel">
+      Alto
+    </label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" name="alto" id="alto" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2">
+      <label for="proveedor" class="labelsel">
+        Proveedor
+      </label>
+    </div>
+    <div class="col-sm-4">
+      <select id="proveedor" name="proveedor" class="form-control">
+        <option value="Vidriocar S.A.">
+          Vidriocar S.A.
+        </option>
+        <option value="Publinox S.R.L.">
+          Publinox S.R.L.
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="costo" class="col-sm-2 labelsel">
+      Costo
+    </label>
+    <div class="col-sm-6">
+      <input class="form-control" type="number" id="costo" name="costo" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2 botonM">
+      <button type="submit" class="btn btn-primary">
+        Calcular
+      </button>
+    </div>
+    <div class="col-sm-2 botonM">
+      <button type="reset" class="btn btn-primary">
+        Reset
+      </button>
+    </div>
+  </div>
+</form>
+<script src=""></script>

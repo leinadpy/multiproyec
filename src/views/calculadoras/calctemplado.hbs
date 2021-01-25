@@ -1,8 +1,748 @@
-<script src="https://code.jquery.com/jquery-3.2.0.min.js"
-    integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous">
-    </script>
+<script
+  src="https://code.jquery.com/jquery-3.2.0.min.js"
+  integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I="
+  crossorigin="anonymous"
+></script>
+<div class="row p-4">
+  <div class="col-md-10">
+    <div class="card card-header">
+      <h5 class="title">
+        Línea Templado Convencional
+      </h5>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+<form id="templadoForm" action="/calcTemplado" method="POST">
+  <div class="form-group row">
+    <div class="col-sm-2">
+      <label class="labelsel" for="selAbertura">
+        Abertura
+      </label>
+    </div>
+    <div class="col-sm-6">
+      <select class="form-control" name="selAbertura" id="selAbertura">
+        <optgroup label="Corredizas">
+          {{! 01 }}
+          <option value="1">
+            Ventana/Puerta dos hojas, una corrediza y otra fija
+          </option>
+          {{! LISTO }}
+          <option value="2">
+            Ventana/Puerta cuatro hojas, dos corredizas y dos fijas
+          </option>
+          {{! LISTO }}
+          <option value="3" disabled>
+            Ventana/Puerta dos hojas, una corrediza y otra fija, con paño fijo inferior ó superior
+          </option>
+          {{! PENDIENTE }}
+          <option value="4" disabled>
+            Ventana/Puerta dos hojas, una corrediza y otra fija, con paño fijo inferior y superior
+          </option>
+          {{! PENDIENTE }}
+          <option value="5">
+            Ventana/Puerta de una hoja corrediza con guía prolongada
+          </option>
+          {{! LISTO }}
+          <option value="6" disabled>
+            Ventana/Puerta tres hojas, dos corredizas y una fija, guía triple
+          </option>
+          {{! PENDIENTE }}
+          <option value="7" disabled>
+            Ventana/Puerta seis hojas, cuatro corredizas y dos fijas, guía triple
+          </option>
+          {{! PENDIENTE }}
+        </optgroup>
+        <optgroup label="Pivotantes">
+          <!--10-->
+          <option value="11" disabled>
+            Puerta de una hoja pivotante
+          </option>
+          {{! PENDIENTE }}
+          <option value="12" disabled>
+            Puerta de dos hojas pivotantes
+          </option>
+          {{! PENDIENTE }}
+          <option value="13" disabled>
+            Puerta de una hoja pivotante y un paño fijo lateral
+          </option>
+          {{! PENDIENTE }}
+          <option value="14" disabled>
+            Puerta de una hoja pivotante y dos paños fijos laterales
+          </option>
+          {{! PENDIENTE }}
+          <option value="15" disabled>
+            Puerta de una hoja pivotante y paño fijo superior
+          </option>
+          {{! PENDIENTE }}
+          <option value="16" disabled>
+            Puerta de dos hojas pivotantes y paño fijo superior
+          </option>
+          {{! PENDIENTE }}
+          <option value="17" disabled>
+            Puerta de dos hojas pivotantes y paño fijo lateral
+          </option>
+          {{! PENDIENTE }}
+          <option value="18" disabled>
+            Puerta de dos hojas pivotantes y dos paños fijos laterales
+          </option>
+          {{! PENDIENTE }}
+        </optgroup>
+        <optgroup label="Proyectantes">
+          <!--20-->
+          <option value="21" disabled>
+            Ventana de una hoja proyectante
+          </option>
+          {{! PENDIENTE }}
+          <option value="22" disabled>
+            Ventana de una hoja proyectante con paño fijo inferior ó superior
+          </option>
+          {{! PENDIENTE }}
+          <option value="23" disabled>
+            Ventana de una hoja proyectante con paños fijos inferior y superior
+          </option>
+          {{! PENDIENTE }}
+          <option value="24" disabled>
+            Ventana de dos hojas proyectantes
+          </option>
+          {{! PENDIENTE }}
+        </optgroup>
+        <optgroup label="Ventanas pivotantes">
+          <!--70-->
+          <option value="71" disabled>
+            Ventana de una hoja pivotante
+          </option>
+          {{! PENDIENTE }}
+          <option value="72" disabled>
+            Ventana de una hoja pivotante con paño fijo inferior ó superior
+          </option>
+          {{! PENDIENTE }}
+          <option value="73" disabled>
+            Ventana de una hoja pivotante con paños fijos inferior y superior
+          </option>
+          {{! PENDIENTE }}
+        </optgroup>
+        <optgroup label="Box de baño">
+          <!--30-->
+          <option value="31">
+            Mampara para box de baño frontal 2 hojas
+          </option>
+          {{! LISTO }}
+          <option value="32">
+            Mampara para box de baño fija
+          </option>
+          {{! LISTO }}
+          <option value="33" disabled>
+            Mampara para box de baño esquinero, dos corredizas y dos fijas
+          </option>
+          {{! PENDIENTE }}
+          <option value="34" disabled>
+            Mampara para box de baño esquinero, una corrediza y dos fijas
+          </option>
+          {{! PENDIENTE }}
+          <option value="35" disabled>
+            Mampara para box de baño de una hoja batiente
+          </option>
+          {{! PENDIENTE }}
+          <option value="36" disabled>
+            Mampara para box de baño de una hoja batiente con fijo lateral
+          </option>
+          {{! PENDIENTE }}
+          <option value="37" disabled>
+            Mampara para box de baño de dos hojas batientes
+          </option>
+          {{! PENDIENTE }}
+        </optgroup>
+        <optgroup label="Espejos">
+          <!--40-->
+          <option value="41" disabled>
+            Espejo pegado a la pared / flotante
+          </option>
+          {{! PENDIENTE }}
+        </optgroup>
+        <optgroup label="Fijos">
+          <!--50-->
+          <option value="51">
+            Paño fijo de un módulo
+          </option>
+          {{! PENDIENTE }}
+          <option value="52" disabled>
+            Paño fijo de un módulo con tubos alrededor
+          </option>
+          {{! PENDIENTE }}
+        </optgroup>
+        <optgroup label="Servicios">
+          <!--60-->
+          <option value="61" disabled>
+            Servicio ploteado ciego
+          </option>
+          {{! PENDIENTE }}
+          <option value="62" disabled>
+            Servicio ploteado complejo
+          </option>
+          {{! PENDIENTE }}
+          <option value="63" disabled>
+            Servicio arenado ciego
+          </option>
+          {{! PENDIENTE }}
+          <option value="64" disabled>
+            Servicio arenado complejo
+          </option>
+          {{! PENDIENTE }}
+          <option value="65" disabled>
+            Servicio pulido
+          </option>
+          {{! PENDIENTE }}
+          <option value="66" disabled>
+            Servicio biselado
+          </option>
+          {{! PENDIENTE }}
+        </optgroup>
+        <optgroup label="Ventanas pivotantes">
+          <!--70-->
+          <option value="71" disabled>
+            Ventana una hoja pivotante
+          </option>
+          {{! PENDIENTE }}
+          <option value="72" disabled>
+            Ventana una hoja pivotante con fijo superior o inferior
+          </option>
+          {{! PENDIENTE }}
+          <option value="73" disabled>
+            Ventana una hoja pivotante con fijo superior y inferior
+          </option>
+          {{! PENDIENTE }}
+        </optgroup>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2">
+      <label for="cantidad" class="labelsel">
+        Cantidad
+      </label>
+    </div>
+    <div class="col-sm-2">
+      <input
+        type="number"
+        name="cantidad"
+        class="form-control"
+        id="cantidad"
+        value="{{newAbTemplado.cantidad}}"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2">
+      <label for="ancho" class="labelsel">
+        Ancho
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <input
+        type="number"
+        name="ancho"
+        class="form-control"
+        id="ancho"
+        value="{{newAbTemplado.ancho}}"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2">
+      <label for="alto" class="labelsel">
+        Alto
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <input
+        type="number"
+        name="alto"
+        class="form-control"
+        id="alto"
+        value="{{newAbTemplado.alto}}"
+      />
+    </div>
+  </div>
+  <div class="form-group row" id="divAltoFijoInf">
+    <div class="col-sm-2">
+      <label for="altofijoinf" class="labelsel">
+        Alto f. inf.
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <input
+        class="form-control"
+        name="altofijoinf"
+        type="number"
+        id="altofijoinf"
+      />
+    </div>
+  </div>
+  <div class="form-group row" id="divAltoFijoSup">
+    <div class="col-sm-2">
+      <label for="altofijosup" class="labelsel">
+        Alto f. sup.
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <input
+        class="form-control"
+        name="altofijosup"
+        type="number"
+        id="altofijosup"
+      />
+    </div>
+  </div>
+  <div class="form-group row" id="divAltoFijoLat1">
+    <div class="col-sm-2">
+      <label for="altofijolat1" class="labelsel">
+        Alto f. lat1.
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <input
+        class="form-control"
+        name="altofijolat1"
+        type="number"
+        id="altofijolat1"
+      />
+    </div>
+  </div>
+  <div class="form-group row" id="divAltoFijoLat2">
+    <div class="col-sm-2">
+      <label for="altofijolat2" class="labelsel">
+        Alto f. lat2.
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <input
+        class="form-control"
+        name="altofijolat2"
+        type="number"
+        id="altofijolat2"
+      />
+    </div>
+  </div>
+  <div class="form-group row" id="divTipoEspejo">
+    <div class="col-sm-2">
+      <label for="tipoEspejo" class="labelsel">
+        Tipo de espejo
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <select id="tipoEspejo" name="tipoEspejo" class="form-control">
+        <option value="1">
+          Pegado a la pared
+        </option>
+        <option value="2">
+          Flotante con U
+        </option>
+        <option value="3">
+          Flotante con tubo 25x25
+        </option>
+        <option value="4">
+          Flotante con tubo 50x25
+        </option>
+        <option value="5">
+          Angulo 20x20
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row" id="divTipoCierre">
+    <div class="col-sm-2">
+      <label for="tipoCierre" class="labelsel">
+        Tipo de cierre
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <select id="tipoCierre" name="tipoCierre" class="form-control">
+        <option value="1">
+          Freno Dorma
+        </option>
+        <option value="2">
+          Freno Dorma Reforzado
+        </option>
+        <option value="3">
+          Freno Superfren
+        </option>
+        <option value="4">
+          Pivot loco
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row" id="divTipoBrazo">
+    <div class="col-sm-2">
+      <label for="tipoBrazo" class="labelsel">
+        Tipo de brazo
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <select id="tipoBrazo" name="tipoBrazo" class="form-control">
+        <option value="1">
+          Brazo 25 cm
+        </option>
+        <option value="2">
+          Brazo 30 cm
+        </option>
+        <option value="3">
+          Brazo 35 cm
+        </option>
+        <option value="4">
+          Brazo 40 cm
+        </option>
+        <option value="5">
+          Brazo 45 cm
+        </option>
+        <option value="6">
+          Brazo 60 cm
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row" id="divColorAluminio">
+    <div class="col-sm-2">
+      <label for="selColorAluminio" class="labelsel">
+        Color Aluminio
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <select
+        id="selColorAluminio"
+        name="selColorAluminio"
+        class="form-control"
+      >
+        <option value="Bronce 1003">
+          Bronce 1003
+        </option>
+        <option value="Bronce 1002">
+          Bronce 1002
+        </option>
+        <option value="Blanco">
+          Blanco
+        </option>
+        <option value="Fosco">
+          Fosco
+        </option>
+        <option value="Efecto Madera">
+          Efecto Madera
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2">
+      <label for="proveedoraluminio" class="labelsel">
+        Proveedor
+      </label>
+    </div>
+    <div class="col-sm-4">
+      <select
+        id="proveedoraluminio"
+        name="proveedoraluminio"
+        class="form-control"
+      >
+        <option value="Vidriocar S.A." disabled>
+          Vidriocar S.A.
+        </option>
+        <option value="Alumerco S.R.L." selected>
+          Alumerco S.R.L.
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row" id="divTipoManijon">
+    <div class="col-sm-2">
+      <label for="tipoManijon" class="labelsel">
+        Manijón
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <select id="tipoManijon" name="tipoManijon" class="form-control">
+        <option value="1">
+          Madera
+        </option>
+        <option value="2">
+          Resina
+        </option>
+        <option value="3">
+          30 cm tipo "C"
+        </option>
+        <option value="4">
+          30 cm tipo "H"
+        </option>
+        <option value="5">
+          45 cm tipo "H"
+        </option>
+        <option value="6">
+          60 cm tipo "H"
+        </option>
+        <option value="7">
+          100 cm
+        </option>
+        <option value="8">
+          150 cm
+        </option>
+        <option value="9">
+          180 cm
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row" id="divColorVidrio">
+    <div class="col-sm-2">
+      <label for="colorvidrio" class="labelsel">
+        Color Vidrio
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <select id="colorvidrio" name="colorvidrio" class="form-control">
+        <option value="Incoloro">
+          Incoloro
+        </option>
+        <option value="Bronce">
+          Bronce
+        </option>
+        <option value="Gris">
+          Gris
+        </option>
+        <option value="Verde">
+          Verde
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2">
+      <label for="proveedorvidrio" class="labelsel">
+        Proveedor vidrio
+      </label>
+    </div>
+    <div class="col-sm-4">
+      <select id="proveedorvidrio" name="proveedorvidrio" class="form-control">
+        <option value="Vidriocar S.A.">
+          Vidriocar S.A.
+        </option>
+        <option value="Fineza S.A.">
+          Fineza S.A.
+        </option>
+        <option value="Agpar S.A." selected>
+          Agpar S.A.
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row" id="divEspesorVidrio">
+    <div class="col-sm-2">
+      <label for="espesorvidrio" class="labelsel">
+        Espesor Vidrio
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <select id="espesorvidrio" name="espesorvidrio" class="form-control">
+        <option value="4">
+          4 mm
+        </option>
+        <option value="5">
+          5 mm
+        </option>
+        <option value="6">
+          6 mm
+        </option>
+        <option value="8" selected>
+          8 mm
+        </option>
+        <option value="10">
+          10 mm
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row" id="divColorAccesorio">
+    <div class="col-sm-2">
+      <label for="coloraccesorio" class="labelsel">
+        Color Accesorio
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <select id="coloraccesorio" name="coloraccesorio" class="form-control">
+        <option value="Marrón">
+          Marrón
+        </option>
+        <option value="Cromado">
+          Cromado
+        </option>
+        <option value="Bronce" selected>
+          Bronce
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2">
+      <label for="proveedoraccesorios" class="labelsel">
+        Proveedor accesorios
+      </label>
+    </div>
+    <div class="col-sm-4">
+      <select
+        id="proveedoraccesorios"
+        name="proveedoraccesorio"
+        class="form-control"
+      >
+        <option value="Vidriocar S.A." disabled>
+          Vidriocar S.A.
+        </option>
+        <option value="Alumerco S.R.L." selected>
+          Alumerco S.R.L.
+        </option>
+        <option value="AL Herrajes" disabled>
+          AL Herrajes
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row" id="divCierre">
+    <div class="col-sm-2">
+      <label for="cierreopc" class="labelsel">
+        Tipo de Cierre
+      </label>
+    </div>
+    <div class="col-sm-4">
+      <select class="form-control" name="cierreopc" id="cierreopc">
+        <option value="1">
+          Cerradura con llave
+        </option>
+        <option value="2">
+          Cerradura click chica
+        </option>
+        <option value="3">
+          Tirador y pasador
+        </option>
+        <option value="4">
+          Cerradura click chica y pasador
+        </option>
+        <option value="5">
+          Cerradura de centro santa marina
+        </option>
+        <option value="6">
+          Sin cerradura
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="parametro" class="col-sm-2 labelsel">
+      Parámetro Perfil
+    </label>
+    <div class="col-sm-6">
+      <select id="parametro" name="parametro" class="form-control">
+        <option value="1.05">
+          Normal
+        </option>
+        <option value="1.3">
+          Especial
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row" id="guiaEmbutida">
+    <label for="embutido" class="col-sm-2 labelsel">
+      Guía inferior
+    </label>
+    <div class="col-sm-6">
+      <select id="embutido" name="embutido" class="form-control">
+        <option value="Si">
+          Embutida
+        </option>
+        <option value="No">
+          Sin embutir
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row" id="arenadoDiv">
+    <label for="arenado" class="col-sm-2 labelsel">
+      Arenado
+    </label>
+    <div class="col-sm-3">
+      <select id="arenado" name="arenado" class="form-control">
+        <option value="ACiego">
+          Arenado Sin Dibujo/Pleno (Ciego)
+        </option>
+        <option value="ADSimple">
+          Dibujos Simples
+        </option>
+        <option value="ADComp">
+          Dibujos Complejos
+        </option>
+        <option value="SatinadoComp">
+          Santinado Complejo
+        </option>
+        <option value="No">
+          Sin arenado
+        </option>
+      </select>
+    </div>
+    <label for="proveedorarenado" class="col-sm-2 labelsel">
+      Proveedor arenado
+    </label>
+    <div class="col-sm-3">
+      <select
+        id="proveedorarenado"
+        name="proveedorarenado"
+        class="form-control"
+      >
+        <option value="Vidriocar S.A.">
+          Vidriocar S.A.
+        </option>
+        <option value="Publinox S.R.L.">
+          Publinox S.R.L.
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="plastificado" class="col-sm-2 labelsel">
+      Plastificado
+    </label>
+    <div class="col-sm-3">
+      <select id="plastificado" name="plastificado" class="form-control">
+        <option value="Si">
+          Con plastificado
+        </option>
+        <option value="No">
+          Sin plastificado
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2">
+      <label for="costo" class="labelsel">
+        Costo
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <input
+        class="form-control"
+        name="costo"
+        type="number"
+        id="costo"
+        value="{{newAbTemplado.costo}}"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2">
+      <button type="submit" class="btn btn-secondary" id="calcular">
+        Calcular
+      </button>
+    </div>
+  </div>
+</form>
 <script>
-    // Linea de templado
+  // Linea de templado
     $(function () {
         $("#selAbertura").val('{{newAbTemplado.selAbertura}}');
         $("#selColorAluminio").val("{{newAbTemplado.selColorAluminio}}");
@@ -12,403 +752,15 @@
         $("#espesorvidrio").val("{{newAbTemplado.espesorvidrio}}");
         $("#coloraccesorio").val("{{newAbTemplado.coloraccesorio}}");
         $("#proveedoraccesorio").val("{{newAbTemplado.proveedoraccesorio}}");
-        if (("{{newAbTemplado.selAbertura}}" == "20") || ("{{newAbTemplado.selAbertura}}" == "21")) {
+        if (("{{newAbTemplado.selAbertura}}" == "20") || ("{{newAbTemplado.selAbertura}}" == "21") || ("{{newAbTemplado.selAbertura}}" == "32")) {
           $("#divCierre").hide();
         } else {
           $("#cierreopc").val("{{newAbTemplado.cierreopc}}");
         }
         $("#parametro").val("{{newAbTemplado.parametro}}");
         $("#embutido").val("{{newAbTemplado.embutido}}");
+        $("#arenado").val("{{newAbTemplado.arenado}}");
+        $("#plastificado").val("{{newAbTemplado.plastificado}}");
     });
 </script>
-
-<div class="row p-4">
-    <div class="col-md-10">
-        <div class="card card-header">
-            <h5 class="title">Línea Templado Convencional</h5>
-        </div>
-    </div>
-    <div class="col-md-2">
-    </div>
-</div>
-<form id="templadoForm" action="/calcTemplado" method="POST">
-    <div class="form-group row">
-        <div class="col-sm-2">
-            <label class="labelsel" for="selAbertura">Abertura</label>
-        </div>
-        <div class="col-sm-6">
-            <select class="form-control" name="selAbertura" id="selAbertura">
-                <optgroup label="Corredizas"> 
-                    {{!-- 01 --}}
-                    <option value='1'>Ventana/Puerta dos hojas, una corrediza y otra fija</option>
-                    {{!-- LISTO --}}
-                    <option value='2'>Ventana/Puerta cuatro hojas, dos corredizas y dos fijas</option>
-                    {{!-- LISTO --}}
-                    <option value='3' disabled>Ventana/Puerta dos hojas, una corrediza y otra fija, con paño fijo inferior ó superior</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='4' disabled>Ventana/Puerta dos hojas, una corrediza y otra fija, con paño fijo inferior y superior</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='5'>Ventana/Puerta de una hoja corrediza con guía prolongada</option>
-                    {{!-- LISTO --}}
-                    <option value='6'>Ventana/Puerta tres hojas, dos corredizas y una fija, guía triple</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='7'>Ventana/Puerta seis hojas, cuatro corredizas y dos fijas, guía triple</option>
-                    {{!-- PENDIENTE --}}
-                </optgroup>
-                <optgroup label="Pivotantes">
-                    <!--10-->
-                    <option value='11' disabled>Puerta de una hoja pivotante</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='12' disabled>Puerta de dos hojas pivotantes</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='13' disabled>Puerta de una hoja pivotante y un paño fijo lateral</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='14' disabled>Puerta de una hoja pivotante y dos paños fijos laterales</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='15' disabled>Puerta de una hoja pivotante y paño fijo superior</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='16' disabled>Puerta de dos hojas pivotantes y paño fijo superior</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='17' disabled>Puerta de dos hojas pivotantes y paño fijo lateral</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='18' disabled>Puerta de dos hojas pivotantes y dos paños fijos laterales</option>
-                    {{!-- PENDIENTE --}}
-                </optgroup>
-                <optgroup label="Proyectantes">
-                    <!--20-->
-                    <option value='21' disabled>Ventana de una hoja proyectante</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='22' disabled>Ventana de una hoja proyectante con paño fijo inferior ó superior</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='23' disabled>Ventana de una hoja proyectante con paños fijos inferior y superior</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='24' disabled>Ventana de dos hojas proyectantes</option>
-                    {{!-- PENDIENTE --}}
-                </optgroup>
-                <optgroup label="Ventanas pivotantes">
-                    <!--70-->
-                    <option value='71' disabled>Ventana de una hoja pivotante</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='72' disabled>Ventana de una hoja pivotante con paño fijo inferior ó superior</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='73' disabled>Ventana de una hoja pivotante con paños fijos inferior y superior</option>
-                    {{!-- PENDIENTE --}}
-                </optgroup>
-                <optgroup label="Box de baño">
-                    <!--30-->
-                    <option value='31' disabled>Mampara para box de baño frontal 2 hojas</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='32' disabled>Mampara para box de baño fija</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='33' disabled>Mampara para box de baño esquinero, dos corredizas y dos fijas</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='34' disabled>Mampara para box de baño esquinero, una corrediza y dos fijas</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='35' disabled>Mampara para box de baño de una hoja batiente</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='36' disabled>Mampara para box de baño de una hoja batiente con fijo lateral</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='37' disabled>Mampara para box de baño de dos hojas batientes</option>
-                    {{!-- PENDIENTE --}}
-                </optgroup>
-                <optgroup label="Espejos">
-                    <!--40-->
-                    <option value='41' disabled>Espejo pegado a la pared / flotante</option>
-                    {{!-- PENDIENTE --}}
-                </optgroup>
-                <optgroup label="Fijos">
-                    <!--50-->
-                    <option value='51' disabled>Paño fijo de un módulo</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='52' disabled>Paño fijo con tubos alrededor</option>
-                    {{!-- PENDIENTE --}}
-                </optgroup>
-                <optgroup label="Servicios">
-                    <!--60-->
-                    <option value='61' disabled>Servicio ploteado ciego</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='62' disabled>Servicio ploteado complejo</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='63' disabled>Servicio arenado ciego</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='64' disabled>Servicio arenado complejo</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='65' disabled>Servicio pulido</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='66' disabled>Servicio biselado</option>
-                    {{!-- PENDIENTE --}}
-                </optgroup>
-                <optgroup label="Ventanas pivotantes">
-                    <!--70-->
-                    <option value='71' disabled>Ventana una hoja pivotante</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='72' disabled>Ventana una hoja pivotante con fijo superior o inferior</option>
-                    {{!-- PENDIENTE --}}
-                    <option value='73' disabled>Ventana una hoja pivotante con fijo superior y inferior</option>
-                    {{!-- PENDIENTE --}}
-                </optgroup> 
-            </select>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-2">
-            <label for="cantidad" class="labelsel">Cantidad</label>
-        </div>
-        <div class="col-sm-2">
-            <input type="number" name="cantidad" class="form-control" id="cantidad" value="{{newAbTemplado.cantidad}}">
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-2">
-            <label for="ancho" class="labelsel">Ancho</label>
-        </div>
-        <div class="col-sm-3">
-            <input type="number" name="ancho" class="form-control" id="ancho" value="{{newAbTemplado.ancho}}">
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-2">
-            <label for="alto" class="labelsel">Alto</label>
-        </div>
-        <div class="col-sm-3">
-            <input type="number" name="alto" class="form-control" id="alto" value="{{newAbTemplado.alto}}">
-        </div>
-    </div>
-    <div class="form-group row" id="divAltoFijoInf">
-        <div class="col-sm-2">
-            <label for="altofijoinf" class="labelsel">Alto f. inf.</label>
-        </div>
-        <div class="col-sm-3">
-            <input class="form-control" name="altofijoinf" type="number" id="altofijoinf">
-        </div>
-    </div>
-    <div class="form-group row" id="divAltoFijoSup">
-        <div class="col-sm-2">
-            <label for="altofijosup" class="labelsel">Alto f. sup.</label>
-        </div>
-        <div class="col-sm-3">
-            <input class="form-control" name="altofijosup" type="number" id="altofijosup">
-        </div>
-    </div>
-    <div class="form-group row" id="divAltoFijoLat1">
-        <div class="col-sm-2">
-            <label for="altofijolat1" class="labelsel">Alto f. lat1.</label>
-        </div>
-        <div class="col-sm-3">
-            <input class="form-control" name="altofijolat1" type="number" id="altofijolat1">
-        </div>
-    </div>
-    <div class="form-group row" id="divAltoFijoLat2">
-        <div class="col-sm-2">
-            <label for="altofijolat2" class="labelsel">Alto f. lat2.</label>
-        </div>
-        <div class="col-sm-3">
-            <input class="form-control" name="altofijolat2" type="number" id="altofijolat2">
-        </div>
-    </div>
-    <div class="form-group row" id="divTipoEspejo">
-        <div class="col-sm-2">
-            <label for="tipoEspejo" class="labelsel">Tipo de espejo</label>
-        </div>
-        <div class="col-sm-3">
-            <select id="tipoEspejo" name="tipoEspejo" class="form-control">
-                <option value='1'>Pegado a la pared</option>
-                <option value='2'>Flotante con U</option>
-                <option value='3'>Flotante con tubo 25x25</option>
-                <option value='4'>Flotante con tubo 50x25</option>
-                <option value='5'>Angulo 20x20</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row" id="divTipoCierre">
-        <div class="col-sm-2">
-            <label for="tipoCierre" class="labelsel">Tipo de cierre</label>
-        </div>
-        <div class="col-sm-3">
-            <select id="tipoCierre" name="tipoCierre" class="form-control">
-                <option value='1'>Freno Dorma</option>
-                <option value='2'>Freno Dorma Reforzado</option>
-                <option value='3'>Freno Superfren</option>
-                <option value='4'>Pivot loco</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row" id="divTipoBrazo">
-        <div class="col-sm-2">
-            <label for="tipoBrazo" class="labelsel">Tipo de brazo</label>
-        </div>
-        <div class="col-sm-3">
-            <select id="tipoBrazo" name="tipoBrazo" class="form-control">
-                <option value='1'>Brazo 25 cm</option>
-                <option value='2'>Brazo 30 cm</option>
-                <option value='3'>Brazo 35 cm</option>
-                <option value='4'>Brazo 40 cm</option>
-                <option value='5'>Brazo 45 cm</option>
-                <option value='6'>Brazo 60 cm</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row" id="divColorAluminio">
-        <div class="col-sm-2">
-            <label for="selColorAluminio" class="labelsel">Color Aluminio</label>
-        </div>
-        <div class="col-sm-3">
-            <select id="selColorAluminio" name="selColorAluminio" class="form-control">
-                <option value='Bronce 1003'>Bronce 1003</option>
-                <option value='Bronce 1002'>Bronce 1002</option>
-                <option value='Blanco'>Blanco</option>
-                <option value='Fosco'>Fosco</option>
-                <option value='Efecto Madera'>Efecto Madera</option>
-            </select>
-        </div>
-        <div class="col-sm-1"></div>
-        <div class="col-sm-2">
-            <label for="proveedoraluminio" class="labelsel">Proveedor</label>
-        </div>
-        <div class="col-sm-4">
-            <select id="proveedoraluminio" name="proveedoraluminio" class="form-control">
-                <option value='Vidriocar S.A.' disabled>Vidriocar S.A.</option>
-                <option value='Alumerco S.R.L.' selected>Alumerco S.R.L.</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row" id="divTipoManijon">
-        <div class="col-sm-2">
-            <label for="tipoManijon" class="labelsel">Manijón</label>
-        </div>
-        <div class="col-sm-3">
-            <select id="tipoManijon" name="tipoManijon" class="form-control">
-                <option value='1'>Madera</option>
-                <option value='2'>Resina</option>
-                <option value='3'>30 cm tipo "C"</option>
-                <option value='4'>30 cm tipo "H"</option>
-                <option value='5'>45 cm tipo "H"</option>
-                <option value='6'>60 cm tipo "H"</option>
-                <option value='7'>100 cm</option>
-                <option value='8'>150 cm</option>
-                <option value='9'>180 cm</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row" id="divColorVidrio">
-        <div class="col-sm-2">
-            <label for="colorvidrio" class="labelsel">Color Vidrio</label>
-        </div>
-        <div class="col-sm-3">
-            <select id="colorvidrio" name="colorvidrio" class="form-control">
-                <option value='Incoloro'>Incoloro</option>
-                <option value='Bronce'>Bronce</option>
-                <option value='Gris'>Gris</option>
-                <option value='Verde'>Verde</option>
-            </select>
-        </div>
-        <div class="col-sm-1"></div>
-        <div class="col-sm-2">
-            <label for="proveedorvidrio" class="labelsel">Proveedor vidrio</label>
-        </div>
-        <div class="col-sm-4">
-            <select id="proveedorvidrio" name="proveedorvidrio" class="form-control">
-                <option value='Vidriocar S.A.'>Vidriocar S.A.</option>
-                <option value='Fineza S.A.'>Fineza S.A.</option>
-                <option value='Agpar S.A.' selected>Agpar S.A.</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row" id="divEspesorVidrio">
-        <div class="col-sm-2">
-            <label for="espesorvidrio" class="labelsel">Espesor Vidrio</label>
-        </div>
-        <div class="col-sm-3">
-            <select id="espesorvidrio" name="espesorvidrio" class="form-control">
-                <option value='4'>4 mm</option>
-                <option value='5'>5 mm</option>
-                <option value='6'>6 mm</option>
-                <option value='8' selected>8 mm</option>
-                <option value='10'>10 mm</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row" id="divColorAccesorio">
-        <div class="col-sm-2">
-            <label for="coloraccesorio" class="labelsel">Color Accesorio</label>
-        </div>
-        <div class="col-sm-3">
-            <select id="coloraccesorio" name="coloraccesorio" class="form-control">
-                <option value='Marrón'>Marrón</option>
-                <option value='Cromado'>Cromado</option>
-                <option value='Bronce' selected>Bronce</option>
-            </select>
-        </div>
-        <div class="col-sm-1"></div>
-        <div class="col-sm-2">
-            <label for="proveedoraccesorios" class="labelsel">Proveedor accesorios</label>
-        </div>
-        <div class="col-sm-4">
-            <select id="proveedoraccesorios" name="proveedoraccesorio" class="form-control">
-                <option value='Vidriocar S.A.' disabled>Vidriocar S.A.</option>
-                <option value='Alumerco S.R.L.' selected>Alumerco S.R.L.</option>
-                <option value='AL Herrajes' disabled>AL Herrajes</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row" id="divCierre">
-        <div class="col-sm-2">
-            <label for="cierreopc" class="labelsel">Tipo de Cierre</label>
-        </div>
-        <div class="col-sm-4">
-            <select class="form-control" name="cierreopc" id="cierreopc">
-                <option value='1'>Cerradura con llave</option>
-                <option value='2'>Cerradura click chica</option>
-                <option value='3'>Tirador y pasador</option>
-                <option value='4'>Cerradura click chica y pasador</option>
-                <option value='5'>Cerradura de centro santa marina</option>
-                <option value='6'>Sin cerradura</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="parametro" class="col-sm-2 labelsel">
-            Parámetro Perfil
-        </label>
-        <div class="col-sm-6">
-            <select id="parametro" name="parametro" class="form-control">
-            <option value="1.05">
-                Normal
-            </option>
-            <option value="1.3">
-                Especial
-            </option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="embutido" class="col-sm-2 labelsel">
-            Guía inferior
-        </label>
-        <div class="col-sm-6">
-            <select id="embutido" name="embutido" class="form-control">
-            <option value="Si">
-                Embutida
-            </option>
-            <option value="No">
-                Sin embutir
-            </option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-2">
-            <label for="costo" class="labelsel">Costo</label>
-        </div>
-        <div class="col-sm-3">
-            <input class="form-control" name="costo" type="number" id="costo" value="{{newAbTemplado.costo}}">
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-2">
-            <button type="submit" class="btn btn-secondary" id="calcular">Calcular</button>
-        </div>
-    </div>
-</form>
 <script src="/js/templado.js"></script>

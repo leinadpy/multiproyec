@@ -22,6 +22,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      mostrarDiv("#guiaEmbutida");
       break;
     case "2": // Ventana/Puerta de cuatro hojas, dos corredizas y dos fijas
       ocultarDiv("#divAltoFijoInf");
@@ -37,6 +38,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      mostrarDiv("#guiaEmbutida");
       break;
     case "3": // Ventana/Puerta dos hojas, una corrediza y una fija, con paño fijo inf o sup
       mostrarDiv("#divAltoFijoInf");
@@ -52,6 +54,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      mostrarDiv("#guiaEmbutida");
       break;
     case "4": // Ventana/Puerta dos hojas, una corrediza y una fija, con paño fijo inf y sup
       mostrarDiv("#divAltoFijoInf");
@@ -67,6 +70,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      mostrarDiv("#guiaEmbutida");
       break;
     case "5": // Ventana/Puerta de una hoja corrediza con guía prolongada
       ocultarDiv("#divAltoFijoInf");
@@ -82,6 +86,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      mostrarDiv("#guiaEmbutida");
       break;
     case "11": // Puerta de una hoja pivotante
       ocultarDiv("#divAltoFijoInf");
@@ -97,6 +102,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "12": // Puerta de dos hojas pivotantes
       ocultarDiv("#divAltoFijoInf");
@@ -112,6 +118,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "13": // Puerta de una hoja pivotante y un paño fijo lateral
       ocultarDiv("#divAltoFijoInf");
@@ -127,6 +134,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "14": // Puerta de una hoja pivotante y dos paños fijos laterales
       ocultarDiv("#divAltoFijoInf");
@@ -142,6 +150,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "15": // Puerta de una hoja pivotante y paño fijo superior
       ocultarDiv("#divAltoFijoInf");
@@ -157,6 +166,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "16": // Puerta de dos hojas pivotantes y paño fijo superior
       ocultarDiv("#divAltoFijoInf");
@@ -172,6 +182,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "17": // Puerta de dos hojas pivotantes y paño fijo lateral
       ocultarDiv("#divAltoFijoInf");
@@ -187,6 +198,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "18": // Puerta de dos hojas pivotantes y dos paños fijos laterales
       ocultarDiv("#divAltoFijoInf");
@@ -202,6 +214,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "21": // Ventana de una hoja proyectante
       ocultarDiv("#divAltoFijoInf");
@@ -217,6 +230,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "22": // Ventana de una hoja proyectante con paño fijo superior o inferior
       mostrarDiv("#divAltoFijoInf");
@@ -232,6 +246,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "23": // Ventana de una hoja proyectante con paño fijo superior e inferior
       mostrarDiv("#divAltoFijoInf");
@@ -247,6 +262,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "24": // Ventana de dos hojas proyectantes
       ocultarDiv("#divAltoFijoInf");
@@ -262,6 +278,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "31": // Mampara para box de baño frontal 2 hojas
       ocultarDiv("#divAltoFijoInf");
@@ -277,6 +294,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "32": // Mampara para box de baño fija
       ocultarDiv("#divAltoFijoInf");
@@ -292,6 +310,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       ocultarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "33": // Mampara para box de baño esquinero, dos corredizas y dos fijas
       ocultarDiv("#divAltoFijoInf");
@@ -307,6 +326,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "34": // Mampara para box de baño esquinero, una corrediza y dos fijas
       ocultarDiv("#divAltoFijoInf");
@@ -322,6 +342,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "35": // Mampara para box de baño de una hoja batiente
       ocultarDiv("#divAltoFijoInf");
@@ -337,6 +358,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "36": // Mampara para box de baño de una hoja batiente con fijo lateral
       ocultarDiv("#divAltoFijoInf");
@@ -352,6 +374,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "37": // Mampara para box de baño de dos hojas batientes
       ocultarDiv("#divAltoFijoInf");
@@ -367,6 +390,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       mostrarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "41": // Espejo pegado a la pared / flotante
       ocultarDiv("#divAltoFijoInf");
@@ -382,6 +406,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       ocultarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "51": // Paño fijo de un módulo
       ocultarDiv("#divAltoFijoInf");
@@ -397,6 +422,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       ocultarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "52": // Paño fijo de un módulo con tubos alrededor
       ocultarDiv("#divAltoFijoInf");
@@ -412,6 +438,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       ocultarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "61": // Servicio ploteado ciego
       // code block
@@ -445,6 +472,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "72": // Ventana una hoja pivotante con fijo superior o inferior
       mostrarDiv("#divAltoFijoInf");
@@ -460,6 +488,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     case "73": // Ventana una hoja pivotante con fijo superior e inferior
       mostrarDiv("#divAltoFijoInf");
@@ -475,6 +504,7 @@ function mostrarInputsTemp(dato) {
       mostrarDiv("#divEspesorVidrio");
       mostrarDiv("#divColorAccesorio");
       ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
       break;
     default:
       console.log("Select no definido");

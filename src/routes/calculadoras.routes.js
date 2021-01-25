@@ -1,14 +1,26 @@
 const { Router } = require("express");
 const router = Router();
 
+// SERVICIOS
+
+const {
+  renderAbServicioForm,
+  calcAbServicioForm
+} = require("../controllers/calcServicio.controller");
+
+const { isAuthenticated } = require("../helpers/auth");
+
+// Acceder al formulario de la calculadora de templado
+router.get("/calcServicio", isAuthenticated, renderAbServicioForm);
+// Calcular y devolver el costo
+router.post("/calcServicio", isAuthenticated, calcAbServicioForm);
+
 // LINEA TEMPLADO
 
 const {
   renderAbTempladoForm,
   calcAbTempladoForm
 } = require("../controllers/calcTemplado.controller");
-
-const { isAuthenticated } = require("../helpers/auth");
 
 // Acceder al formulario de la calculadora de templado
 router.get("/calcTemplado", isAuthenticated, renderAbTempladoForm);
