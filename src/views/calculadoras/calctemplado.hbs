@@ -32,61 +32,61 @@
             Ventana/Puerta cuatro hojas, dos corredizas y dos fijas
           </option>
           {{! LISTO }}
-          <option value="3" disabled>
+          <option value="3">
             Ventana/Puerta dos hojas, una corrediza y otra fija, con paño fijo inferior ó superior
           </option>
-          {{! PENDIENTE }}
-          <option value="4" disabled>
+          {{! LISTO }}
+          <option value="4">
             Ventana/Puerta dos hojas, una corrediza y otra fija, con paño fijo inferior y superior
           </option>
-          {{! PENDIENTE }}
+          {{! LISTO }}
           <option value="5">
             Ventana/Puerta de una hoja corrediza con guía prolongada
           </option>
           {{! LISTO }}
-          <option value="6" disabled>
+          <option value="6">
             Ventana/Puerta tres hojas, dos corredizas y una fija, guía triple
           </option>
-          {{! PENDIENTE }}
-          <option value="7" disabled>
+          {{! LISTO }}
+          <option value="7">
             Ventana/Puerta seis hojas, cuatro corredizas y dos fijas, guía triple
           </option>
-          {{! PENDIENTE }}
+          {{! LISTO }}
         </optgroup>
         <optgroup label="Pivotantes">
           <!--10-->
-          <option value="11" disabled>
+          <option value="11">
             Puerta de una hoja pivotante
           </option>
-          {{! PENDIENTE }}
-          <option value="12" disabled>
+          {{! LISTO }}
+          <option value="12">
             Puerta de dos hojas pivotantes
           </option>
-          {{! PENDIENTE }}
-          <option value="13" disabled>
+          {{! LISTO }}
+          <option value="13">
             Puerta de una hoja pivotante y un paño fijo lateral
           </option>
-          {{! PENDIENTE }}
-          <option value="14" disabled>
+          {{! LISTO }}
+          <option value="14">
             Puerta de una hoja pivotante y dos paños fijos laterales
           </option>
-          {{! PENDIENTE }}
-          <option value="15" disabled>
+          {{! LISTO }}
+          <option value="15">
             Puerta de una hoja pivotante y paño fijo superior
           </option>
-          {{! PENDIENTE }}
-          <option value="16" disabled>
+          {{! LISTO }}
+          <option value="16">
             Puerta de dos hojas pivotantes y paño fijo superior
           </option>
-          {{! PENDIENTE }}
-          <option value="17" disabled>
+          {{! LISTO }}
+          <option value="17">
             Puerta de dos hojas pivotantes y paño fijo lateral
           </option>
-          {{! PENDIENTE }}
-          <option value="18" disabled>
+          {{! LISTO }}
+          <option value="18">
             Puerta de dos hojas pivotantes y dos paños fijos laterales
           </option>
-          {{! PENDIENTE }}
+          {{! LISTO }}
         </optgroup>
         <optgroup label="Proyectantes">
           <!--20-->
@@ -171,33 +171,6 @@
           </option>
           {{! PENDIENTE }}
         </optgroup>
-        <optgroup label="Servicios">
-          <!--60-->
-          <option value="61" disabled>
-            Servicio ploteado ciego
-          </option>
-          {{! PENDIENTE }}
-          <option value="62" disabled>
-            Servicio ploteado complejo
-          </option>
-          {{! PENDIENTE }}
-          <option value="63" disabled>
-            Servicio arenado ciego
-          </option>
-          {{! PENDIENTE }}
-          <option value="64" disabled>
-            Servicio arenado complejo
-          </option>
-          {{! PENDIENTE }}
-          <option value="65" disabled>
-            Servicio pulido
-          </option>
-          {{! PENDIENTE }}
-          <option value="66" disabled>
-            Servicio biselado
-          </option>
-          {{! PENDIENTE }}
-        </optgroup>
         <optgroup label="Ventanas pivotantes">
           <!--70-->
           <option value="71" disabled>
@@ -248,6 +221,22 @@
       />
     </div>
   </div>
+  <div class="form-group row" id="divAncho2">
+    <div class="col-sm-2">
+      <label for="ancho2" class="labelsel">
+        Ancho
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <input
+        type="number"
+        name="ancho2"
+        class="form-control"
+        id="ancho2"
+        value="{{newAbTemplado.ancho2}}"
+      />
+    </div>
+  </div>
   <div class="form-group row">
     <div class="col-sm-2">
       <label for="alto" class="labelsel">
@@ -276,6 +265,7 @@
         name="altofijoinf"
         type="number"
         id="altofijoinf"
+        value="{{newAbTemplado.altofijoinf}}"
       />
     </div>
   </div>
@@ -291,36 +281,39 @@
         name="altofijosup"
         type="number"
         id="altofijosup"
+        value="{{newAbTemplado.altofijosup}}"
       />
     </div>
   </div>
-  <div class="form-group row" id="divAltoFijoLat1">
+  <div class="form-group row" id="divAnchoFijoLat1">
     <div class="col-sm-2">
-      <label for="altofijolat1" class="labelsel">
-        Alto f. lat1.
+      <label for="anchofijolat1" class="labelsel">
+        Ancho fijo lateral 1
       </label>
     </div>
     <div class="col-sm-3">
       <input
         class="form-control"
-        name="altofijolat1"
+        name="anchofijolat1"
         type="number"
-        id="altofijolat1"
+        id="anchofijolat1"
+        value="{{newAbTemplado.anchofijolat1}}"
       />
     </div>
   </div>
-  <div class="form-group row" id="divAltoFijoLat2">
+  <div class="form-group row" id="divAnchoFijoLat2">
     <div class="col-sm-2">
-      <label for="altofijolat2" class="labelsel">
-        Alto f. lat2.
+      <label for="anchofijolat2" class="labelsel">
+        Ancho fijo lateral 2
       </label>
     </div>
     <div class="col-sm-3">
       <input
         class="form-control"
-        name="altofijolat2"
+        name="anchofijolat2"
         type="number"
-        id="altofijolat2"
+        id="anchofijolat2"
+        value="{{newAbTemplado.anchofijolat2}}"
       />
     </div>
   </div>
@@ -369,6 +362,9 @@
         </option>
         <option value="4">
           Pivot loco
+        </option>
+        <option value="5">
+          Freno Dorma y Pivot Loco
         </option>
       </select>
     </div>
@@ -460,31 +456,31 @@
     </div>
     <div class="col-sm-3">
       <select id="tipoManijon" name="tipoManijon" class="form-control">
-        <option value="1">
+        <option value="MANI">
           Madera
         </option>
-        <option value="2">
+        <option value="MANIBLANCO">
           Resina
         </option>
-        <option value="3">
+        <option value="HDL639">
           30 cm tipo "C"
         </option>
-        <option value="4">
+        <option value="HDL633">
           30 cm tipo "H"
         </option>
-        <option value="5">
+        <option value="GL40632">
           45 cm tipo "H"
         </option>
-        <option value="6">
+        <option value="HDL634">
           60 cm tipo "H"
         </option>
-        <option value="7">
+        <option value="HDL632">
           100 cm
         </option>
-        <option value="8">
+        <option value="HDL6321500">
           150 cm
         </option>
-        <option value="9">
+        <option value="M180CMAGPAR">
           180 cm
         </option>
       </select>
@@ -549,7 +545,7 @@
         <option value="6">
           6 mm
         </option>
-        <option value="8" selected>
+        <option value="8">
           8 mm
         </option>
         <option value="10">
@@ -572,7 +568,7 @@
         <option value="Cromado">
           Cromado
         </option>
-        <option value="Bronce" selected>
+        <option value="Bronce">
           Bronce
         </option>
       </select>
@@ -607,7 +603,7 @@
         Tipo de Cierre
       </label>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <select class="form-control" name="cierreopc" id="cierreopc">
         <option value="1">
           Cerradura con llave
@@ -634,7 +630,7 @@
     <label for="parametro" class="col-sm-2 labelsel">
       Parámetro Perfil
     </label>
-    <div class="col-sm-6">
+    <div class="col-sm-3">
       <select id="parametro" name="parametro" class="form-control">
         <option value="1.05">
           Normal
@@ -649,13 +645,13 @@
     <label for="embutido" class="col-sm-2 labelsel">
       Guía inferior
     </label>
-    <div class="col-sm-6">
+    <div class="col-sm-3">
       <select id="embutido" name="embutido" class="form-control">
-        <option value="Si">
-          Embutida
-        </option>
         <option value="No">
           Sin embutir
+        </option>
+        <option value="Si">
+          Embutida
         </option>
       </select>
     </div>
@@ -683,6 +679,7 @@
         </option>
       </select>
     </div>
+    <div class="col-sm-1"></div>
     <label for="proveedorarenado" class="col-sm-2 labelsel">
       Proveedor arenado
     </label>
@@ -741,26 +738,79 @@
     </div>
   </div>
 </form>
+<script src="/js/templado.js"></script>
 <script>
   // Linea de templado
-    $(function () {
-        $("#selAbertura").val('{{newAbTemplado.selAbertura}}');
-        $("#selColorAluminio").val("{{newAbTemplado.selColorAluminio}}");
-        $("#proveedoraluminio").val("{{newAbTemplado.proveedoraluminio}}");
+   $(function () {
+        const selAbertura = "{{newAbTemplado.selAbertura}}";
+        if (selAbertura=="3"){
+          $("#divAltoFijoInf").show();
+        }
+        if ("{{newAbTemplado.selAbertura}}"=="4"){
+          $("#divAltoFijoInf").show();
+          $("#divAltoFijoSup").show();
+          $("#guiaEmbutida").hide();
+        }
+        $("#selAbertura").val("{{newAbTemplado.selAbertura}}");
         $("#colorvidrio").val("{{newAbTemplado.colorvidrio}}");
         $("#proveedorvidrio").val("{{newAbTemplado.proveedorvidrio}}");
         $("#espesorvidrio").val("{{newAbTemplado.espesorvidrio}}");
         $("#coloraccesorio").val("{{newAbTemplado.coloraccesorio}}");
         $("#proveedoraccesorio").val("{{newAbTemplado.proveedoraccesorio}}");
-        if (("{{newAbTemplado.selAbertura}}" == "20") || ("{{newAbTemplado.selAbertura}}" == "21") || ("{{newAbTemplado.selAbertura}}" == "32")) {
+        if (selAbertura=="32" || selAbertura=="51") {
+          $("#divColorAccesorio").hide();
           $("#divCierre").hide();
+          $("#guiaEmbutida").hide();
+        }
+        if (selAbertura=="31") {
+          $("#divCierre").hide();
+          $("#guiaEmbutida").hide();
+        }
+        if ("{{newAbTemplado.selAbertura}}"=="11" || "{{newAbTemplado.selAbertura}}" == "12"){
+          $("#tipoManijon").val("{{newAbTemplado.tipoManijon}}");
+          $("#tipoCierre").val("{{newAbTemplado.tipoCierre}}");
+          $("#divCierre").hide();
+          $("#guiaEmbutida").hide();
+          $("#divColorAluminio").hide();
         } else {
           $("#cierreopc").val("{{newAbTemplado.cierreopc}}");
+          $("#embutido").val("{{newAbTemplado.embutido}}");
+          $("#selColorAluminio").val("{{newAbTemplado.selColorAluminio}}");
+          $("#proveedoraluminio").val("{{newAbTemplado.proveedoraluminio}}");
+        }
+        if (selAbertura=="13" || selAbertura == "14" || selAbertura == "15" || selAbertura == "16" || selAbertura == "17" || selAbertura == "18"){
+          switch (selAbertura) {
+            case "13":
+              $("#divAnchoFijoLat1").show();
+              break;
+            case "14":
+              $("#divAnchoFijoLat1").show();
+              $("#divAnchoFijoLat2").show();
+              break;
+            case "15":
+              $("#divAltoFijoSup").show();
+              break;
+            case "16":
+              $("#divAltoFijoSup").show();
+              break;
+            case "17":
+              $("#divAnchoFijoLat1").show();
+              break;
+            case "18":
+              $("#divAnchoFijoLat1").show();
+              $("#divAnchoFijoLat2").show();
+              break;
+          }
+          $("#tipoManijon").val("{{newAbTemplado.tipoManijon}}");
+          $("#tipoCierre").val("{{newAbTemplado.tipoCierre}}");
+          $("#divCierre").hide();
+          $("#guiaEmbutida").hide();
+        } else {
+          $("#cierreopc").val("{{newAbTemplado.cierreopc}}");
+          $("#embutido").val("{{newAbTemplado.embutido}}");
         }
         $("#parametro").val("{{newAbTemplado.parametro}}");
-        $("#embutido").val("{{newAbTemplado.embutido}}");
         $("#arenado").val("{{newAbTemplado.arenado}}");
         $("#plastificado").val("{{newAbTemplado.plastificado}}");
     });
 </script>
-<script src="/js/templado.js"></script>
