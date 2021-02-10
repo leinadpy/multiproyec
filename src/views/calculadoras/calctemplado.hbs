@@ -90,37 +90,37 @@
         </optgroup>
         <optgroup label="Proyectantes">
           <!--20-->
-          <option value="21" disabled>
+          <option value="21">
             Ventana de una hoja proyectante
           </option>
-          {{! PENDIENTE }}
-          <option value="22" disabled>
+          {{! LISTO }}
+          <option value="22">
             Ventana de una hoja proyectante con paño fijo inferior ó superior
           </option>
-          {{! PENDIENTE }}
-          <option value="23" disabled>
+          {{! LISTO }}
+          <option value="23">
             Ventana de una hoja proyectante con paños fijos inferior y superior
           </option>
-          {{! PENDIENTE }}
-          <option value="24" disabled>
+          {{! LISTO }}
+          <option value="24">
             Ventana de dos hojas proyectantes
           </option>
-          {{! PENDIENTE }}
+          {{! LISTO }}
         </optgroup>
         <optgroup label="Ventanas pivotantes">
           <!--70-->
-          <option value="71" disabled>
+          <option value="71">
             Ventana de una hoja pivotante
           </option>
-          {{! PENDIENTE }}
-          <option value="72" disabled>
+          {{! LISTO }}
+          <option value="72">
             Ventana de una hoja pivotante con paño fijo inferior ó superior
           </option>
-          {{! PENDIENTE }}
-          <option value="73" disabled>
+          {{! LISTO }}
+          <option value="73">
             Ventana de una hoja pivotante con paños fijos inferior y superior
           </option>
-          {{! PENDIENTE }}
+          {{! LISTO }}
         </optgroup>
         <optgroup label="Box de baño">
           <!--30-->
@@ -167,22 +167,11 @@
           </option>
           {{! PENDIENTE }}
           <option value="52" disabled>
-            Paño fijo de un módulo con tubos alrededor
+            Paño fijo de un módulo con tubos 50x50 alrededor
           </option>
           {{! PENDIENTE }}
-        </optgroup>
-        <optgroup label="Ventanas pivotantes">
-          <!--70-->
-          <option value="71" disabled>
-            Ventana una hoja pivotante
-          </option>
-          {{! PENDIENTE }}
-          <option value="72" disabled>
-            Ventana una hoja pivotante con fijo superior o inferior
-          </option>
-          {{! PENDIENTE }}
-          <option value="73" disabled>
-            Ventana una hoja pivotante con fijo superior y inferior
+          <option value="53" disabled>
+            Paño fijo de un módulo con tubos 50x100 alrededor
           </option>
           {{! PENDIENTE }}
         </optgroup>
@@ -377,22 +366,22 @@
     </div>
     <div class="col-sm-3">
       <select id="tipoBrazo" name="tipoBrazo" class="form-control">
-        <option value="1">
+        <option value="19925">
           Brazo 25 cm
         </option>
-        <option value="2">
+        <option value="19930">
           Brazo 30 cm
         </option>
-        <option value="3">
+        <option value="19935">
           Brazo 35 cm
         </option>
-        <option value="4">
+        <option value="B40">
           Brazo 40 cm
         </option>
-        <option value="5">
+        <option value="B45">
           Brazo 45 cm
         </option>
-        <option value="6">
+        <option value="B60" disabled>
           Brazo 60 cm
         </option>
       </select>
@@ -762,9 +751,16 @@
           $("#divCierre").hide();
           $("#guiaEmbutida").hide();
         }
-        if (selAbertura=="31") {
+        if (selAbertura=="31" || selAbertura=="71" || selAbertura=="72" || selAbertura=="73") {
           $("#divCierre").hide();
           $("#guiaEmbutida").hide();
+        }
+        if (selAbertura=="72") {
+          $("#divAltoFijoInf").show();
+        }
+        if (selAbertura=="73") {
+          $("#divAltoFijoInf").show();
+          $("#divAltoFijoSup").show();
         }
         if ("{{newAbTemplado.selAbertura}}"=="11" || "{{newAbTemplado.selAbertura}}" == "12"){
           $("#tipoManijon").val("{{newAbTemplado.tipoManijon}}");
@@ -808,6 +804,18 @@
         } else {
           $("#cierreopc").val("{{newAbTemplado.cierreopc}}");
           $("#embutido").val("{{newAbTemplado.embutido}}");
+        }
+        if (selAbertura=="21" || selAbertura=="22" || selAbertura=="23" || selAbertura=="24") {
+          $("#divTipoBrazo").show();
+          $("#tipoBrazo").val("{{newAbTemplado.tipoBrazo}}");
+          $("#divCierre").hide();
+          $("#guiaEmbutida").hide();
+          if (selAbertura=="22") {
+            $("#divAltoFijoInf").show();
+          } else if (selAbertura=="23") {
+            $("#divAltoFijoInf").show();
+            $("#divAltoFijoSup").show();
+          }
         }
         $("#parametro").val("{{newAbTemplado.parametro}}");
         $("#arenado").val("{{newAbTemplado.arenado}}");

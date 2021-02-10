@@ -408,6 +408,13 @@ modTemplado.puertaDosHojasPivotantesPañoFijoLatMod = async (newAbTemplado) => {
   return mod;
 };
 
+modTemplado.mamparaFijaMod = async (newAbTemplado) => {
+  const tipo = 31.2;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round((modCol / 7000) * 100) / 100;
+  return mod;
+};
+
 modTemplado.puertaDosHojasPivotantesPañosFijosLatMod = async (
   newAbTemplado
 ) => {
@@ -472,6 +479,55 @@ modTemplado.puertaDosHojasPivotantesPañosFijosLatMod = async (
   const areaFijoLat = areaFijoLat1 + areaFijoLat2;
   const modCol = modCol1 + modCol2 + areaFijoLat * modCol3;
   const mod = Math.round((modCol / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.proyectanteUnaHojaMod = async (newAbTemplado) => {
+  const tipo = 27;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round((modCol / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.proyectanteUnaHojaPañoFijoInfMod = async (newAbTemplado) => {
+  const tipo = 26;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round((modCol / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.proyectanteUnaHojaPañoFijoInfSupMod = async (newAbTemplado) => {
+  const tipo = 26;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round(((modCol + 30000) / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.proyectanteDosHojasMod = async (newAbTemplado) => {
+  const tipo = 27;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round(((modCol * 2 + 10000) / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.ventanaPivotanteUnaHojaMod = async (newAbTemplado) => {
+  const tipo = 27;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round((modCol / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.ventanaPivotanteUnaHojaFijoInfMod = async (newAbTemplado) => {
+  const tipo = 26;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round((modCol / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.ventanaPivotanteUnaHojaFijoInfSupMod = async (newAbTemplado) => {
+  const tipo = 26;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round(((modCol + 30000) / 7000) * 100) / 100;
   return mod;
 };
 

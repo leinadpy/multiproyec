@@ -2399,6 +2399,755 @@ perfilesTemplado.puertaDosHojasPivotantesPañosFijosLatPerf = async (
   return result;
 };
 
+perfilesTemplado.proyectanteUnaHojaPerf = async (newAbTemplado) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let cantidad = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  let codigo = "";
+  const selColorAluminio = newAbTemplado.selColorAluminio;
+  const proveedoraluminio = newAbTemplado.proveedoraluminio;
+  const parametro = newAbTemplado.parametro;
+  // Perfiles calcPerfilTemplado(codigo, medida, corte, cantidad)
+  // Angulo 15x15
+  codigo = "CT084";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  medida = newAbTemplado.alto / 1000;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesTemplado.proyectanteUnaHojaPañoFijoInfPerf = async (newAbTemplado) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let cantidad = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  let codigo = "";
+  const selColorAluminio = newAbTemplado.selColorAluminio;
+  const proveedoraluminio = newAbTemplado.proveedoraluminio;
+  const parametro = newAbTemplado.parametro;
+  const altoProyectante = newAbTemplado.alto - newAbTemplado.altofijoinf;
+  // Perfiles calcPerfilTemplado(codigo, medida, corte, cantidad)
+  // Angulo 15x15
+  codigo = "CT084";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Tubo 50x50
+  codigo = "TQ017";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Perfil U
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "BX065";
+  } else {
+    selColorAluminio == "Blanco" ? (codigo = "PU329") : (codigo = "PU344");
+  }
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Angulo 15x15
+  codigo = "CT084";
+  medida = altoProyectante / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Perfil U
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "BX065";
+  } else {
+    selColorAluminio == "Blanco" ? (codigo = "PU329") : (codigo = "PU344");
+  }
+  medida = newAbTemplado.altofijoinf / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesTemplado.proyectanteUnaHojaPañoFijoInfSupPerf = async (
+  newAbTemplado
+) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let cantidad = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  let codigo = "";
+  const selColorAluminio = newAbTemplado.selColorAluminio;
+  const proveedoraluminio = newAbTemplado.proveedoraluminio;
+  const parametro = newAbTemplado.parametro;
+  const altoProyectante =
+    newAbTemplado.alto - newAbTemplado.altofijoinf - newAbTemplado.altofijosup;
+  // Perfiles calcPerfilTemplado(codigo, medida, corte, cantidad)
+  // Angulo 15x15
+  codigo = "CT084";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Tubo 50x50
+  codigo = "TQ017";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Perfil U
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "BX065";
+  } else {
+    selColorAluminio == "Blanco" ? (codigo = "PU329") : (codigo = "PU344");
+  }
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Angulo 15x15
+  codigo = "CT084";
+  medida = altoProyectante / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Perfil U
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "BX065";
+  } else {
+    selColorAluminio == "Blanco" ? (codigo = "PU329") : (codigo = "PU344");
+  }
+  medida = newAbTemplado.altofijoinf / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Perfil U
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "BX065";
+  } else {
+    selColorAluminio == "Blanco" ? (codigo = "PU329") : (codigo = "PU344");
+  }
+  medida = newAbTemplado.altofijosup / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesTemplado.proyectanteDosHojasPerf = async (newAbTemplado) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let cantidad = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  let codigo = "";
+  const selColorAluminio = newAbTemplado.selColorAluminio;
+  const proveedoraluminio = newAbTemplado.proveedoraluminio;
+  const parametro = newAbTemplado.parametro;
+  // Perfiles calcPerfilTemplado(codigo, medida, corte, cantidad)
+  // Angulo 15x15
+  codigo = "CT084";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  cantidad = 4;
+  medida = newAbTemplado.alto / 1000;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Tubo 50x50
+  codigo = "TQ017";
+  medida = newAbTemplado.alto / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesTemplado.ventanaPivotanteUnaHojaPerf = async (newAbTemplado) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let cantidad = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  let codigo = "";
+  const selColorAluminio = newAbTemplado.selColorAluminio;
+  const proveedoraluminio = newAbTemplado.proveedoraluminio;
+  const parametro = newAbTemplado.parametro;
+  // Perfiles calcPerfilTemplado(codigo, medida, corte, cantidad)
+  // Tubo 50x25
+  codigo = "TG073";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Angulo 15x15
+  codigo = "CT084";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 3;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  cantidad = 2;
+  medida = newAbTemplado.alto / 1000;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesTemplado.ventanaPivotanteUnaHojaFijoInfPerf = async (newAbTemplado) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let cantidad = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  let codigo = "";
+  const selColorAluminio = newAbTemplado.selColorAluminio;
+  const proveedoraluminio = newAbTemplado.proveedoraluminio;
+  const parametro = newAbTemplado.parametro;
+  const altoPivotante = newAbTemplado.alto - newAbTemplado.altofijoinf;
+  // Perfiles calcPerfilTemplado(codigo, medida, corte, cantidad)
+  // Tubo 50x50
+  codigo = "TQ017";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 1;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Perfil U
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "BX065";
+  } else {
+    selColorAluminio == "Blanco" ? (codigo = "PU329") : (codigo = "PU344");
+  }
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Angulo 15x15
+  codigo = "CT084";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 3;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Perfil U
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "BX065";
+  } else {
+    selColorAluminio == "Blanco" ? (codigo = "PU329") : (codigo = "PU344");
+  }
+  medida = newAbTemplado.altofijoinf / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Angulo 15x15
+  codigo = "CT084";
+  medida = altoPivotante / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
+perfilesTemplado.ventanaPivotanteUnaHojaFijoInfSupPerf = async (
+  newAbTemplado
+) => {
+  let perfiles = [];
+  let perfil = {};
+  let lado = "";
+  let medida = 0;
+  let cantidad = 0;
+  let corte = "";
+  let pesoPerfiles = 0;
+  let costoPerfiles = 0;
+  let codigo = "";
+  const selColorAluminio = newAbTemplado.selColorAluminio;
+  const proveedoraluminio = newAbTemplado.proveedoraluminio;
+  const parametro = newAbTemplado.parametro;
+  const altoPivotante =
+    newAbTemplado.alto - newAbTemplado.altofijoinf - newAbTemplado.altofijosup;
+  // Perfiles calcPerfilTemplado(codigo, medida, corte, cantidad)
+  // Tubo 50x50
+  codigo = "TQ017";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Perfil U
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "BX065";
+  } else {
+    selColorAluminio == "Blanco" ? (codigo = "PU329") : (codigo = "PU344");
+  }
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 4;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Angulo 15x15
+  codigo = "CT084";
+  medida = newAbTemplado.ancho / 1000;
+  corte = "90/90";
+  cantidad = 3;
+  lado = "ANCHO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Perfil U
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "BX065";
+  } else {
+    selColorAluminio == "Blanco" ? (codigo = "PU329") : (codigo = "PU344");
+  }
+  medida = (newAbTemplado.altofijoinf + newAbTemplado.altofijosup) / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  // Angulo 15x15
+  codigo = "CT084";
+  medida = altoPivotante / 1000;
+  corte = "90/90";
+  cantidad = 2;
+  lado = "ALTO";
+  perfil = await calcPerfilTemplado(
+    codigo,
+    lado,
+    medida,
+    corte,
+    cantidad,
+    parametro,
+    selColorAluminio,
+    proveedoraluminio
+  );
+  pesoPerfiles += perfil.subKG;
+  costoPerfiles += perfil.subCosto;
+  perfiles.push(perfil);
+
+  costoPerfiles = Math.round(costoPerfiles * 100) / 100;
+  const result = [costoPerfiles, pesoPerfiles, perfiles];
+  return result;
+};
+
 // FUNCIONES
 calcPerfilTemplado = async function (
   codigo,

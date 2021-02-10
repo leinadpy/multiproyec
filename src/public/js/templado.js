@@ -246,7 +246,7 @@ function mostrarInputsTemp(dato) {
       break;
     case "22": // Ventana de una hoja proyectante con paño fijo superior o inferior
       mostrarDiv("#divAltoFijoInf");
-      mostrarDiv("#divAltoFijoSup");
+      ocultarDiv("#divAltoFijoSup");
       ocultarDiv("#divAncho2");
       ocultarDiv("#divAnchoFijoLat1");
       ocultarDiv("#divAnchoFijoLat2");
@@ -447,7 +447,24 @@ function mostrarInputsTemp(dato) {
       ocultarDiv("#divCierre");
       ocultarDiv("#guiaEmbutida");
       break;
-    case "52": // Paño fijo de un módulo con tubos alrededor
+    case "52": // Paño fijo de un módulo con tubos 50x50 alrededor
+      ocultarDiv("#divAltoFijoInf");
+      ocultarDiv("#divAltoFijoSup");
+      ocultarDiv("#divAncho2");
+      ocultarDiv("#divAnchoFijoLat1");
+      ocultarDiv("#divAnchoFijoLat2");
+      ocultarDiv("#divTipoEspejo");
+      ocultarDiv("#divTipoCierre");
+      ocultarDiv("#divTipoBrazo");
+      mostrarDiv("#divColorAluminio");
+      ocultarDiv("#divTipoManijon");
+      mostrarDiv("#divColorVidrio");
+      mostrarDiv("#divEspesorVidrio");
+      ocultarDiv("#divColorAccesorio");
+      ocultarDiv("#divCierre");
+      ocultarDiv("#guiaEmbutida");
+      break;
+      case "53": // Paño fijo de un módulo con tubos 50x100 alrededor
       ocultarDiv("#divAltoFijoInf");
       ocultarDiv("#divAltoFijoSup");
       ocultarDiv("#divAncho2");
@@ -483,7 +500,7 @@ function mostrarInputsTemp(dato) {
       break;
     case "72": // Ventana una hoja pivotante con fijo superior o inferior
       mostrarDiv("#divAltoFijoInf");
-      mostrarDiv("#divAltoFijoSup");
+      ocultarDiv("#divAltoFijoSup");
       ocultarDiv("#divAncho2");
       ocultarDiv("#divAnchoFijoLat1");
       ocultarDiv("#divAnchoFijoLat2");

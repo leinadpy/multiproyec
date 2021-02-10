@@ -104,6 +104,20 @@ AbTempladoSchema.methods.calcularTemplado = async (newAbTemplado) => {
         newAbTemplado
       );
       break;
+    case "21": // Ventana de una hoja proyectante
+      costo = await newAbTemplado.proyectanteUnaHoja(newAbTemplado);
+      break;
+    case "22": // Ventana de una hoja proyectante con paño fijo inferior ó superior
+      costo = await newAbTemplado.proyectanteUnaHojaPañoFijoInf(newAbTemplado);
+      break;
+    case "23": // Ventana de una hoja proyectante con paños fijos inferior y superior
+      costo = await newAbTemplado.proyectanteUnaHojaPañoFijoInfSup(
+        newAbTemplado
+      );
+      break;
+    case "24": // Ventana de dos hojas proyectantes
+      costo = await newAbTemplado.proyectanteDosHojas(newAbTemplado);
+      break;
 
     case "31": // Mampara para box de baño frontal 2 hojas
       costo = await newAbTemplado.mamparaDosHojasUnaCorredizaUnaFija(
@@ -121,6 +135,19 @@ AbTempladoSchema.methods.calcularTemplado = async (newAbTemplado) => {
 
     case "51": // Paño fijo de un módulo
       costo = await newAbTemplado.pañoFijo(newAbTemplado);
+      break;
+
+    case "71": // Ventana de una hoja pivotante
+      costo = await newAbTemplado.ventanaPivotanteUnaHoja(newAbTemplado);
+      break;
+    case "72": // Ventana de una hoja pivotante con paño fijo inferior ó superior
+      costo = await newAbTemplado.ventanaPivotanteUnaHojaFijoInf(newAbTemplado);
+      break;
+    case "73": // Ventana de una hoja pivotante con paño fijo inferior y superior
+      costo = await newAbTemplado.ventanaPivotanteUnaHojaFijoInfSup(
+        newAbTemplado
+      );
+      break;
   }
   return costo;
 };
@@ -881,6 +908,290 @@ AbTempladoSchema.methods.puertaDosHojasPivotantesPañosFijosLat = async (
   let servicioT = 0;
   if (newAbTemplado.arenado !== "No") {
     servicioT = await servTemplado.puertaDosHojasPivotantesPañosFijosLatAren(
+      newAbTemplado
+    );
+  }
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round(
+      (costoPerfiles + costoAccesorios + vidriosT + mod + servicioT) * 100
+    ) / 100;
+  return costoT;
+};
+
+AbTempladoSchema.methods.proyectanteUnaHoja = async (newAbTemplado) => {
+  // PERFILES
+  const perfTemplado = await perfilesTemplado.proyectanteUnaHojaPerf(
+    newAbTemplado
+  );
+  const costoPerfiles = perfTemplado[0];
+  const pesoPerfiles = perfTemplado[1];
+  const perfiles = perfTemplado[2];
+
+  // VIDRIOS
+  const vidriosT = await vidrioTemplado.proyectanteUnaHojaVid(newAbTemplado);
+
+  // ACCESORIOS
+  const accTemplado = await accesoriosTemplado.proyectanteUnaHojaAcc(
+    newAbTemplado
+  );
+  const costoAccesorios = accTemplado[0];
+  const accesorios = accTemplado[1];
+
+  // MANO DE OBRA
+  const mod = await modTemplado.proyectanteUnaHojaMod(newAbTemplado);
+
+  // SERVICIO
+  let servicioT = 0;
+  if (newAbTemplado.arenado !== "No") {
+    servicioT = await servTemplado.proyectanteUnaHojaAren(newAbTemplado);
+  }
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round(
+      (costoPerfiles + costoAccesorios + vidriosT + mod + servicioT) * 100
+    ) / 100;
+  return costoT;
+};
+
+AbTempladoSchema.methods.proyectanteUnaHojaPañoFijoInf = async (
+  newAbTemplado
+) => {
+  // PERFILES
+  const perfTemplado = await perfilesTemplado.proyectanteUnaHojaPañoFijoInfPerf(
+    newAbTemplado
+  );
+  const costoPerfiles = perfTemplado[0];
+  const pesoPerfiles = perfTemplado[1];
+  const perfiles = perfTemplado[2];
+
+  // VIDRIOS
+  const vidriosT = await vidrioTemplado.proyectanteUnaHojaPañoFijoInfVid(
+    newAbTemplado
+  );
+
+  // ACCESORIOS
+  const accTemplado = await accesoriosTemplado.proyectanteUnaHojaPañoFijoInfAcc(
+    newAbTemplado
+  );
+  const costoAccesorios = accTemplado[0];
+  const accesorios = accTemplado[1];
+
+  // MANO DE OBRA
+  const mod = await modTemplado.proyectanteUnaHojaPañoFijoInfMod(newAbTemplado);
+
+  // SERVICIO
+  let servicioT = 0;
+  if (newAbTemplado.arenado !== "No") {
+    servicioT = await servTemplado.proyectanteUnaHojaPañoFijoInfAren(
+      newAbTemplado
+    );
+  }
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round(
+      (costoPerfiles + costoAccesorios + vidriosT + mod + servicioT) * 100
+    ) / 100;
+  return costoT;
+};
+
+AbTempladoSchema.methods.proyectanteUnaHojaPañoFijoInfSup = async (
+  newAbTemplado
+) => {
+  // PERFILES
+  const perfTemplado = await perfilesTemplado.proyectanteUnaHojaPañoFijoInfSupPerf(
+    newAbTemplado
+  );
+  const costoPerfiles = perfTemplado[0];
+  const pesoPerfiles = perfTemplado[1];
+  const perfiles = perfTemplado[2];
+
+  // VIDRIOS
+  const vidriosT = await vidrioTemplado.proyectanteUnaHojaPañoFijoInfSupVid(
+    newAbTemplado
+  );
+
+  // ACCESORIOS
+  const accTemplado = await accesoriosTemplado.proyectanteUnaHojaPañoFijoInfSupAcc(
+    newAbTemplado
+  );
+  const costoAccesorios = accTemplado[0];
+  const accesorios = accTemplado[1];
+
+  // MANO DE OBRA
+  const mod = await modTemplado.proyectanteUnaHojaPañoFijoInfSupMod(
+    newAbTemplado
+  );
+
+  // SERVICIO
+  let servicioT = 0;
+  if (newAbTemplado.arenado !== "No") {
+    servicioT = await servTemplado.proyectanteUnaHojaPañoFijoInfSupAren(
+      newAbTemplado
+    );
+  }
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round(
+      (costoPerfiles + costoAccesorios + vidriosT + mod + servicioT) * 100
+    ) / 100;
+  return costoT;
+};
+
+AbTempladoSchema.methods.proyectanteDosHojas = async (newAbTemplado) => {
+  // PERFILES
+  const perfTemplado = await perfilesTemplado.proyectanteDosHojasPerf(
+    newAbTemplado
+  );
+  const costoPerfiles = perfTemplado[0];
+  const pesoPerfiles = perfTemplado[1];
+  const perfiles = perfTemplado[2];
+
+  // VIDRIOS
+  const vidriosT = await vidrioTemplado.proyectanteDosHojasVid(newAbTemplado);
+
+  // ACCESORIOS
+  const accTemplado = await accesoriosTemplado.proyectanteDosHojasAcc(
+    newAbTemplado
+  );
+  const costoAccesorios = accTemplado[0];
+  const accesorios = accTemplado[1];
+
+  // MANO DE OBRA
+  const mod = await modTemplado.proyectanteDosHojasMod(newAbTemplado);
+
+  // SERVICIO
+  let servicioT = 0;
+  if (newAbTemplado.arenado !== "No") {
+    servicioT = await servTemplado.proyectanteDosHojasAren(newAbTemplado);
+  }
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round(
+      (costoPerfiles + costoAccesorios + vidriosT + mod + servicioT) * 100
+    ) / 100;
+  return costoT;
+};
+
+AbTempladoSchema.methods.ventanaPivotanteUnaHoja = async (newAbTemplado) => {
+  // PERFILES
+  const perfTemplado = await perfilesTemplado.ventanaPivotanteUnaHojaPerf(
+    newAbTemplado
+  );
+  const costoPerfiles = perfTemplado[0];
+  const pesoPerfiles = perfTemplado[1];
+  const perfiles = perfTemplado[2];
+
+  // VIDRIOS
+  const vidriosT = await vidrioTemplado.ventanaPivotanteUnaHojaVid(
+    newAbTemplado
+  );
+
+  // ACCESORIOS
+  const accTemplado = await accesoriosTemplado.ventanaPivotanteUnaHojaAcc(
+    newAbTemplado
+  );
+  const costoAccesorios = accTemplado[0];
+  const accesorios = accTemplado[1];
+
+  // MANO DE OBRA
+  const mod = await modTemplado.ventanaPivotanteUnaHojaMod(newAbTemplado);
+
+  // SERVICIO
+  let servicioT = 0;
+  if (newAbTemplado.arenado !== "No") {
+    servicioT = await servTemplado.ventanaPivotanteUnaHojaAren(newAbTemplado);
+  }
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round(
+      (costoPerfiles + costoAccesorios + vidriosT + mod + servicioT) * 100
+    ) / 100;
+  return costoT;
+};
+
+AbTempladoSchema.methods.ventanaPivotanteUnaHojaFijoInf = async (
+  newAbTemplado
+) => {
+  // PERFILES
+  const perfTemplado = await perfilesTemplado.ventanaPivotanteUnaHojaFijoInfPerf(
+    newAbTemplado
+  );
+  const costoPerfiles = perfTemplado[0];
+  const pesoPerfiles = perfTemplado[1];
+  const perfiles = perfTemplado[2];
+
+  // VIDRIOS
+  const vidriosT = await vidrioTemplado.ventanaPivotanteUnaHojaFijoInfVid(
+    newAbTemplado
+  );
+
+  // ACCESORIOS
+  const accTemplado = await accesoriosTemplado.ventanaPivotanteUnaHojaFijoInfAcc(
+    newAbTemplado
+  );
+  const costoAccesorios = accTemplado[0];
+  const accesorios = accTemplado[1];
+
+  // MANO DE OBRA
+  const mod = await modTemplado.ventanaPivotanteUnaHojaFijoInfMod(
+    newAbTemplado
+  );
+
+  // SERVICIO
+  let servicioT = 0;
+  if (newAbTemplado.arenado !== "No") {
+    servicioT = await servTemplado.ventanaPivotanteUnaHojaFijoInfAren(
+      newAbTemplado
+    );
+  }
+
+  // SUMATORIA TOTAL
+  const costoT =
+    Math.round(
+      (costoPerfiles + costoAccesorios + vidriosT + mod + servicioT) * 100
+    ) / 100;
+  return costoT;
+};
+
+AbTempladoSchema.methods.ventanaPivotanteUnaHojaFijoInfSup = async (
+  newAbTemplado
+) => {
+  // PERFILES
+  const perfTemplado = await perfilesTemplado.ventanaPivotanteUnaHojaFijoInfSupPerf(
+    newAbTemplado
+  );
+  const costoPerfiles = perfTemplado[0];
+  const pesoPerfiles = perfTemplado[1];
+  const perfiles = perfTemplado[2];
+
+  // VIDRIOS
+  const vidriosT = await vidrioTemplado.ventanaPivotanteUnaHojaFijoInfSupVid(
+    newAbTemplado
+  );
+
+  // ACCESORIOS
+  const accTemplado = await accesoriosTemplado.ventanaPivotanteUnaHojaFijoInfSupAcc(
+    newAbTemplado
+  );
+  const costoAccesorios = accTemplado[0];
+  const accesorios = accTemplado[1];
+
+  // MANO DE OBRA
+  const mod = await modTemplado.ventanaPivotanteUnaHojaFijoInfSupMod(
+    newAbTemplado
+  );
+
+  // SERVICIO
+  let servicioT = 0;
+  if (newAbTemplado.arenado !== "No") {
+    servicioT = await servTemplado.ventanaPivotanteUnaHojaFijoInfSupAren(
       newAbTemplado
     );
   }

@@ -151,7 +151,7 @@ servTemplado.mamparaDosHojasUnaCorredizaUnaFijaAren = async (newAbTemplado) => {
     newAbTemplado.plastificado == "Si"
       ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
       : 0;
-  console.log(precioServicio)
+  console.log(precioServicio);
   const servicioT =
     Math.round(
       (precioServicio * (areaCorredizoVidrio + areaFijoVidrio) * 100) / 1.1
@@ -513,6 +513,155 @@ servTemplado.puertaDosHojasPivotantesPañosFijosLatAren = async (
     (anchoVidrio * altoVidrio +
       anchoFijoVidrio1 * altoFijoVidrio1 +
       anchoFijoVidrio2 * altoFijoVidrio2) /
+    1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT = Math.round((areaVidrio * precioServicio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.proyectanteUnaHojaAren = async (newAbTemplado) => {
+  // Servicio
+  const anchoVidrio = newAbTemplado.ancho - 12;
+  const altoVidrio = newAbTemplado.alto - 12;
+  const areaVidrio = (anchoVidrio * altoVidrio) / 1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT = Math.round((areaVidrio * precioServicio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.proyectanteUnaHojaPañoFijoInfAren = async (newAbTemplado) => {
+  // Servicio
+  const anchoProyectante = newAbTemplado.ancho - 12;
+  const altoProyectante = newAbTemplado.alto - newAbTemplado.altofijoinf - 12;
+  const anchoFijo = newAbTemplado.ancho - 30;
+  const altoFijo = newAbTemplado.altofijoinf - 30;
+  const areaVidrio =
+    (anchoProyectante * altoProyectante + anchoFijo * altoFijo) / 1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT = Math.round((areaVidrio * precioServicio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.proyectanteUnaHojaPañoFijoInfSupAren = async (newAbTemplado) => {
+  // Servicio
+  const anchoProyectante = newAbTemplado.ancho - 12;
+  const altoProyectante =
+    newAbTemplado.alto -
+    newAbTemplado.altofijoinf -
+    newAbTemplado.altofijosup -
+    12;
+  const anchoFijo1 = newAbTemplado.ancho - 30;
+  const altoFijo1 = newAbTemplado.altofijoinf - 30;
+  const anchoFijo2 = newAbTemplado.ancho - 30;
+  const altoFijo2 = newAbTemplado.altofijosup - 30;
+  const areaVidrio =
+    (anchoProyectante * altoProyectante +
+      anchoFijo1 * altoFijo1 +
+      anchoFijo2 * altoFijo2) /
+    1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT = Math.round((areaVidrio * precioServicio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.proyectanteDosHojasAren = async (newAbTemplado) => {
+  // Servicio
+  const anchoVidrio = newAbTemplado.ancho / 2 - 12;
+  const altoVidrio = newAbTemplado.alto - 12;
+  const areaVidrio = (anchoVidrio * altoVidrio * 2) / 1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT = Math.round((areaVidrio * precioServicio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.ventanaPivotanteUnaHojaAren = async (newAbTemplado) => {
+  // Servicio
+  const anchoVidrio = newAbTemplado.ancho - 12;
+  const altoVidrio = newAbTemplado.alto - 12;
+  const areaVidrio = (anchoVidrio * altoVidrio) / 1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT = Math.round((areaVidrio * precioServicio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.ventanaPivotanteUnaHojaFijoInfAren = async (newAbTemplado) => {
+  // Servicio
+  const anchoPivotante = newAbTemplado.ancho - 12;
+  const altoPivotante = newAbTemplado.alto - newAbTemplado.altofijoinf - 12;
+  const anchoFijo = newAbTemplado.ancho - 30;
+  const altoFijo = newAbTemplado.altofijoinf - 30;
+  const areaVidrio =
+    (anchoPivotante * altoPivotante + anchoFijo * altoFijo) / 1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT = Math.round((areaVidrio * precioServicio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.ventanaPivotanteUnaHojaFijoInfSupAren = async (newAbTemplado) => {
+  // Servicio
+  const anchoPivotante = newAbTemplado.ancho - 12;
+  const altoPivotante =
+    newAbTemplado.alto -
+    newAbTemplado.altofijoinf -
+    newAbTemplado.altofijosup -
+    12;
+  const anchoFijo1 = newAbTemplado.ancho - 30;
+  const altoFijo1 = newAbTemplado.altofijoinf - 30;
+  const anchoFijo2 = newAbTemplado.ancho - 30;
+  const altoFijo2 = newAbTemplado.altofijosup - 30;
+  const areaVidrio =
+    (anchoPivotante * altoPivotante +
+      anchoFijo1 * altoFijo1 +
+      anchoFijo2 * altoFijo2) /
     1000000;
   let precioServicio = await Servicio.obtenerCosto(
     newAbTemplado.arenado,

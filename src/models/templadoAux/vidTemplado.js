@@ -729,4 +729,216 @@ vidrioTemplado.puertaDosHojasPivotantesPañosFijosLatVid = async (
   return vidriosT;
 };
 
+vidrioTemplado.proyectanteUnaHojaVid = async (newAbTemplado) => {
+  // Vidrios
+  let codigoVidrio = "T" + newAbTemplado.espesorvidrio;
+  const anchoProyectante = newAbTemplado.ancho - 12;
+  const altoProyectante = newAbTemplado.alto - 12;
+  const areaProyectanteVidrio = (anchoProyectante * altoProyectante) / 1000000;
+  newAbTemplado.pesoHoja =
+    areaProyectanteVidrio * 2.5 * newAbTemplado.espesorvidrio;
+  newAbTemplado.proveedorvidrio == "Vidriocar S.A."
+    ? (codigoVidrio += " Perf")
+    : (codigoVidrio = codigoVidrio);
+  const precioProyectanteVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+  const vidriosT =
+    Math.round((precioProyectanteVidrio * areaProyectanteVidrio * 100) / 1.1) /
+    100;
+  return vidriosT;
+};
+
+vidrioTemplado.proyectanteUnaHojaPañoFijoInfVid = async (newAbTemplado) => {
+  // Vidrios
+  let codigoVidrio = "T" + newAbTemplado.espesorvidrio;
+  const anchoProyectante = newAbTemplado.ancho - 12;
+  const altoProyectante = newAbTemplado.alto - newAbTemplado.altofijoinf - 12;
+  const anchoFijo = newAbTemplado.ancho - 30;
+  const altoFijo = newAbTemplado.altofijoinf - 30;
+  const areaFijoVidrio = (anchoFijo * altoFijo) / 1000000;
+  const areaProyectanteVidrio = (anchoProyectante * altoProyectante) / 1000000;
+  const precioFijoVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+  newAbTemplado.pesoHoja =
+    areaProyectanteVidrio * 2.5 * newAbTemplado.espesorvidrio;
+  newAbTemplado.proveedorvidrio == "Vidriocar S.A."
+    ? (codigoVidrio += " Perf")
+    : (codigoVidrio = codigoVidrio);
+  const precioProyectanteVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+  const vidriosT =
+    Math.round(
+      ((precioProyectanteVidrio * areaProyectanteVidrio +
+        precioFijoVidrio * areaFijoVidrio) *
+        100) /
+        1.1
+    ) / 100;
+  return vidriosT;
+};
+
+vidrioTemplado.proyectanteUnaHojaPañoFijoInfSupVid = async (newAbTemplado) => {
+  // Vidrios
+  let codigoVidrio = "T" + newAbTemplado.espesorvidrio;
+  const anchoProyectante = newAbTemplado.ancho - 12;
+  const altoProyectante =
+    newAbTemplado.alto -
+    newAbTemplado.altofijoinf -
+    newAbTemplado.altofijosup -
+    12;
+  const anchoFijo1 = newAbTemplado.ancho - 30;
+  const altoFijo1 = newAbTemplado.altofijoinf - 30;
+  const anchoFijo2 = newAbTemplado.ancho - 30;
+  const altoFijo2 = newAbTemplado.altofijosup - 30;
+  const areaFijoVidrio =
+    (anchoFijo1 * altoFijo1 + anchoFijo2 * altoFijo2) / 1000000;
+  const areaProyectanteVidrio = (anchoProyectante * altoProyectante) / 1000000;
+  const precioFijoVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+  newAbTemplado.pesoHoja =
+    areaProyectanteVidrio * 2.5 * newAbTemplado.espesorvidrio;
+  newAbTemplado.proveedorvidrio == "Vidriocar S.A."
+    ? (codigoVidrio += " Perf")
+    : (codigoVidrio = codigoVidrio);
+  const precioProyectanteVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+  const vidriosT =
+    Math.round(
+      ((precioProyectanteVidrio * areaProyectanteVidrio +
+        precioFijoVidrio * areaFijoVidrio) *
+        100) /
+        1.1
+    ) / 100;
+  return vidriosT;
+};
+
+vidrioTemplado.proyectanteDosHojasVid = async (newAbTemplado) => {
+  // Vidrios
+  let codigoVidrio = "T" + newAbTemplado.espesorvidrio;
+  const anchoProyectante = newAbTemplado.ancho / 2 - 12;
+  const altoProyectante = newAbTemplado.alto - 12;
+  const areaProyectanteVidrio =
+    (anchoProyectante * altoProyectante * 2) / 1000000;
+  newAbTemplado.pesoHoja =
+    areaProyectanteVidrio * 2.5 * newAbTemplado.espesorvidrio;
+  newAbTemplado.proveedorvidrio == "Vidriocar S.A."
+    ? (codigoVidrio += " Perf")
+    : (codigoVidrio = codigoVidrio);
+  const precioProyectanteVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+  const vidriosT =
+    Math.round((precioProyectanteVidrio * areaProyectanteVidrio * 100) / 1.1) /
+    100;
+  return vidriosT;
+};
+
+vidrioTemplado.ventanaPivotanteUnaHojaVid = async (newAbTemplado) => {
+  // Vidrios
+  let codigoVidrio = "T" + newAbTemplado.espesorvidrio;
+  const anchoPivotante = newAbTemplado.ancho - 12;
+  const altoPivotante = newAbTemplado.alto - 12;
+  const areaPivotanteVidrio = (anchoPivotante * altoPivotante) / 1000000;
+  newAbTemplado.pesoHoja =
+    areaPivotanteVidrio * 2.5 * newAbTemplado.espesorvidrio;
+  newAbTemplado.proveedorvidrio == "Vidriocar S.A."
+    ? (codigoVidrio += " Perf")
+    : (codigoVidrio = codigoVidrio);
+  const precioPivotanteVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+  const vidriosT =
+    Math.round((precioPivotanteVidrio * areaPivotanteVidrio * 100) / 1.1) /
+    100;
+  return vidriosT;
+};
+
+vidrioTemplado.ventanaPivotanteUnaHojaFijoInfVid = async (newAbTemplado) => {
+  // Vidrios
+  let codigoVidrio = "T" + newAbTemplado.espesorvidrio;
+  const anchoPivotante = newAbTemplado.ancho - 12;
+  const altoPivotante = newAbTemplado.alto - newAbTemplado.altofijoinf - 12;
+  const anchoFijo = newAbTemplado.ancho - 30;
+  const altoFijo = newAbTemplado.altofijoinf - 30;
+  const areaFijoVidrio = (anchoFijo * altoFijo) / 1000000;
+  const areaPivotanteVidrio = (anchoPivotante * altoPivotante) / 1000000;
+  const precioFijoVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+  newAbTemplado.pesoHoja =
+    areaPivotanteVidrio * 2.5 * newAbTemplado.espesorvidrio;
+  newAbTemplado.proveedorvidrio == "Vidriocar S.A."
+    ? (codigoVidrio += " Perf")
+    : (codigoVidrio = codigoVidrio);
+  const precioPivotanteVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+  const vidriosT =
+    Math.round(
+      ((precioPivotanteVidrio * areaPivotanteVidrio +
+        precioFijoVidrio * areaFijoVidrio) *
+        100) /
+        1.1
+    ) / 100;
+  return vidriosT;
+};
+
+vidrioTemplado.ventanaPivotanteUnaHojaFijoInfSupVid = async (newAbTemplado) => {
+  // Vidrios
+  let codigoVidrio = "T" + newAbTemplado.espesorvidrio;
+  const anchoPivotante = newAbTemplado.ancho - 12;
+  const altoPivotante = newAbTemplado.alto - newAbTemplado.altofijoinf - newAbTemplado.altofijosup - 12;
+  const anchoFijo1 = newAbTemplado.ancho - 30;
+  const altoFijo1 = newAbTemplado.altofijoinf - 30;
+  const anchoFijo2 = newAbTemplado.ancho - 30;
+  const altoFijo2 = newAbTemplado.altofijosup - 30;
+  const areaFijoVidrio = (anchoFijo1 * altoFijo1 + anchoFijo2 * altoFijo2) / 1000000;
+  const areaPivotanteVidrio = (anchoPivotante * altoPivotante) / 1000000;
+  const precioFijoVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+  newAbTemplado.pesoHoja =
+    areaPivotanteVidrio * 2.5 * newAbTemplado.espesorvidrio;
+  newAbTemplado.proveedorvidrio == "Vidriocar S.A."
+    ? (codigoVidrio += " Perf")
+    : (codigoVidrio = codigoVidrio);
+  const precioPivotanteVidrio = await Vidrio.obtenerCosto(
+    codigoVidrio,
+    newAbTemplado.colorvidrio,
+    newAbTemplado.proveedorvidrio
+  );
+  const vidriosT =
+    Math.round(
+      ((precioPivotanteVidrio * areaPivotanteVidrio +
+        precioFijoVidrio * areaFijoVidrio) *
+        100) /
+        1.1
+    ) / 100;
+  return vidriosT;
+};
+
 module.exports = vidrioTemplado;
