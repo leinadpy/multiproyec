@@ -132,48 +132,48 @@
             Mampara para box de baño fija
           </option>
           {{! LISTO }}
-          <option value="33" disabled>
+          <option value="33">
             Mampara para box de baño esquinero, dos corredizas y dos fijas
           </option>
-          {{! PENDIENTE }}
-          <option value="34" disabled>
+          {{! LISTO }}
+          <option value="34">
             Mampara para box de baño esquinero, una corrediza y dos fijas
           </option>
-          {{! PENDIENTE }}
-          <option value="35" disabled>
+          {{! LISTO }}
+          <option value="35">
             Mampara para box de baño de una hoja batiente
           </option>
-          {{! PENDIENTE }}
-          <option value="36" disabled>
+          {{! LISTO }}
+          <option value="36">
             Mampara para box de baño de una hoja batiente con fijo lateral
           </option>
-          {{! PENDIENTE }}
-          <option value="37" disabled>
+          {{! LISTO }}
+          <option value="37">
             Mampara para box de baño de dos hojas batientes
           </option>
-          {{! PENDIENTE }}
+          {{! LISTO }}
         </optgroup>
         <optgroup label="Espejos">
           <!--40-->
-          <option value="41" disabled>
+          <option value="41">
             Espejo pegado a la pared / flotante
           </option>
-          {{! PENDIENTE }}
+          {{! LISTO }}
         </optgroup>
         <optgroup label="Fijos">
           <!--50-->
           <option value="51">
             Paño fijo de un módulo
           </option>
-          {{! PENDIENTE }}
-          <option value="52" disabled>
+          {{! LISTO }}
+          <option value="52">
             Paño fijo de un módulo con tubos 50x50 alrededor
           </option>
-          {{! PENDIENTE }}
-          <option value="53" disabled>
+          {{! LISTO }}
+          <option value="53">
             Paño fijo de un módulo con tubos 50x100 alrededor
           </option>
-          {{! PENDIENTE }}
+          {{! LISTO }}
         </optgroup>
       </select>
     </div>
@@ -213,7 +213,7 @@
   <div class="form-group row" id="divAncho2">
     <div class="col-sm-2">
       <label for="ancho2" class="labelsel">
-        Ancho
+        Ancho 2
       </label>
     </div>
     <div class="col-sm-3">
@@ -327,7 +327,32 @@
           Flotante con tubo 50x25
         </option>
         <option value="5">
+          Flotante con tubo 50x50
+        </option>
+        <option value="6">
           Angulo 20x20
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2">
+      <label for="biselado" class="labelsel">
+        Biselado
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <select id="biselado" name="biselado" class="form-control">
+        <option value="sinbisel">
+          Sin bisel
+        </option>
+        <option value="bisel0A25">
+          Bisel 0 a 25 mm
+        </option>
+        <option value="bisel25A50">
+          Bisel 26 a 50 mm
+        </option>
+        <option value="doblebisel">
+          Doble bisel
         </option>
       </select>
     </div>
@@ -732,6 +757,56 @@
   // Linea de templado
    $(function () {
         const selAbertura = "{{newAbTemplado.selAbertura}}";
+        if (selAbertura=="41"){
+          $("#divTipoEspejo").show();
+          $("#tipoEspejo").val("{{newAbTemplado.tipoEspejo}}");
+          $("#biselado").val("{{newAbTemplado.biselado}}");
+          $("#divCierre").hide();
+          $("#guiaEmbutida").hide();
+          espejoOpt();
+          function espejoOpt() {
+            const array = ["4 mm", "5 mm", "6 mm"];
+            const values = ["4", "5", "6"];
+            const select = document.querySelector("#espesorvidrio");
+            limpiarSelect(select);
+            for (var i in array) {
+              const option = document.createElement("option");
+              option.text = array[i];
+              option.value = values[i];
+              select.add(option);
+            }
+            function limpiarSelect(select) {
+              for (let i = select.options.length; i >= 0; i--) {
+                select.remove(i);
+              }
+            }
+          }
+        }
+        if (selAbertura=="35" || selAbertura=="36" || selAbertura=="37"){
+          $("#guiaEmbutida").hide();
+          if (selAbertura=="36") {
+            $("#divAnchoFijoLat1").show();
+          }
+          puertaBatOpt();
+          function puertaBatOpt() {
+            const array = ["Cerradura de centro santa marina", "Sin cerradura"];
+            const values = ["5", "6"];
+            const select = document.querySelector("#cierreopc");
+            limpiarSelect(select);
+            for (var i in array) {
+              const option = document.createElement("option");
+              option.text = array[i];
+              option.value = values[i];
+              select.add(option);
+            }
+            function limpiarSelect(select) {
+              for (let i = select.options.length; i >= 0; i--) {
+                select.remove(i);
+              }
+            }
+          }
+        }
+        $("#cierreopc").val("{{newAbTemplado.cierreopc}}");
         if (selAbertura=="3"){
           $("#divAltoFijoInf").show();
         }
@@ -746,12 +821,17 @@
         $("#espesorvidrio").val("{{newAbTemplado.espesorvidrio}}");
         $("#coloraccesorio").val("{{newAbTemplado.coloraccesorio}}");
         $("#proveedoraccesorio").val("{{newAbTemplado.proveedoraccesorio}}");
-        if (selAbertura=="32" || selAbertura=="51") {
+        if (selAbertura=="32" || selAbertura=="51" || selAbertura=="52" || selAbertura=="53") {
           $("#divColorAccesorio").hide();
           $("#divCierre").hide();
           $("#guiaEmbutida").hide();
         }
         if (selAbertura=="31" || selAbertura=="71" || selAbertura=="72" || selAbertura=="73") {
+          $("#divCierre").hide();
+          $("#guiaEmbutida").hide();
+        }
+        if (selAbertura=="33" || selAbertura=="34") {
+          $("#divAncho2").show();
           $("#divCierre").hide();
           $("#guiaEmbutida").hide();
         }
@@ -769,7 +849,6 @@
           $("#guiaEmbutida").hide();
           $("#divColorAluminio").hide();
         } else {
-          $("#cierreopc").val("{{newAbTemplado.cierreopc}}");
           $("#embutido").val("{{newAbTemplado.embutido}}");
           $("#selColorAluminio").val("{{newAbTemplado.selColorAluminio}}");
           $("#proveedoraluminio").val("{{newAbTemplado.proveedoraluminio}}");
@@ -802,7 +881,6 @@
           $("#divCierre").hide();
           $("#guiaEmbutida").hide();
         } else {
-          $("#cierreopc").val("{{newAbTemplado.cierreopc}}");
           $("#embutido").val("{{newAbTemplado.embutido}}");
         }
         if (selAbertura=="21" || selAbertura=="22" || selAbertura=="23" || selAbertura=="24") {

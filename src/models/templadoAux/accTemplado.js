@@ -97,7 +97,7 @@ accesoriosTemplado.dosHojasUnaCorredizaUnaFijaAcc = async (newAbTemplado) => {
       break;
     case "3": // Tirador y pasador
       // Tirador simple
-      codigo = "MM1629B";
+      codigo = "MM1629J";
       cantidad = 1;
       accesorio = await calcTemplado(
         codigo,
@@ -268,7 +268,7 @@ accesoriosTemplado.cuatroHojasDosCorredizasDosFijasAcc = async (
       break;
     case "3": // Tirador y pasador
       // Tirador simple
-      codigo = "MM1629B";
+      codigo = "MM1629J";
       cantidad = 2;
       accesorio = await calcTemplado(
         codigo,
@@ -423,7 +423,7 @@ accesoriosTemplado.unaHojaCorredizaAcc = async (newAbTemplado) => {
       break;
     case "3": // Tirador y pasador
       // Tirador simple
-      codigo = "MM1629B";
+      codigo = "MM1629J";
       cantidad = 1;
       accesorio = await calcTemplado(
         codigo,
@@ -739,7 +739,7 @@ accesoriosTemplado.dosHojasUnaCorredizaUnaFijaFijoInferiorAcc = async (
       break;
     case "3": // Tirador y pasador
       // Tirador simple
-      codigo = "MM1629B";
+      codigo = "MM1629J";
       cantidad = 1;
       accesorio = await calcTemplado(
         codigo,
@@ -916,7 +916,7 @@ accesoriosTemplado.dosHojasUnaCorredizaUnaFijaFijoInferiorSuperiorAcc = async (
       break;
     case "3": // Tirador y pasador
       // Tirador simple
-      codigo = "MM1629B";
+      codigo = "MM1629J";
       cantidad = 1;
       accesorio = await calcTemplado(
         codigo,
@@ -1085,7 +1085,7 @@ accesoriosTemplado.tresHojasDosCorredizasUnaFijaAcc = async (newAbTemplado) => {
       break;
     case "3": // Tirador y pasador
       // Tirador simple
-      codigo = "MM1629B";
+      codigo = "MM1629J";
       cantidad = 1;
       accesorio = await calcTemplado(
         codigo,
@@ -1256,7 +1256,7 @@ accesoriosTemplado.seisHojasCuatroCorredizasDosFijasAcc = async (
       break;
     case "3": // Tirador y pasador
       // Tirador simple
-      codigo = "MM1629B";
+      codigo = "MM1629J";
       cantidad = 2;
       accesorio = await calcTemplado(
         codigo,
@@ -1374,11 +1374,7 @@ accesoriosTemplado.mamparaEsquineroDosCorredizasDosFijasAcc = async (
   codigo = "GV169";
   if (newAbTemplado.espesorvidrio == 8) {
     cantidad =
-      (newAbTemplado.ancho +
-        newAbTemplado.ancho2 +
-        newAbTemplado.alto +
-        (newAbTemplado.alto * 1) / 100) /
-      1000;
+      (newAbTemplado.ancho + newAbTemplado.ancho2 + newAbTemplado.alto) / 1000;
   } else {
     cantidad = (newAbTemplado.ancho + newAbTemplado.ancho2) / 1000;
   }
@@ -1396,6 +1392,80 @@ accesoriosTemplado.mamparaEsquineroDosCorredizasDosFijasAcc = async (
   // Tirador doble
   codigo = "MM1629M";
   cantidad = 2;
+  accesorio = await calcTemplado(
+    codigo,
+    cantidad,
+    newAbTemplado.coloraccesorio,
+    newAbTemplado.proveedoraccesorio
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  costoAccesorios = Math.round(costoAccesorios * 100) / 100;
+  const result = [costoAccesorios, accesorios];
+  return result;
+};
+
+accesoriosTemplado.mamparaEsquineroUnaCorredizaDosFijasAcc = async (
+  newAbTemplado
+) => {
+  let accesorios = [];
+  let accesorio = {};
+  let costoAccesorios = 0;
+  let codigo = "";
+  let cantidad = 0;
+  // Accesorios
+  // Junta tubular interior Cruce
+  codigo = "FEL5X5";
+  cantidad = 3 * newAbTemplado.ancho;
+  newAbTemplado.espesorvidrio == 10
+    ? (cantidad = (cantidad + newAbTemplado.ancho) / 1000)
+    : (cantidad = cantidad / 1000);
+  accesorio = await calcTemplado(codigo, cantidad, "Negro", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Silicona
+  codigo = "silespinc";
+  cantidad =
+    ((newAbTemplado.ancho + newAbTemplado.ancho2 + newAbTemplado.alto) * 2) /
+    silPomoTemplado;
+  accesorio = await calcTemplado(codigo, cantidad, "Neutro", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Tarugo y tornillo
+  codigo = "tarytor";
+  cantidad = Math.round(
+    ((newAbTemplado.ancho + newAbTemplado.ancho2 + newAbTemplado.alto) * 2) /
+      500
+  );
+  accesorio = await calcTemplado(codigo, cantidad, "Neutro", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Goma 169
+  codigo = "GV169";
+  if (newAbTemplado.espesorvidrio == 8) {
+    cantidad =
+      (newAbTemplado.ancho + newAbTemplado.ancho2 + newAbTemplado.alto) / 1000;
+  } else {
+    cantidad = (newAbTemplado.ancho + newAbTemplado.ancho2) / 1000;
+  }
+  accesorio = await calcTemplado(codigo, cantidad, "Negro", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Rueditas simples
+  codigo = "ruedsimal";
+  cantidad = Math.ceil(newAbTemplado.pesoHoja / 36) * 2;
+  accesorio = await calcTemplado(codigo, cantidad, "Neutro", "Alumerco S.R.L.");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Tirador doble
+  codigo = "MM1629M";
+  cantidad = 1;
   accesorio = await calcTemplado(
     codigo,
     cantidad,
@@ -3253,7 +3323,7 @@ accesoriosTemplado.ventanaPivotanteUnaHojaAcc = async (newAbTemplado) => {
   accesorios.push(accesorio);
 
   // Tirador simple
-  codigo = "MM1629B";
+  codigo = "MM1629J";
   cantidad = 1;
   accesorio = await calcTemplado(
     codigo,
@@ -3360,7 +3430,7 @@ accesoriosTemplado.ventanaPivotanteUnaHojaFijoInfAcc = async (
   accesorios.push(accesorio);
 
   // Tirador simple
-  codigo = "MM1629B";
+  codigo = "MM1629J";
   cantidad = 1;
   accesorio = await calcTemplado(
     codigo,
@@ -3473,7 +3543,7 @@ accesoriosTemplado.ventanaPivotanteUnaHojaFijoInfSupAcc = async (
   accesorios.push(accesorio);
 
   // Tirador simple
-  codigo = "MM1629B";
+  codigo = "MM1629J";
   cantidad = 1;
   accesorio = await calcTemplado(
     codigo,
@@ -3513,6 +3583,391 @@ accesoriosTemplado.ventanaPivotanteUnaHojaFijoInfSupAcc = async (
   return result;
 };
 
+accesoriosTemplado.espejoAcc = async (newAbTemplado) => {
+  let accesorios = [];
+  let accesorio = {};
+  let costoAccesorios = 0;
+  let codigo = "";
+  let cantidad = 0;
+  // Accesorios
+  // Silicona
+  codigo = "silespinc";
+  newAbTemplado.tipoEspejo == "1"
+    ? (cantidad = (newAbTemplado.ancho * newAbTemplado.alto * 0.5) / 1000000)
+    : (cantidad =
+        ((newAbTemplado.ancho + newAbTemplado.alto) * 2) / silPomoTemplado);
+  accesorio = await calcTemplado(codigo, cantidad, "Neutro", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Tarugo y tornillo
+  codigo = "tarytor";
+  newAbTemplado.tipoEspejo == "1" ? (cantidad = 0) : (cantidad = 1);
+  accesorio = await calcTemplado(codigo, cantidad, "Neutro", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  costoAccesorios = Math.round(costoAccesorios * 100) / 100;
+  const result = [costoAccesorios, accesorios];
+  return result;
+};
+
+accesoriosTemplado.mamparaUnaBatienteAcc = async (newAbTemplado) => {
+  let accesorios = [];
+  let accesorio = {};
+  let costoAccesorios = 0;
+  let codigo = "";
+  let cantidad = 0;
+  // Accesorios
+  // Silicona
+  codigo = "silbr";
+  cantidad = newAbTemplado.alto / silPomoTemplado;
+  accesorio = await calcTemplado(codigo, cantidad, "Bronce", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Tarugo y tornillo
+  codigo = "tarytor";
+  cantidad = Math.round(newAbTemplado.alto / 500) + 4;
+  accesorio = await calcTemplado(codigo, cantidad, "Neutro", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Velseal
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "V6X11";
+    cantidad = newAbTemplado.alto / 1000;
+    accesorio = await calcTemplado(codigo, cantidad, "Negro", "General");
+    costoAccesorios += accesorio.subCosto;
+    accesorios.push(accesorio);
+  }
+
+  // Bisagras V/P
+  codigo = "MM1114";
+  cantidad = 2;
+  accesorio = await calcTemplado(
+    codigo,
+    cantidad,
+    newAbTemplado.coloraccesorio,
+    newAbTemplado.proveedoraccesorio
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Tirador doble
+  codigo = "MM1629B";
+  cantidad = 1;
+  accesorio = await calcTemplado(
+    codigo,
+    cantidad,
+    newAbTemplado.coloraccesorio,
+    newAbTemplado.proveedoraccesorio
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Cerradura
+  if (newAbTemplado.cierreopc == "5") {
+    // Cerradura de centro
+    codigo = "MM1520";
+    cantidad = 1;
+    accesorio = await calcTemplado(
+      codigo,
+      cantidad,
+      newAbTemplado.coloraccesorio,
+      newAbTemplado.proveedoraccesorio
+    );
+    costoAccesorios += accesorio.subCosto;
+    accesorios.push(accesorio);
+
+    // Espejo V/P
+    codigo = "MM1504A";
+    cantidad = 1;
+    accesorio = await calcTemplado(
+      codigo,
+      cantidad,
+      newAbTemplado.coloraccesorio,
+      newAbTemplado.proveedoraccesorio
+    );
+    costoAccesorios += accesorio.subCosto;
+    accesorios.push(accesorio);
+  }
+
+  costoAccesorios = Math.round(costoAccesorios * 100) / 100;
+  const result = [costoAccesorios, accesorios];
+  return result;
+};
+
+accesoriosTemplado.mamparaUnaBatienteFijoLatAcc = async (newAbTemplado) => {
+  let accesorios = [];
+  let accesorio = {};
+  let costoAccesorios = 0;
+  let codigo = "";
+  let cantidad = 0;
+  // Accesorios
+  // Silicona
+  codigo = "silbr";
+  cantidad = newAbTemplado.alto / silPomoTemplado;
+  accesorio = await calcTemplado(codigo, cantidad, "Bronce", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Tarugo y tornillo
+  codigo = "tarytor";
+  cantidad = Math.round(newAbTemplado.alto / 500) + 4;
+  accesorio = await calcTemplado(codigo, cantidad, "Neutro", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Velseal
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "V6X11";
+    cantidad = newAbTemplado.alto / 1000;
+    accesorio = await calcTemplado(codigo, cantidad, "Negro", "General");
+    costoAccesorios += accesorio.subCosto;
+    accesorios.push(accesorio);
+  }
+
+  // Bisagras V/P
+  codigo = "MM1114";
+  cantidad = 2;
+  accesorio = await calcTemplado(
+    codigo,
+    cantidad,
+    newAbTemplado.coloraccesorio,
+    newAbTemplado.proveedoraccesorio
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Tirador doble
+  codigo = "MM1629B";
+  cantidad = 1;
+  accesorio = await calcTemplado(
+    codigo,
+    cantidad,
+    newAbTemplado.coloraccesorio,
+    newAbTemplado.proveedoraccesorio
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Cerradura
+  if (newAbTemplado.cierreopc == "5") {
+    // Cerradura de centro
+    codigo = "MM1520";
+    cantidad = 1;
+    accesorio = await calcTemplado(
+      codigo,
+      cantidad,
+      newAbTemplado.coloraccesorio,
+      newAbTemplado.proveedoraccesorio
+    );
+    costoAccesorios += accesorio.subCosto;
+    accesorios.push(accesorio);
+
+    // Contracerradura de centro V/V
+    codigo = "MM3211";
+    cantidad = 1;
+    accesorio = await calcTemplado(
+      codigo,
+      cantidad,
+      newAbTemplado.coloraccesorio,
+      newAbTemplado.proveedoraccesorio
+    );
+    costoAccesorios += accesorio.subCosto;
+    accesorios.push(accesorio);
+  }
+
+  costoAccesorios = Math.round(costoAccesorios * 100) / 100;
+  const result = [costoAccesorios, accesorios];
+  return result;
+};
+
+accesoriosTemplado.mamparaDosBatientesAcc = async (newAbTemplado) => {
+  let accesorios = [];
+  let accesorio = {};
+  let costoAccesorios = 0;
+  let codigo = "";
+  let cantidad = 0;
+  // Accesorios
+  // Silicona
+  codigo = "silbr";
+  cantidad =
+    (newAbTemplado.ancho * 2 + newAbTemplado.alto * 3) / silPomoTemplado;
+  accesorio = await calcTemplado(codigo, cantidad, "Bronce", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Tarugo y tornillo
+  codigo = "tarytor";
+  cantidad =
+    Math.round((newAbTemplado.ancho + newAbTemplado.alto * 2) / 500) + 4;
+  accesorio = await calcTemplado(codigo, cantidad, "Neutro", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Velseal
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "V6X11";
+    cantidad = (newAbTemplado.ancho + newAbTemplado.alto * 2) / 1000;
+    accesorio = await calcTemplado(codigo, cantidad, "Negro", "General");
+    costoAccesorios += accesorio.subCosto;
+    accesorios.push(accesorio);
+  }
+
+  // Bisagras V/P
+  codigo = "MM1114";
+  cantidad = 4;
+  accesorio = await calcTemplado(
+    codigo,
+    cantidad,
+    newAbTemplado.coloraccesorio,
+    newAbTemplado.proveedoraccesorio
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Tirador doble
+  codigo = "MM1629B";
+  cantidad = 2;
+  accesorio = await calcTemplado(
+    codigo,
+    cantidad,
+    newAbTemplado.coloraccesorio,
+    newAbTemplado.proveedoraccesorio
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Cerradura
+  if (newAbTemplado.cierreopc == "5") {
+    // Cerradura de centro
+    codigo = "MM1520";
+    cantidad = 1;
+    accesorio = await calcTemplado(
+      codigo,
+      cantidad,
+      newAbTemplado.coloraccesorio,
+      newAbTemplado.proveedoraccesorio
+    );
+    costoAccesorios += accesorio.subCosto;
+    accesorios.push(accesorio);
+
+    // Contracerradura de centro V/V
+    codigo = "MM3211";
+    cantidad = 1;
+    accesorio = await calcTemplado(
+      codigo,
+      cantidad,
+      newAbTemplado.coloraccesorio,
+      newAbTemplado.proveedoraccesorio
+    );
+    costoAccesorios += accesorio.subCosto;
+    accesorios.push(accesorio);
+
+    cantidad = 2;
+  } else {
+    cantidad = 4;
+  }
+
+  // Pasador chico
+  codigo = "MM1335";
+  accesorio = await calcTemplado(
+    codigo,
+    cantidad,
+    newAbTemplado.coloraccesorio,
+    newAbTemplado.proveedoraccesorio
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Chapita fina
+  codigo = "MM1801A";
+  accesorio = await calcTemplado(
+    codigo,
+    cantidad,
+    newAbTemplado.coloraccesorio,
+    newAbTemplado.proveedoraccesorio
+  );
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  costoAccesorios = Math.round(costoAccesorios * 100) / 100;
+  const result = [costoAccesorios, accesorios];
+  return result;
+};
+
+accesoriosTemplado.pañoFijoTubos50x50Acc = async (newAbTemplado) => {
+  let accesorios = [];
+  let accesorio = {};
+  let costoAccesorios = 0;
+  let codigo = "";
+  let cantidad = 0;
+  // Accesorios
+  // Silicona
+  codigo = "silbr";
+  cantidad = ((newAbTemplado.ancho + newAbTemplado.alto) * 2) / silPomoTemplado;
+  accesorio = await calcTemplado(codigo, cantidad, "Bronce", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Tarugo y tornillo
+  codigo = "tarytor";
+  cantidad = Math.round(((newAbTemplado.ancho + newAbTemplado.alto) * 2) / 500);
+  accesorio = await calcTemplado(codigo, cantidad, "Neutro", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Goma 169
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "GV169";
+    cantidad = ((newAbTemplado.ancho + newAbTemplado.alto) * 2) / 1000;
+    accesorio = await calcTemplado(codigo, cantidad, "Negro", "General");
+    costoAccesorios += accesorio.subCosto;
+    accesorios.push(accesorio);
+  }
+
+  costoAccesorios = Math.round(costoAccesorios * 100) / 100;
+  const result = [costoAccesorios, accesorios];
+  return result;
+};
+
+accesoriosTemplado.pañoFijoTubos50x100Acc = async (newAbTemplado) => {
+  let accesorios = [];
+  let accesorio = {};
+  let costoAccesorios = 0;
+  let codigo = "";
+  let cantidad = 0;
+  // Accesorios
+  // Silicona
+  codigo = "silbr";
+  cantidad = ((newAbTemplado.ancho + newAbTemplado.alto) * 2) / silPomoTemplado;
+  accesorio = await calcTemplado(codigo, cantidad, "Bronce", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Tarugo y tornillo
+  codigo = "tarytor";
+  cantidad = Math.round(((newAbTemplado.ancho + newAbTemplado.alto) * 2) / 500);
+  accesorio = await calcTemplado(codigo, cantidad, "Neutro", "General");
+  costoAccesorios += accesorio.subCosto;
+  accesorios.push(accesorio);
+
+  // Goma 169
+  if (newAbTemplado.espesorvidrio == 8) {
+    codigo = "GV169";
+    cantidad = ((newAbTemplado.ancho + newAbTemplado.alto) * 2) / 1000;
+    accesorio = await calcTemplado(codigo, cantidad, "Negro", "General");
+    costoAccesorios += accesorio.subCosto;
+    accesorios.push(accesorio);
+  }
+
+  costoAccesorios = Math.round(costoAccesorios * 100) / 100;
+  const result = [costoAccesorios, accesorios];
+  return result;
+};
+
 // FUNCIONES
 calcTemplado = async function (codigo, cantidad, color, proveedor) {
   const descripcion = await Accesorio.obtenerDescripcion(codigo);
@@ -3528,7 +3983,7 @@ calcTemplado = async function (codigo, cantidad, color, proveedor) {
     precio,
     subCosto,
   };
-  // console.log(descripcion, subCosto);
+  // console.log(descripcion, cantidad, subCosto);
   return accesorio;
 };
 module.exports = accesoriosTemplado;

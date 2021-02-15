@@ -342,6 +342,45 @@ servTemplado.mamparaEsquineroDosCorredizasDosFijasAren = async (
   return servicioT;
 };
 
+servTemplado.mamparaEsquineroUnaCorredizaDosFijasAren = async (
+  newAbTemplado
+) => {
+  // Servicio
+  let descAltoFijo = 0;
+  let descAltoCorredizo = 0;
+  if (newAbTemplado.espesorvidrio == 8) {
+    descAltoFijo = 66;
+    descAltoCorredizo = 20;
+  } else {
+    descAltoFijo = 68;
+    descAltoCorredizo = 22;
+  }
+  const anchoFijoVidrio = Math.round(newAbTemplado.ancho / 2);
+  const altoFijoVidrio = newAbTemplado.alto - descAltoFijo;
+  const anchoFijoVidrio2 = newAbTemplado.ancho2 - 30;
+  const altoFijoVidrio2 = newAbTemplado.alto - 30;
+  const anchoCorredizoVidrio = Math.round(newAbTemplado.ancho / 2 + 50);
+  const altoCorredizoVidrio = newAbTemplado.alto - descAltoCorredizo;
+  const areaFijoVidrio =
+    (anchoFijoVidrio * altoFijoVidrio + anchoFijoVidrio2 * altoFijoVidrio2) /
+    1000000;
+  const areaCorredizoVidrio =
+    (anchoCorredizoVidrio * altoCorredizoVidrio) / 1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT =
+    Math.round(
+      (precioServicio * (areaCorredizoVidrio + areaFijoVidrio) * 100) / 1.1
+    ) / 100;
+  return servicioT;
+};
+
 servTemplado.puertaUnaHojaPivotanteAren = async (newAbTemplado) => {
   // Servicio
   const anchoVidrio = newAbTemplado.ancho - 10;
@@ -672,6 +711,135 @@ servTemplado.ventanaPivotanteUnaHojaFijoInfSupAren = async (newAbTemplado) => {
       ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
       : 0;
   const servicioT = Math.round((areaVidrio * precioServicio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.espejoAren = async (newAbTemplado) => {
+  // Servicio
+  let precioBisel = 0;
+  let precioServicio = 0;
+  const areaVidrio = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
+  if (newAbTemplado.arenado !== "No") {
+    precioServicio = await Servicio.obtenerCosto(
+      newAbTemplado.arenado,
+      newAbTemplado.proveedorarenado
+    );
+    precioServicio +=
+      newAbTemplado.plastificado == "Si"
+        ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+        : 0;
+  } else {
+    precioServicio = 0;
+  }
+  const precioPulido = await Servicio.obtenerCosto(
+    "Pulido4mmA6mm",
+    "Vidriocar S.A."
+  );
+  newAbTemplado.biselado == "sinbisel"
+    ? (precioBisel = 0)
+    : (precioBisel = await Servicio.obtenerCosto(
+        newAbTemplado.biselado,
+        "Vidriocar S.A."
+      ));
+  const perimetroVidrio =
+    ((newAbTemplado.ancho + newAbTemplado.alto) * 2) / 1000;
+  const servicioT =
+    Math.round(
+      ((areaVidrio * precioServicio +
+        (precioPulido + precioBisel) * perimetroVidrio) *
+        100) /
+        1.1
+    ) / 100;
+  return servicioT;
+};
+
+servTemplado.mamparaUnaBatienteAren = async (newAbTemplado) => {
+  // Servicio
+  const anchoVidrio = newAbTemplado.ancho - 10;
+  const altoVidrio = newAbTemplado.alto - 15;
+  const areaVidrio = (anchoVidrio * altoVidrio) / 1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT = Math.round((areaVidrio * precioServicio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.mamparaUnaBatienteFijoLatAren = async (newAbTemplado) => {
+  // Servicio
+  const anchoBatiente = newAbTemplado.anchofijolat1 - 10;
+  const altoBatiente = newAbTemplado.alto - 15;
+  const anchoFijo = newAbTemplado.ancho - newAbTemplado.anchofijolat1 - 10;
+  const altoFijo = newAbTemplado.alto - 15;
+  const areaVidrio =
+    (anchoBatiente * altoBatiente + anchoFijo * altoFijo) / 1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT = Math.round((areaVidrio * precioServicio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.mamparaDosBatientesAren = async (newAbTemplado) => {
+  // Servicio
+  const anchoVidrio = (newAbTemplado.ancho - 12) / 2;
+  const altoVidrio = newAbTemplado.alto - 15;
+  const areaVidrio = (anchoVidrio * altoVidrio * 2) / 1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT = Math.round((areaVidrio * precioServicio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.pañoFijoTubos50x50Aren = async (newAbTemplado) => {
+  // Servicio
+  const anchoFijoVidrio = newAbTemplado.ancho - 130;
+  const altoFijoVidrio = newAbTemplado.alto - 130;
+  const areaFijoVidrio = (anchoFijoVidrio * altoFijoVidrio) / 1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT =
+    Math.round((precioServicio * areaFijoVidrio * 100) / 1.1) / 100;
+  return servicioT;
+};
+
+servTemplado.pañoFijoTubos50x100Aren = async (newAbTemplado) => {
+  // Servicio
+  const anchoFijoVidrio = newAbTemplado.ancho - 130;
+  const altoFijoVidrio = newAbTemplado.alto - 130;
+  const areaFijoVidrio = (anchoFijoVidrio * altoFijoVidrio) / 1000000;
+  let precioServicio = await Servicio.obtenerCosto(
+    newAbTemplado.arenado,
+    newAbTemplado.proveedorarenado
+  );
+  precioServicio +=
+    newAbTemplado.plastificado == "Si"
+      ? await Servicio.obtenerCosto("APlastif", "Vidriocar S.A.")
+      : 0;
+  const servicioT =
+    Math.round((precioServicio * areaFijoVidrio * 100) / 1.1) / 100;
   return servicioT;
 };
 

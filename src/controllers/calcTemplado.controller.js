@@ -14,6 +14,7 @@ abTempladoCtrl.calcAbTempladoForm = async (req, res) => {
     alto,
     altofijoinf,
     altofijosup,
+    ancho2,
     anchofijolat1,
     anchofijolat2,
     tipoEspejo,
@@ -35,6 +36,7 @@ abTempladoCtrl.calcAbTempladoForm = async (req, res) => {
     arenado,
     plastificado,
     proveedorarenado,
+    biselado,
   } = req.body;
   const newAbTemplado = new AbTemplado({
     selAbertura,
@@ -43,6 +45,7 @@ abTempladoCtrl.calcAbTempladoForm = async (req, res) => {
     alto,
     altofijoinf,
     altofijosup,
+    ancho2,
     anchofijolat1,
     anchofijolat2,
     tipoEspejo,
@@ -64,6 +67,7 @@ abTempladoCtrl.calcAbTempladoForm = async (req, res) => {
     arenado,
     plastificado,
     proveedorarenado,
+    biselado,
   });
   newAbTemplado.costo = await newAbTemplado.calcularTemplado(newAbTemplado);
   // await newAbTemplado.save();

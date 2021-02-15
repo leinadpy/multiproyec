@@ -49,11 +49,11 @@ modTemplado.unaHojaCorredizaMod = async (newAbTemplado) => {
 modTemplado.pañoFijoMod = async (newAbTemplado) => {
   const tipo = 20;
   const modCol = await MOD.obtenerCosto(tipo);
-  const mod =
-    Math.round(
-      ((modCol * newAbTemplado.ancho * newAbTemplado.alto) / 1000000 / 7000) *
-        100
-    ) / 100;
+  let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
+  if (cantidad < 1) {
+    cantidad = 1;
+  }
+  const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
   return mod;
 };
 
@@ -131,6 +131,16 @@ modTemplado.seisHojasCuatroCorredizasDosFijasMod = async (newAbTemplado) => {
 };
 
 modTemplado.mamparaEsquineroDosCorredizasDosFijasMod = async (
+  newAbTemplado
+) => {
+  // Mano de obra montaje 30
+  const tipo = 30;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round((modCol / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.mamparaEsquineroUnaCorredizaDosFijasMod = async (
   newAbTemplado
 ) => {
   // Mano de obra montaje 30
@@ -528,6 +538,64 @@ modTemplado.ventanaPivotanteUnaHojaFijoInfSupMod = async (newAbTemplado) => {
   const tipo = 26;
   const modCol = await MOD.obtenerCosto(tipo);
   const mod = Math.round(((modCol + 30000) / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.espejoMod = async (newAbTemplado) => {
+  let tipo = 0;
+  let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
+  if (newAbTemplado.tipoEspejo == "1") {
+    tipo = 5;
+    cantidad < 1 ? (cantidad = 1) : (cantidad = cantidad);
+  } else {
+    tipo = 4;
+    cantidad > 2 ? (cantidad = 2) : (cantidad = 1);
+  }
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.mamparaUnaBatienteMod = async (newAbTemplado) => {
+  const tipo = 31;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round((modCol / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.mamparaUnaBatienteFijoLatMod = async (newAbTemplado) => {
+  const tipo = 32;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round((modCol / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.mamparaDosBatientesMod = async (newAbTemplado) => {
+  const tipo = 31;
+  const modCol = await MOD.obtenerCosto(tipo);
+  const mod = Math.round(((modCol * 2) / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.pañoFijoTubos50x50Mod = async (newAbTemplado) => {
+  const tipo = 24;
+  const modCol = await MOD.obtenerCosto(tipo);
+  let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
+  if (cantidad < 1) {
+    cantidad = 1;
+  }
+  const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
+  return mod;
+};
+
+modTemplado.pañoFijoTubos50x100Mod = async (newAbTemplado) => {
+  const tipo = 24;
+  const modCol = await MOD.obtenerCosto(tipo);
+  let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
+  if (cantidad < 1) {
+    cantidad = 1;
+  }
+  const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
   return mod;
 };
 
