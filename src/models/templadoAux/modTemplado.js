@@ -4,45 +4,39 @@ const modTemplado = {};
 modTemplado.dosHojasUnaCorredizaUnaFijaMod = async (newAbTemplado) => {
   // Mano de obra montaje 16 puertas y 20 ventanas
   let tipo = 20;
+  let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
   if (newAbTemplado.espesorvidrio == "10") {
     tipo = 16;
   }
+  cantidad < 1 ? (cantidad = 1) : (cantidad = cantidad);
   const modCol = await MOD.obtenerCosto(tipo);
-  const mod =
-    Math.round(
-      ((modCol * newAbTemplado.ancho * newAbTemplado.alto) / 1000000 / 7000) *
-        100
-    ) / 100;
+  const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
   return mod;
 };
 
 modTemplado.cuatroHojasDosCorredizasDosFijasMod = async (newAbTemplado) => {
   // Mano de obra montaje 16 puertas y 20 ventanas
   let tipo = 20;
+  let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
   if (newAbTemplado.espesorvidrio == "10") {
     tipo = 16;
   }
+  cantidad < 1 ? (cantidad = 1) : (cantidad = cantidad);
   const modCol = await MOD.obtenerCosto(tipo);
-  const mod =
-    Math.round(
-      ((modCol * newAbTemplado.ancho * newAbTemplado.alto) / 1000000 / 7000) *
-        100
-    ) / 100;
+  const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
   return mod;
 };
 
 modTemplado.unaHojaCorredizaMod = async (newAbTemplado) => {
   // Mano de obra montaje 16 puertas y 20 ventanas
   let tipo = 20;
+  let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
+  cantidad < 1 ? (cantidad = 1) : (cantidad = cantidad);
   if (newAbTemplado.espesorvidrio == "10") {
     tipo = 16;
   }
   const modCol = await MOD.obtenerCosto(tipo);
-  const mod =
-    Math.round(
-      ((modCol * newAbTemplado.ancho * newAbTemplado.alto) / 1000000 / 7000) *
-        100
-    ) / 100;
+  const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
   return mod;
 };
 
@@ -50,9 +44,7 @@ modTemplado.pañoFijoMod = async (newAbTemplado) => {
   const tipo = 20;
   const modCol = await MOD.obtenerCosto(tipo);
   let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
-  if (cantidad < 1) {
-    cantidad = 1;
-  }
+  cantidad < 1 ? (cantidad = 1) : (cantidad = cantidad);
   const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
   return mod;
 };
@@ -80,12 +72,10 @@ modTemplado.dosHojasUnaCorredizaUnaFijaFijoInferiorMod = async (
   if (newAbTemplado.espesorvidrio == "10") {
     tipo = 16;
   }
+  let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
+  cantidad < 1 ? (cantidad = 1) : (cantidad = cantidad);
   const modCol = (await MOD.obtenerCosto(tipo)) + 5000;
-  const mod =
-    Math.round(
-      ((modCol * newAbTemplado.ancho * newAbTemplado.alto) / 1000000 / 7000) *
-        100
-    ) / 100;
+  const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
   return mod;
 };
 
@@ -97,12 +87,10 @@ modTemplado.dosHojasUnaCorredizaUnaFijaFijoInferiorSuperiorMod = async (
   if (newAbTemplado.espesorvidrio == "10") {
     tipo = 16;
   }
+  let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
+  cantidad < 1 ? (cantidad = 1) : (cantidad = cantidad);
   const modCol = (await MOD.obtenerCosto(tipo)) + 10000;
-  const mod =
-    Math.round(
-      ((modCol * newAbTemplado.ancho * newAbTemplado.alto) / 1000000 / 7000) *
-        100
-    ) / 100;
+  const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
   return mod;
 };
 
@@ -110,11 +98,9 @@ modTemplado.tresHojasDosCorredizasUnaFijaMod = async (newAbTemplado) => {
   // Mano de obra montaje 16 puertas y 20 ventanas
   const tipo = 17;
   const modCol = await MOD.obtenerCosto(tipo);
-  const mod =
-    Math.round(
-      ((modCol * newAbTemplado.ancho * newAbTemplado.alto) / 1000000 / 7000) *
-        100
-    ) / 100;
+  let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
+  cantidad < 1 ? (cantidad = 1) : (cantidad = cantidad);
+  const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
   return mod;
 };
 
@@ -122,11 +108,9 @@ modTemplado.seisHojasCuatroCorredizasDosFijasMod = async (newAbTemplado) => {
   // Mano de obra montaje 16 puertas y 20 ventanas
   const tipo = 17;
   const modCol = await MOD.obtenerCosto(tipo);
-  const mod =
-    Math.round(
-      ((modCol * newAbTemplado.ancho * newAbTemplado.alto) / 1000000 / 7000) *
-        100
-    ) / 100;
+  let cantidad = (newAbTemplado.ancho * newAbTemplado.alto) / 1000000;
+  cantidad < 1 ? (cantidad = 1) : (cantidad = cantidad);
+  const mod = Math.round(((modCol * cantidad) / 7000) * 100) / 100;
   return mod;
 };
 
@@ -140,9 +124,7 @@ modTemplado.mamparaEsquineroDosCorredizasDosFijasMod = async (
   return mod;
 };
 
-modTemplado.mamparaEsquineroUnaCorredizaDosFijasMod = async (
-  newAbTemplado
-) => {
+modTemplado.mamparaEsquineroUnaCorredizaDosFijasMod = async (newAbTemplado) => {
   // Mano de obra montaje 30
   const tipo = 30;
   const modCol = await MOD.obtenerCosto(tipo);
@@ -230,14 +212,9 @@ modTemplado.puertaUnaHojaPivotantePañoFijoLatMod = async (newAbTemplado) => {
   const tipo2 = 20;
   const modCol2 = (await MOD.obtenerCosto(tipo2)) + 5000;
   const modCol = await MOD.obtenerCosto(tipo);
-  const mod =
-    Math.round(
-      ((modCol +
-        (modCol2 * newAbTemplado.anchofijolat1 * newAbTemplado.alto) /
-          1000000) /
-        7000) *
-        100
-    ) / 100;
+  let cantidad = (newAbTemplado.anchofijolat1 * newAbTemplado.alto) / 1000000;
+  cantidad < 1 ? (cantidad = 1) : (cantidad = cantidad);
+  const mod = Math.round((modCol + (modCol2 * cantidad) / 7000) * 100) / 100;
   return mod;
 };
 
@@ -271,16 +248,13 @@ modTemplado.puertaUnaHojaPivotantePañosFijosLatMod = async (newAbTemplado) => {
   const tipo2 = 20;
   const modCol2 = (await MOD.obtenerCosto(tipo2)) + 5000;
   const modCol = await MOD.obtenerCosto(tipo);
+  let cantidad1 = (newAbTemplado.anchofijolat1 * newAbTemplado.alto) / 1000000;
+  cantidad1 < 1 ? (cantidad1 = 1) : (cantidad1 = cantidad1);
+  let cantidad2 = (newAbTemplado.anchofijolat2 * newAbTemplado.alto) / 1000000;
+  cantidad2 < 1 ? (cantidad2 = 1) : (cantidad2 = cantidad2);
   const mod =
-    Math.round(
-      ((modCol +
-        (modCol2 *
-          (newAbTemplado.anchofijolat1 + newAbTemplado.anchofijolat2) *
-          newAbTemplado.alto) /
-          1000000) /
-        7000) *
-        100
-    ) / 100;
+    Math.round(modCol + ((modCol2 * (cantidad1 + cantidad2)) / 7000) * 100) /
+    100;
   return mod;
 };
 

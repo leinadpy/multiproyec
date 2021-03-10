@@ -1,0 +1,34 @@
+<div class="col-md-4 mx-auto">
+    <div class="card text-center">
+        <div class="card-header">
+            <h3>Cliente Nuevo</h3>
+        </div>
+        <div class="card-body">
+            <form action="/clientes/new-cliente" method="POST">
+                <div class="form-group">
+                    <input type="text" name="denominacion" class="form-control" placeholder="Denominación" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <textarea name="direccion" class="form-control" placeholder="Dirección"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="telefono" class="form-control" placeholder="Teléfono">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="E-mail">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="atencion" class="form-control" placeholder="Atención">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

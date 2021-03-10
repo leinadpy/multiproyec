@@ -1,0 +1,40 @@
+<div class="row">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Denominación</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Atención</th>
+                <th scope="col">ABM</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each clientes}}
+            <tr>
+                <td>{{denominacion}}</td>
+                <td>{{nombre}}</td>
+                <td>{{direccion}}</td>
+                <td>{{telefono}}</td>
+                <td>{{email}}</td>
+                <td>{{atencion}}</td>
+                <td>
+                    <a href="/clientes/edit/{{_id}}" target="_blank">
+                        <button class="btn btn-primary btn-block btn-sm">
+                            <i class="far fa-edit"></i>
+                        </button>
+                    </a>
+                    <form action="/clientes/delete/{{_id}}?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-primary btn-block btn-sm" type="submit">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
